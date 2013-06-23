@@ -1,7 +1,0 @@
-<Modules>
-  <Module PersistentId="440D903A-D409-48FC-A6C4-3EE69CCD663B" ModuleId="Common.Logging.2008" />
-  <Module PersistentId="A6A7257A-D1AE-4A09-8C1C-F55E099C8A8A" ModuleId="Common.Logging.Log4Net129.2008" />
-  <Module PersistentId="94E4E1B4-D424-4EB9-BF34-2EE8CC3D7048" ModuleId="Common.Logging.Tests.2008" />
-  <Module PersistentId="C3FAAF50-CA05-42A5-9616-B48C21643D03" ModuleId="Common.Logging.NLog.2008" />
-  <Module PersistentId="B4BB1353-924A-40F0-9AA5-A7C28AB68F69" ModuleId="Common.Logging.NLog.Tests.2008" />
-</Modules>

@@ -1,8 +1,0 @@
-﻿@model IList<Tag>
-@using Arashi.Core.Domain
-
-<option value=""></option>
-@{ foreach (Tag tag in Model) { 
-   <option value='@tag.TagId.ToString()'>@tag.Name</option>
-}}
-

@@ -1,3 +1,0 @@
-﻿@model dynamic
-<img id="media" src='@Url.Action("GetCrop", "MediaManager", new { siteid = ViewBag.SiteId, name = ViewBag.Name, cropleft = ViewBag.X, croptop = ViewBag.Y, cropwidth = ViewBag.Width, cropheight = ViewBag.Height})' alt='@ViewBag.Name' />
-

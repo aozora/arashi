@@ -1,7 +1,0 @@
-DBRefFolders found in your dbp file
-Connect String: Data Source=.;Initial Catalog=SchedulerTestDb;Integrated Security=True
-Provider: Microsoft SQL Server
-
-Connect String: Data Source=.;AttachDbFilename=
-Provider: Microsoft SQL Server
-

@@ -1,7 +1,0 @@
-﻿# PostBuild Script
-
-# copy assembly
-xcopy /S /R /H /Y "$(TargetDir)Arashi.Web.Themes.Boldy.*" "$(SolutionDir)Web\bin\"
-
-# copy admin views
-xcopy /S /R /H /Y "$(ProjectDir)Areas\Admin\Views" "$(SolutionDir)Web\Areas\Admin\Views\"

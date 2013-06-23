@@ -1,4 +1,0 @@
-<Modules>
-  <Module PersistentId="B5B90B06-2BD1-49B5-987D-B5A9DC99E557" ModuleId="CommonServiceLocator.WindsorAdapter.Tests" />
-  <Module PersistentId="8EC4D673-EF55-49C2-8757-2DCEFA59B2A6" ModuleId="CommonServiceLocator.WindsorAdapter" />
-</Modules>

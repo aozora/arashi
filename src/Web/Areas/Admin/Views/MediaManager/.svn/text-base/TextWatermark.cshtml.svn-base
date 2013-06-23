@@ -1,3 +1,0 @@
-﻿@model dynamic
-<img id="media" src='@Url.Action("GetTextWatermark", "MediaManager", new {siteid = ViewBag.SiteId, name = ViewBag.Name, color = ViewBag.Color, text = ViewBag.Text, font = ViewBag.Font, size = ViewBag.Size, style = ViewBag.Style, halign = ViewBag.HorizontalAlign, valign = ViewBag.VerticalAlign} )' alt='@ViewBag.Name' />
-
