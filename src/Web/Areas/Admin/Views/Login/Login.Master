@@ -1,0 +1,88 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="Arashi.Web.Areas.Admin.Models"%>
+<%@ Import Namespace="Arashi.Web.Areas.Admin.Extensions"%>
+<%@ Import Namespace="Arashi.Web.Mvc.Partials"%>
+<%@ Import Namespace="xVal.Html"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="html-wave" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<% Html.Telerik().StyleSheetRegistrar()
+                 .StyleSheets(css => css.AddGroup("css.default",
+                                                   group => group.Add("admin.reset.css")
+                                                                 .Add("admin.layout.css")
+                 ))
+                 .StyleSheets(css => css.AddGroup("css.theme",
+                                                   group => group.DefaultPath("~/Resources/css/themes/arashi")
+                                                                 .Add("jquery-ui.css")
+                                                                 .Add("arashi-ui.css")
+                 ))
+                 .StyleSheets(css => css.AddGroup("css.theme.common",
+                                                   group => group
+                                                                 .Add("admin.form.css")
+                                                                 .Add("admin.style.css")
+                                                                 .Add("admin.ui.common.css")
+                 ));
+%>   
+<% Html.Telerik().ScriptRegistrar()
+                 .Scripts(script => script.AddGroup( "jquery.default",
+                                                     group => group.Add("jquery.js")
+                                                                   .Add("jquery.validate.js")
+                                                                   .Add("xVal.jquery.validate.js")
+                                                                   .Version("v1")
+                                                    )); 
+%>
+   <!--[if IE]>  
+   <link href="/Resources/css/src/admin.ie.css" rel="stylesheet" type="text/css" />
+   <![endif]--> 
+   <!--[if lte IE 7]>
+   <script type="text/javascript">
+      try {document.execCommand("BackgroundImageCache", false, true);} catch(err) {};
+   </script>
+   <![endif]--> 
+   <asp:ContentPlaceHolder ID="head" runat="server">
+      <title></title>
+   </asp:ContentPlaceHolder>
+<% Html.Telerik().StyleSheetRegistrar().Render(); %>   
+</head>
+
+<body>
+   <!--[if lte IE 7]>
+      <% Html.RenderPartial("ObsoleteWarning"); %>
+   <![endif]-->
+   <div id="wrap">
+      <div id="content-wrap">
+         <div id="content">
+            <noscript id="noscript">
+               <div class="ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                  <h1>
+                     <img src="/Resources/img/32x32/error.png" alt="warning" />
+                     Warning!
+                     <img src="/Resources/img/32x32/error.png" alt="warning" />
+                  </h1>
+                  <h3>The Control Panel requires that JavaScript is enabled on this browser.</h3>
+                  <p>Follow the instructions at this link: 
+                     &nbsp;
+                     <a onclick="window.open(this.href);return false;" 
+                        href="/Resources/help/HowToEnableJavascript.it-IT.htm" 
+                        class="morelink" >help</a>
+                  </p>
+                  <br />
+               </div>
+            </noscript>
+            <% Html.RenderRegisteredMessages(); %>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+         </div>
+      </div>
+   </div>
+<% Html.Telerik().ScriptRegistrar()
+      .OnDocumentReady(() => { %>
+                     <%= Html.ClientSideValidation<LoginModel>().SuppressScriptTags().ToString() %>
+      <%            })
+      .Render(); %>
+<asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+<%= Html.RenderRegisteredScript(true) %>
+<%= Html.RenderRegisteredScriptBlocks() %>
+</body>
+</html>

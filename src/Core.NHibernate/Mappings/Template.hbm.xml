@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+   <class name="Arashi.Core.Domain.Template, Arashi.Core.Domain"
+          table="cms_Templates">
+
+      <!--<cache usage="read-write" />-->
+
+      <id name="TemplateId" column="TemplateId" type="Int32" unsaved-value="-1">
+         <generator class="hilo"/>
+      </id>
+
+      <many-to-one name="Site" column="SiteId" class="Arashi.Core.Domain.Site, Arashi.Core.Domain" />
+
+      <property name="Name" column="Name" type="String" not-null="true" />
+      <property name="BasePath" column="BasePath" type="String" not-null="true" />
+      <property name="ThumbnailSrc" column="ThumbnailSrc" type="String" />
+
+   </class>
+</hibernate-mapping>

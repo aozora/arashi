@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Arashi.Core.Domain.TrackingInfo, Arashi.Core.Domain" 
+          table="cms_TrackingInfos" >
+
+		<!-- Non deve usare la cache di 2nd lev -->
+		
+		<id name="TrackingInfoId" column="TrackingInfoId" type="Int32" unsaved-value="-1">
+         <generator class="hilo"/>
+      </id>
+
+      <property name="HostReferrer" column="HostReferrer" type="String" not-null="false" />
+		<property name="UrlReferrer" column="UrlReferrer" type="String" not-null="false" />
+		<property name="TrackedUrl" column="TrackedUrl" type="String" not-null="true" />
+		<property name="HttpMethod" column="HttpMethod" type="String" not-null="true" />
+      
+      <many-to-one name="LoggedUser"
+                   class="Arashi.Core.Domain.User, Arashi.Core.Domain"
+                   column="LoggedUserId"
+                   not-null="false" />
+      <property name="AnonymousUserId" column="AnonymousUserId" type="String" not-null="false" />
+		<property name="UserIp" column="UserIp" type="String" not-null="false" />
+		<property name="UserLanguages" column="UserLanguages" type="String" not-null="false" />
+      <property name="BrowserType" column="BrowserType" type="String" not-null="false" />
+      <property name="BrowserName" column="BrowserName" type="String" not-null="false" />
+      <property name="BrowserVersion" column="BrowserVersion" type="String" not-null="false" />
+      <property name="BrowserMajor" column="BrowserMajor" type="String" not-null="false" />
+      <property name="BrowserMinor" column="BrowserMinor" type="String" not-null="false" />
+      <property name="Platform" column="Platform" type="String" not-null="false" />
+      <property name="TrackingDate" column="TrackingDate" type="DateTime" not-null="false" />
+
+   </class>
+</hibernate-mapping>

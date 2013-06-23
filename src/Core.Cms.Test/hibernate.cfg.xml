@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2" >
+   <session-factory name="nhibernate.factory">
+      <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+      <property name="dialect">NHibernate.Dialect.SQLiteDialect</property>
+      <property name="connection.driver_class">NHibernate.Driver.SQLite20Driver</property>
+      <property name="connection.connection_string">Data Source=:memory:;Version=3;New=True;</property>
+      <!--<property name="connection.connection_string">Data Source=E:\Code\CodeStore\data\codestore.db;Version=3;New=False;Compress=True;</property>-->
+      <!--<property name="connection.connection_string">Data Source=|DataDirectory|app_data.sqlite;Version=3;</property>-->
+      <property name="query.substitutions">true=1;false=0</property>
+      <property name="cache.provider_class">NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache</property>
+      <property name="cache.use_query_cache">true</property>
+      <property name="show_sql">true</property>
+
+      <!--<property name="connection.isolation">ReadCommitted</property>
+      <property name="default_schema">dbo</property>-->
+      
+      <!-- HBM Mapping Files -->
+      <mapping assembly="Arashi.Core.Cms" />
+      
+   </session-factory>
+</hibernate-configuration>

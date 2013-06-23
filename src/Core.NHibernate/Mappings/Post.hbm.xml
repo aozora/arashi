@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+   <joined-subclass name="Arashi.Core.Domain.Post, Arashi.Core.Domain"
+					 extends="Arashi.Core.Domain.ContentItem, Arashi.Core.Domain"
+					 table="cms_Posts">
+      <key column="ContentItemId" />
+      <property name="Content" column="Content" type="StringClob" />
+   </joined-subclass>
+</hibernate-mapping>

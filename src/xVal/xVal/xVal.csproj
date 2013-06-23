@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37DCF65B-BF7A-422A-8A89-A591B43FC26D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>xVal</RootNamespace>
+    <AssemblyName>xVal</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>xVal.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Abstractions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveRuleProviders.cs" />
+    <Compile Include="Html\JsonValidationConfigFormatter.cs" />
+    <Compile Include="Html\Options\ValidationSummaryOptions.cs" />
+    <Compile Include="Html\ValidationInfo.cs" />
+    <Compile Include="Html\XmlValidationConfigFormatter.cs" />
+    <Compile Include="Html\IValidationConfigFormatter.cs" />
+    <Compile Include="Html\ValidationHelpers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleProviders\CachingRulesProvider.cs" />
+    <Compile Include="RuleProviders\CustomRulesProvider.cs" />
+    <Compile Include="RuleProviders\ICustomRule.cs" />
+    <Compile Include="RuleProviders\RuleEmitterList.cs" />
+    <Compile Include="RuleProviders\DataAnnotationsRuleProvider.cs" />
+    <Compile Include="RuleProviders\IRulesProvider.cs" />
+    <Compile Include="RuleProviders\PropertyAttributeRuleProviderBase.cs" />
+    <Compile Include="RuleProviders\RuleSet.cs" />
+    <Compile Include="Rules\ComparisonRule.cs" />
+    <Compile Include="Rules\CustomRule.cs" />
+    <Compile Include="Rules\DataTypeRule.cs" />
+    <Compile Include="Rules\RangeRule.cs" />
+    <Compile Include="Rules\RegularExpressionRule.cs" />
+    <Compile Include="Rules\RemoteRule.cs" />
+    <Compile Include="Rules\RequiredRule.cs" />
+    <Compile Include="Rules\Rule.cs" />
+    <Compile Include="Rules\StringLengthRule.cs" />
+    <Compile Include="ServerSide\ErrorInfo.cs" />
+    <Compile Include="ServerSide\RemoteValidationResult.cs" />
+    <Compile Include="ServerSide\RulesException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="xVal.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

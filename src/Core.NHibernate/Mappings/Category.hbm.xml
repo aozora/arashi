@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Arashi.Core.Domain.Category, Arashi.Core.Domain" 
+          table="cms_Categories">
+		
+      <!--<cache usage="read-write" />-->
+
+      <id name="Id" column="CategoryId" type="Int32" unsaved-value="-1">
+	      <generator class="hilo"/>
+      </id>
+
+      <property name="Path" column="Path" type="String" length="80" not-null="true" />
+      <property name="Name" column="Name" type="String" length="100" not-null="true" />
+      <property name="FriendlyName" column="FriendlyName" type="String" length="100" />
+      <property name="Position" column="Position" type="Int32" not-null="true" />
+
+      <many-to-one name="Site" 
+                   class="Arashi.Core.Domain.Site, Arashi.Core.Domain" 
+                   column="SiteId" 
+                   not-null="true" />
+      <many-to-one name="ParentCategory" 
+                   class="Arashi.Core.Domain.Category, Arashi.Core.Domain" 
+                   column="ParentCategoryId" />
+
+      <list name="ChildCategories" cascade="all" lazy="true">
+         <key column="ParentCategoryId" />
+         <index column="Position" />
+         <one-to-many class="Arashi.Core.Domain.Category, Arashi.Core.Domain" />
+      </list>
+
+      <bag name="ContentItems" 
+           table="cms_CategoriesContentItems" 
+           cascade="save-update" 
+           generic="true"
+           lazy="true" 
+           inverse="true" >
+         <key column="CategoryId" />
+         <many-to-many class="Arashi.Core.Domain.ContentItem, Arashi.Core.Domain"  
+                       column="ContentItemId" />
+      </bag>
+
+   </class>
+</hibernate-mapping>

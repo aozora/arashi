@@ -1,0 +1,20 @@
+- Xml SiteMap Dynamic Generation (+ add ControlPanelIcons in Maintenance group)
+- Admin: Widget management
+- Admin: Post/Page Custom Fields
+- Admin: Media/File Manager
+- Admin: add tags & Category management 
+- Frontend: support more WP template tags & complete the existings
+- Unit Tests !!!
+
+===========================================================================
+Open Tickets
+===========================================================================
+
+xx Improve the validation o fuser edit/create
+4	Make the IoC "container agnostic
+13	Implement Trash for post (like WP 2.9)
+46	Admin Post: manage post tags & categories with jqueryUI autocomplete
+11	TEST: develop unit test
+12	TEST: Integration test
+17	Add Tags and Categories management
+23	Links Widget & Management

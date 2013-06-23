@@ -1,0 +1,6 @@
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
+<div class='wpcf7-response-output wpcf7-display-none <%= ViewData["ContactValidationCssClass"] %> wpcf7-mail-sent-ng' style="display: block;">
+   <% if (ViewData["ContactValidationMessage"] != null) { %>
+      <%= ViewData["ContactValidationMessage"].ToString() %>
+   <% } %>
+</div>

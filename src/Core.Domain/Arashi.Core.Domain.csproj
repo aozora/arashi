@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5B33537-9C4F-4302-8EA1-F78A6AEFAA79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Arashi.Core.Domain</RootNamespace>
+    <AssemblyName>Arashi.Core.Domain</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Redist|AnyCPU'">
+    <OutputPath>bin\Redist\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArashiPrincipal.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="ContentItem.cs" />
+    <Compile Include="ContentItemPermission.cs" />
+    <Compile Include="ControlPanelItem.cs" />
+    <Compile Include="Dto\ContentItemCalendarDTO.cs" />
+    <Compile Include="Dto\ContentItemDTO.cs" />
+    <Compile Include="Dto\ContentItemStatsDTO.cs" />
+    <Compile Include="Dto\TagDTO.cs" />
+    <Compile Include="Dto\TemplateContentDTO.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="Extensions\CategoryExtensions.cs" />
+    <Compile Include="Extensions\PageExtensions.cs" />
+    <Compile Include="Extensions\RoleExtensions.cs" />
+    <Compile Include="Extensions\SiteExtensions.cs" />
+    <Compile Include="Extensions\UserExtensions.cs" />
+    <Compile Include="IContentItem.cs" />
+    <Compile Include="IPermission.cs" />
+    <Compile Include="IRequestContext.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="Page.cs" />
+    <Compile Include="PagePermission.cs" />
+    <Compile Include="Post.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Right.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="Search\CustomSearchField.cs" />
+    <Compile Include="Search\IndexEvent.cs" />
+    <Compile Include="Search\ISearchableContent.cs" />
+    <Compile Include="Search\ITextExtractor.cs" />
+    <Compile Include="Search\SearchContent.cs" />
+    <Compile Include="SeoSettings.cs" />
+    <Compile Include="Site.cs" />
+    <Compile Include="SiteHost.cs" />
+    <Compile Include="SystemConfiguration.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="Template.cs" />
+    <Compile Include="TrackingInfo.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Validation\EmailAttribute.cs" />
+    <Compile Include="Validation\PropertiesMatchAttribute.cs" />
+    <Compile Include="Validation\RegexAttribute.cs" />
+    <Compile Include="Validation\StringRangeAttribute.cs" />
+    <Compile Include="Widget.cs" />
+    <Compile Include="WidgetType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrams\ContentAbstraction.cd" />
+    <None Include="Diagrams\Entities.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Arashi.Core.csproj">
+      <Project>{1E2BBDC7-CB5E-48C9-AB9B-A4C57204F040}</Project>
+      <Name>Arashi.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

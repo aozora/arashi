@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Migrated rules for Telerik.Web.Mvc.ruleset" Description="This rule set was created from the CodeAnalysisRules property for the &quot;Debug MVC2 NET35 (Any CPU)&quot; configuration in project &quot;D:\dev\Projects\Azora System\tmp\Source\Telerik.Web.Mvc\Telerik.Web.Mvc.csproj&quot;." ToolsVersion="10.0">
+  <IncludeAll Action="Warning" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1004" Action="None" />
+    <Rule Id="CA1006" Action="None" />
+  </Rules>
+</RuleSet>

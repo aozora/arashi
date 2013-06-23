@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+   <class name="Arashi.Core.Domain.ControlPanelItem, Arashi.Core.Domain"
+          table="cms_ControlPanelItems">
+
+      <!--<cache usage="read-write" />-->
+
+      <id name="ControlPanelItemId" column="ControlPanelItemId" type="Int32" unsaved-value="-1">
+         <generator class="hilo"/>
+      </id>
+
+      <property name="Category" column="Category" type="String" />
+      <property name="ViewOrder" column="ViewOrder" type="Int32" not-null="true" />
+      <property name="Text" column="Text" type="String" not-null="true" />
+      <property name="Description" column="Description" type="String" not-null="true" />
+      <property name="ImageSrc" column="ImageSrc" type="String" not-null="true" />
+      <property name="LittleImageSrc" column="LittleImageSrc" type="String" />
+      <property name="ImageAlt" column="ImageAlt" type="String" />
+      <property name="Controller" column="Controller" type="String" />
+      <property name="Action" column="Action" type="String" />
+      <property name="Parameters" column="Parameters" type="String" />
+
+
+      <!--<bag name="ControlPanelItemRoles" table="cms_ControlPanelItemRoles" lazy="true" cascade="none" >
+         <key column="ControlPanelItemId" />
+         <one-to-many class="Arashi.Core.Domain.ControlPanelItemRole, Arashi.Core.Domain" />
+      </bag>-->
+
+   </class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xVal", "xVal\xVal.csproj", "{37DCF65B-BF7A-422A-8A89-A591B43FC26D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xVal.Tests", "xVal.Tests\xVal.Tests.csproj", "{9EA4228B-95AF-4284-BBC8-23539196A3DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xVal.ClientSidePlugins", "xVal.ClientSidePlugins\xVal.ClientSidePlugins.csproj", "{41AE1261-9249-4AAD-898A-BAAE0CB4E520}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RulesProviders", "RulesProviders", "{6E13739A-5B0F-4272-9875-D7AADA49E5C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateValidator", "RulesProviders\NHibernateValidator\NHibernateValidator.csproj", "{200FC12B-F9F0-49E9-9165-D78AED771159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CastleValidator", "RulesProviders\CastleValidator\CastleValidator.csproj", "{9272C327-7ED3-4765-B67C-B84C39E08EBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37DCF65B-BF7A-422A-8A89-A591B43FC26D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DCF65B-BF7A-422A-8A89-A591B43FC26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DCF65B-BF7A-422A-8A89-A591B43FC26D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DCF65B-BF7A-422A-8A89-A591B43FC26D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EA4228B-95AF-4284-BBC8-23539196A3DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA4228B-95AF-4284-BBC8-23539196A3DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA4228B-95AF-4284-BBC8-23539196A3DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA4228B-95AF-4284-BBC8-23539196A3DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41AE1261-9249-4AAD-898A-BAAE0CB4E520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41AE1261-9249-4AAD-898A-BAAE0CB4E520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41AE1261-9249-4AAD-898A-BAAE0CB4E520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41AE1261-9249-4AAD-898A-BAAE0CB4E520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{200FC12B-F9F0-49E9-9165-D78AED771159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200FC12B-F9F0-49E9-9165-D78AED771159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200FC12B-F9F0-49E9-9165-D78AED771159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200FC12B-F9F0-49E9-9165-D78AED771159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9272C327-7ED3-4765-B67C-B84C39E08EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9272C327-7ED3-4765-B67C-B84C39E08EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9272C327-7ED3-4765-B67C-B84C39E08EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9272C327-7ED3-4765-B67C-B84C39E08EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{200FC12B-F9F0-49E9-9165-D78AED771159} = {6E13739A-5B0F-4272-9875-D7AADA49E5C4}
+		{9272C327-7ED3-4765-B67C-B84C39E08EBC} = {6E13739A-5B0F-4272-9875-D7AADA49E5C4}
+	EndGlobalSection
+EndGlobal

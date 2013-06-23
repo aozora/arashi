@@ -1,0 +1,1 @@
+﻿<%@ Application Inherits="xVal.ClientSidePlugins.Tests.MvcApplication" Language="C#" %>

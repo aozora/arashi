@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A7F7C110-D7F0-49B7-8DDA-FD2D1CC6F3B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Telerik.Web.Mvc</RootNamespace>
+    <AssemblyName>Telerik.Web.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\SharedFiles\Telerik.Web.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TELERIK_DATA;MVC1</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TELERIK_DATA;MVC1</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DocumentationFile>bin\Release\Telerik.Web.Mvc.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug MVC2 NET35|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug MVC2 NET35\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TELERIK_DATA;MVC2;</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>Migrated rules for Telerik.Web.Mvc.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release MVC2 NET35|AnyCPU' ">
+    <OutputPath>bin\Release MVC2 NET35\</OutputPath>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TELERIK_DATA;MVC2</DefineConstants>
+    <DocumentationFile>bin\Release\Telerik.Web.Mvc.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.XML" />
+    <Reference Include="System.Runtime.Serialization, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <Choose>
+    <When Condition=" '$(Configuration)|$(Platform)' == 'Debug MVC2 NET35|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release MVC2 NET35|AnyCPU'">
+      <ItemGroup>
+        <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="..\SharedFiles\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Extensions\CustomAttributeProviderExtensions.cs" />
+    <Compile Include="Extensions\HttpRequestBaseExtensions.cs" />
+    <Compile Include="Extensions\QueryProviderExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\ContentContainerExtensions.cs" />
+    <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\HtmlTextWriterExtensions.cs" />
+    <Compile Include="Extensions\HtmlAttributesExtensions.cs" />
+    <Compile Include="Infrastructure\Implementation\ClassFactory.cs" />
+    <Compile Include="Infrastructure\Implementation\DynamicClass.cs" />
+    <Compile Include="Infrastructure\Implementation\DynamicProperty.cs" />
+    <Compile Include="Infrastructure\Implementation\ExpressionConstants.cs" />
+    <Compile Include="Infrastructure\ILocalizationService.cs" />
+    <Compile Include="Infrastructure\Implementation\LocalizationService.cs" />
+    <Compile Include="Infrastructure\LocalizedStrings.cs" />
+    <Compile Include="Infrastructure\Implementation\Signature.cs" />
+    <Compile Include="UI\ExpressionBuilder.cs" />
+    <Compile Include="Infrastructure\CacheBase.cs" />
+    <Compile Include="Infrastructure\DisposableBase.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\ExpressionBuilderOptions.cs" />
+    <Compile Include="UI\HtmlTag.cs" />
+    <Compile Include="UI\IHtmlNode.cs" />
+    <Compile Include="Infrastructure\GlobalizationInfo.cs" />
+    <Compile Include="Infrastructure\IAuthorizeAttribute.cs" />
+    <Compile Include="Infrastructure\IControllerAuthorization.cs" />
+    <Compile Include="Infrastructure\IControllerTypeCache.cs" />
+    <Compile Include="Infrastructure\Implementation\ActionMethodCache.cs" />
+    <Compile Include="Infrastructure\Implementation\AuthorizeAttributeCache.cs" />
+    <Compile Include="Infrastructure\Implementation\AuthorizeAttributeBuilder.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\ExpressionBuilderBase.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\ExpressionBuilderFactory.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\ExpressionFactory.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\IdentityExpressionBuilder.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\CustomTypeDescriptorExtensions.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\CustomTypeDescriptorPropertyAccessExpressionBuilder.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\DataRowFieldAccessExpressionBuilder.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\MemberAccessExpressionBuilderBase.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\PropertyAccessExpressionBuilder.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\Tokenizer\IMemberAccessToken.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\Tokenizer\IndexerToken.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\Tokenizer\MemberAccessTokenExtensions.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\Tokenizer\MemberAccessTokenizer.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\Tokenizer\PropertyToken.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\Unbox.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\XmlNodeChildElementAccessExpressionBuilder.cs" />
+    <Compile Include="Infrastructure\Implementation\Expressions\MemberAccess\XmlNodeExtensions.cs" />
+    <Compile Include="Infrastructure\Implementation\FieldCache.cs" />
+    <Compile Include="Infrastructure\IFieldCache.cs" />
+    <Compile Include="Infrastructure\IActionMethodCache.cs" />
+    <Compile Include="UI\LiteralNode.cs" />
+    <Compile Include="Infrastructure\Implementation\ReflectedAuthorizeAttributeCache.cs" />
+    <Compile Include="Infrastructure\Implementation\ControllerAuthorization.cs" />
+    <Compile Include="Infrastructure\Implementation\ControllerTypeCache.cs" />
+    <Compile Include="Infrastructure\IAuthorizeAttributeCache.cs" />
+    <Compile Include="UI\TextNode.cs" />
+    <Compile Include="IUrlGenerator.cs" />
+    <Compile Include="Infrastructure\QueryableFactory.cs" />
+    <Compile Include="Infrastructure\ServiceLocator.cs" />
+    <Compile Include="Infrastructure\IReflectedAuthorizeAttributeCache.cs" />
+    <Compile Include="Infrastructure\IAuthorizeAttributeBuilder.cs" />
+    <Compile Include="Infrastructure\IObjectCopier.cs" />
+    <Compile Include="Infrastructure\Implementation\ObjectCopier.cs" />
+    <Compile Include="Infrastructure\IPropertyCache.cs" />
+    <Compile Include="Infrastructure\Implementation\NavigationItemAuthorization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Implementation\PropertyCache.cs" />
+    <Compile Include="Infrastructure\INavigationItemAuthorization.cs" />
+    <Compile Include="Infrastructure\IServiceLocator.cs" />
+    <Compile Include="Infrastructure\IUrlAuthorization.cs" />
+    <Compile Include="Infrastructure\Implementation\UrlAuthorization.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Infrastructure\IVirtualPathProvider.cs" />
+    <Compile Include="Infrastructure\Implementation\VirtualPathProviderWrapper.cs" />
+    <Compile Include="Infrastructure\Implementation\ServiceLocatorImpl.cs" />
+    <Compile Include="Infrastructure\Implementation\UrlEncoder.cs" />
+    <Compile Include="SiteMap\PopulateSiteMapAttribute.cs" />
+    <Compile Include="SiteMap\SiteMapBase.cs" />
+    <Compile Include="SiteMap\SiteMapBuilder.cs" />
+    <Compile Include="SiteMap\SiteMapChangeFrequency.cs" />
+    <Compile Include="SiteMap\SiteMapDictionary.cs" />
+    <Compile Include="SiteMap\SiteMapHandler.cs" />
+    <Compile Include="SiteMap\SiteMapManager.cs" />
+    <Compile Include="SiteMap\SiteMapNode.cs" />
+    <Compile Include="SiteMap\SiteMapNodeBuilder.cs" />
+    <Compile Include="SiteMap\SiteMapNodeFactory.cs" />
+    <Compile Include="SiteMap\SiteMapUpdatePriority.cs" />
+    <Compile Include="SiteMap\XmlSiteMap.cs" />
+    <Compile Include="UI\INavigationHtmlBuilder.cs" />
+    <Compile Include="UI\INavigationItemComponent.cs" />
+    <Compile Include="UI\NavigationHtmlBuilderBase.cs" />
+    <Compile Include="UI\NavigationItemContainerExtensions.cs" />
+    <Compile Include="UI\ContentNavigationItemBuilder.cs" />
+    <Compile Include="UI\IAsyncContentContainer.cs" />
+    <Compile Include="UI\IClientSideObjectWriter.cs" />
+    <Compile Include="UI\IClientSideObjectWriterFactory.cs" />
+    <Compile Include="UI\IContentContainer.cs" />
+    <Compile Include="UI\IHtmlAttributesContainer.cs" />
+    <Compile Include="UI\INavigatable.cs" />
+    <Compile Include="LinkedObjectBase.cs" />
+    <Compile Include="LinkedObjectCollection.cs" />
+    <Compile Include="UI\INavigationItemContainer.cs" />
+    <Compile Include="Infrastructure\IUrlEncoder.cs" />
+    <Compile Include="UI\NavigatableExtensions.cs" />
+    <Compile Include="UI\NavigationBinding.cs" />
+    <Compile Include="UI\NavigationBindingBuilder.cs" />
+    <Compile Include="UI\NavigationBindingFactory.cs" />
+    <Compile Include="UI\NavigationItem.cs" />
+    <Compile Include="UI\NavigationItemBuilder.cs" />
+    <Compile Include="UI\NavigationItemImageRenderer.cs" />
+    <Compile Include="UI\NavigationItemLinkRenderer.cs" />
+    <Compile Include="Extensions\HtmlAttributesContainerExtensions.cs" />
+    <Compile Include="UI\UiPrimitives.cs" />
+    <Compile Include="UI\WebAsset\IWebAssetItemMerger.cs" />
+    <Compile Include="WebAsset\IWebAssetRegistry.cs" />
+    <Compile Include="WebAsset\SharedWebAssetGroupBuilder.cs" />
+    <Compile Include="UrlGenerator.cs" />
+    <Compile Include="WebAsset\SharedWebAssets.cs" />
+    <Compile Include="WebAsset\Configuration\WebAssetConfigurationSection.cs" />
+    <Compile Include="WebAsset\Configuration\WebAssetItemConfigurationElement.cs" />
+    <Compile Include="WebAsset\Configuration\WebAssetItemConfigurationElementCollection.cs" />
+    <Compile Include="WebAsset\Configuration\WebAssetItemGroupConfigurationElement.cs" />
+    <Compile Include="WebAsset\Configuration\WebAssetItemGroupConfigurationElementCollection.cs" />
+    <Compile Include="WebAsset\WebAsset.cs" />
+    <Compile Include="WebAsset\WebAssetHttpHandler.cs" />
+    <Compile Include="WebAsset\WebAssetLocator.cs" />
+    <Compile Include="WebAsset\WebAssetRegistry.cs" />
+    <Compile Include="UI\WebAsset\WebAssetDefaultSettings.cs" />
+    <Compile Include="Infrastructure\IPathResolver.cs" />
+    <Compile Include="Infrastructure\IHttpResponseCompressor.cs" />
+    <Compile Include="Infrastructure\IHttpResponseCacher.cs" />
+    <Compile Include="Infrastructure\IFileSystem.cs" />
+    <Compile Include="Infrastructure\IConfigurationManager.cs" />
+    <Compile Include="Infrastructure\ICacheManager.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Infrastructure\Implementation\CacheManagerWrapper.cs" />
+    <Compile Include="Infrastructure\PathHelper.cs" />
+    <Compile Include="UI\ClientSideObjectWriterFactory.cs" />
+    <Compile Include="UI\ClientSideEnumValueAttribute.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Infrastructure\Implementation\ConfigurationManagerWrapper.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Infrastructure\Implementation\FileSystemWrapper.cs" />
+    <Compile Include="Extensions\HttpContextBaseExtensions.cs" />
+    <Compile Include="Infrastructure\HttpHandlerBase.cs" />
+    <Compile Include="Infrastructure\Implementation\HttpResponseCacher.cs" />
+    <Compile Include="Infrastructure\Implementation\HttpResponseCompressor.cs" />
+    <Compile Include="IHideObjectMembers.cs" />
+    <Compile Include="Infrastructure\Implementation\PathResolver.cs" />
+    <Compile Include="Infrastructure\Guard.cs" />
+    <Compile Include="Extensions\ReaderWriterLockSlimExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Resources\TextResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\WebAsset\WebAssetItem.cs" />
+    <Compile Include="UI\WebAsset\WebAssetItemCollection.cs" />
+    <Compile Include="UI\WebAsset\WebAssetItemCollectionBuilder.cs" />
+    <Compile Include="UI\WebAsset\WebAssetItemGroup.cs" />
+    <Compile Include="UI\ClientSideObjectWriter.cs" />
+    <Compile Include="UI\WebAsset\IWebAssetItem.cs" />
+    <Compile Include="Infrastructure\IUrlResolver.cs" />
+    <Compile Include="UI\HtmlHelperExtension.cs" />
+    <Compile Include="UI\IScriptableComponent.cs" />
+    <Compile Include="UI\IScriptableComponentContainer.cs" />
+    <Compile Include="UI\ViewComponentFactory.cs" />
+    <Compile Include="UI\ViewComponentBuilderBase.cs" />
+    <Compile Include="UI\ViewComponentBase.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="UI\WebAsset\WebAssetItemMerger.cs" />
+    <Compile Include="UI\ScriptRegistrar\ScriptWrapperBase.cs" />
+    <Compile Include="UI\StyleSheetRegistrar\StyleSheetRegistrarBuilder.cs" />
+    <Compile Include="UI\StyleSheetRegistrar\StyleSheetRegistrar.cs" />
+    <Compile Include="Infrastructure\Implementation\UrlResolver.cs" />
+    <Compile Include="UI\ScriptRegistrar\ScriptWrapper.cs" />
+    <Compile Include="Infrastructure\Culture.cs" />
+    <Compile Include="UI\WebAsset\WebAssetItemGroupBuilder.cs" />
+    <Compile Include="UI\ScriptRegistrar\ScriptRegistrar.cs" />
+    <Compile Include="UI\ScriptRegistrar\ScriptRegistrarBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebAsset\WebAssetType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\SharedFiles\CodeAnalysisDictionary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\SharedFiles\Telerik.Web.snk">
+      <Link>Telerik.Web.snk</Link>
+    </None>
+    <None Include="Migrated rules for Telerik.Web.Mvc.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\GridLocalization.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TextResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TextResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Build\EcmaScript.NET.modified.dll" />
+    <Content Include="Build\GetVersion.dll" />
+    <Content Include="Build\Yahoo.Yui.Compressor.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Reference the YUI CompressorTask -->
+  <UsingTask TaskName="CompressorTask" AssemblyFile="Build\Yahoo.Yui.Compressor.dll" />
+  <UsingTask TaskName="GetVersion" AssemblyFile="Build\GetVersion.dll" />
+  <Target Name="AfterBuildDebug">
+    <!-- Copy the CSS files to Scripts -->
+    <Copy SourceFiles="@(Content)" DestinationFolder="$(OutputPath)\Scripts" Condition="'%(Extension)'=='.js'">
+      <Output TaskParameter="DestinationFiles" ItemName="Resources" />
+    </Copy>
+    <!-- Copy the CSS and Image files to Content -->
+    <ItemGroup>
+      <CssAndImageFiles Include="Content\**\*.*">
+        <Visible>False</Visible>
+      </CssAndImageFiles>
+    </ItemGroup>
+    <Copy SourceFiles="@(CssAndImageFiles)" DestinationFolder="$(OutputPath)\Content\%(RecursiveDir)">
+      <Output TaskParameter="DestinationFiles" ItemName="Resources" />
+    </Copy>
+    <ItemGroup>
+      <!-- FileWrites is the list of files to delete when performing a Clean -->
+      <FileWrites Include="@(Resources)" />
+    </ItemGroup>
+  </Target>
+  <Target Name="AfterBuildRelease">
+    <!-- Get the assembly version -->
+    <GetVersion AssemblyFiles="$(IntermediateOutputPath)$(AssemblyName).dll">
+      <Output TaskParameter="Assemblies" ItemName="Info" />
+    </GetVersion>
+    <!-- Store it in property -->
+    <PropertyGroup>
+      <Version>%(Info.Version)</Version>
+    </PropertyGroup>
+    <Message Text="Version is $(Version)" />
+  </Target>
+  <Target Name="AfterCompile">
+    <Message Importance="high" Text="Processing JavaScript files..." />
+    <CallTarget Targets="AfterBuildDebug" Condition="'$(Configuration)' == 'Debug' Or $(Configuration) == 'Debug MVC2 NET35'" />
+    <CallTarget Targets="AfterBuildRelease" Condition="'$(Configuration)' == 'Release' Or $(Configuration) == 'Release MVC2 NET35'" />
+  </Target>
+</Project>

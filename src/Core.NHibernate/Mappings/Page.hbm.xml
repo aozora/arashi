@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+   <joined-subclass name="Arashi.Core.Domain.Page, Arashi.Core.Domain"
+					 extends="Arashi.Core.Domain.ContentItem, Arashi.Core.Domain"
+					 table="cms_Pages">
+      <key column="ContentItemId" />
+      <property name="Content" column="Content" type="StringClob" />
+      <property name="Position" column="Position" type="Int32" />
+      <many-to-one name="ParentPage" class="Arashi.Core.Domain.Page, Arashi.Core.Domain" column="ParentPageId" not-null="false" />
+      <property name="CustomTemplateFile" column="CustomTemplateFile" type="String" />
+
+      <bag name="ChildPages"
+           cascade="delete"
+           inverse="true"
+           order-by="Position asc"
+           generic="true"
+           lazy="true" >
+         <!--<cache usage="read-write" />-->
+         <key column="ParentPageId" />
+         <one-to-many class="Arashi.Core.Domain.Page, Arashi.Core.Domain" />
+      </bag>
+
+   </joined-subclass>
+</hibernate-mapping>

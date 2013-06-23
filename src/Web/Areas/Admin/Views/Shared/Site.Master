@@ -1,0 +1,152 @@
+<%@ Master Language="C#" Inherits="Arashi.Web.Mvc.Views.AdminViewMasterPageBase" %>
+<%@ Import Namespace="Arashi.Web.Areas.Admin.Extensions"%>
+<%@ Import Namespace="Arashi.Core.Domain.Extensions"%>
+<%@ Import Namespace="Arashi.Web.Mvc.Partials"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <link rel="shortcut icon" href="/favicon.gif" type="image/gif" />
+<% Html.Telerik().StyleSheetRegistrar()
+                 .StyleSheets(css => css.AddGroup("css.default",
+                                                   group => group.Add("admin.reset.css")
+                                                                 .Add("admin.layout.css")
+                                                                 .Add("ui.jqgrid.css")
+                 ))
+                 .StyleSheets(css => css.AddGroup("css.theme",
+                                                   group => group.DefaultPath(UserCssThemePath)
+                                                                 .Add("jquery-ui.css")
+                                                                 .Add("arashi-ui.css")
+                 ))
+                 .StyleSheets(css => css.AddGroup("css.theme.common",
+                                                   group => group
+                                                                 .Add("admin.form.css")
+                                                                 .Add("admin.style.css")
+                                                                 .Add("admin.ui.common.css")
+                 ));
+%>   
+<% Html.Telerik().ScriptRegistrar()
+                 .Scripts(script => script.AddGroup( "jquery.default",
+                                                     group => group.Add("jquery.js")
+                                                                   .Add("jquery-ui.js")
+                                                                   .Add("jquery.blockUI.js")
+                                                                   .Add("jquery.jgrowl.js")
+                                                                   .Add("jquery.hoverIntent.js")
+                                                                   .Add("grid.locale-en.js")
+                                                                   .Add("jquery.jqGrid.js")
+                                                                   .Add("jquery.url.js")
+                                                                   .Add("admin.core.js")
+                                                                   .Version("v1")
+                                                    )); 
+%>
+   <!--[if IE]>  
+   <link href="/Resources/css/src/admin.ie.css?v2" rel="stylesheet" type="text/css" />
+   <![endif]--> 
+   <!--[if lte IE 7]>
+   <script type="text/javascript">
+      try {document.execCommand("BackgroundImageCache", false, true);} catch(err) {};
+   </script>
+   <![endif]--> 
+   <asp:ContentPlaceHolder ID="head" runat="server">
+      <title></title>
+   </asp:ContentPlaceHolder>
+<% Html.Telerik().StyleSheetRegistrar().Render(); %>
+</head>
+
+<body>
+   <!--[if lte IE 7]>
+      <% Html.RenderPartial("ObsoleteWarning"); %>
+   <![endif]-->
+   <div id="header-container">
+      <div id="header" class="">
+         <div id="logo">
+            <img alt="logo" src="/Resources/img/logo/arashi-project-logo-h32.png"/>
+         </div>
+         <div id="help-container" class="ui-widget">
+         </div>
+         <% Html.RenderPartial("LogOnUserControl"); %>
+      </div>
+      <div id="nav" class="ui-widget ui-widget-content ui-corner-all">
+         <div id="breadcrumb" class="ui-widget ui-widget-content ui-corner-all">
+            <ul>
+               <li id="site-switcher">
+               <% if (RequestContext.ManagedSite != null) { %>
+                  <a href="#" title="Click here to switch to another site or create a new one" class="ui-state-default-border-right" >
+                     <span id="current-site-label">Current Site:&nbsp;</span>
+                     <span class="ui-icon ui-icon-triangle-2-n-s"></span>
+                     <%= Html.Encode(RequestContext.ManagedSite.Name) %>
+                  </a>
+                  <% Html.RenderPartial("SiteSwitcher"); %>
+               <% } %>
+               </li>
+         
+               <asp:ContentPlaceHolder ID="BreadCrumbsPlaceHolder" runat="server" >
+               </asp:ContentPlaceHolder>
+            </ul>
+         </div>
+
+         
+         <div id="right-nav">
+            <a id="system-settings-link" href='<%= Url.Action("Index", "SystemConfiguration") %>'>System Configuration</a>
+         </div>
+      </div>
+   </div>
+   <div class="clear"></div>
+
+   <div id="wrap">
+      <div id="content-wrap">
+         <div id="cp-content">
+         
+            <noscript id="noscript">
+               <div id="noscript-container" class="ui-helper-clearfix ui-state-error ui-corner-all">
+                  <div id="noscript-container-inner" class="ui-helper-clearfix ui-widget-header ui-corner-all">
+                     <h1>
+                        <img src="/Resources/img/32x32/error.png" alt="warning" />
+                        <%= GlobalResource("NoScript_Title") %>
+                        <img src="/Resources/img/32x32/error.png" alt="warning" />
+                     </h1>
+                     <h3><%= GlobalResource("NoScript_Description") %></h3>
+                     <p><%= GlobalResource("NoScript_Help") %> 
+                        &nbsp;
+                        <a onclick="window.open(this.href);return false;" 
+                           href="/Resources/help/HowToEnableJavascript.it-IT.htm" 
+                           class="morelink" ><%= GlobalResource("NoScript_HelpLink") %></a>
+                     </p>
+                     <br />
+                  </div>
+               </div>
+            </noscript>
+            <div id="message-container" class="hidden">
+               <% Html.RenderRegisteredMessages(); %>
+            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+         </div>
+      </div>
+
+      <div id="cp-utility">
+         <asp:ContentPlaceHolder ID="UtilityPlaceHolder" runat="server" />
+      </div>
+   </div>
+   	
+   <div class="clear"></div>
+   <div id="footer" class="ui-state-active">
+      <div id="footer-copyright">&copy; 2010 by Marcello Palmitessa & Arashi Team</div>
+      <div id="footer-links">
+         <a href="http://www.arashi-project.com/contacts">Contacts</a>
+         <%--&nbsp;|&nbsp;
+         <a href="#">Privacy</a>--%>
+         &nbsp;|&nbsp;
+         <%= Html.ActionLink("Credits", "Credits", "Home") %>
+      </div>
+      <div class="poweredby">
+         <span>Powered by</span>
+         <a href="http://www.arashi-project.com/">Arashi Project</a>
+      </div>
+   </div>
+      
+   <% Html.Telerik().ScriptRegistrar().Render(); %>
+   <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+   <%= Html.RenderRegisteredScript(true) %>
+   <%= Html.RenderRegisteredScriptBlocks() %>
+</body>
+</html>

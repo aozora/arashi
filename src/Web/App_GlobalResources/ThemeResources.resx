@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Archive_ForAuthor" xml:space="preserve">
+    <value>Author Archive</value>
+  </data>
+  <data name="Archive_ForCategory" xml:space="preserve">
+    <value>Archive for the &amp;#8216;{0}&amp;#8217; Category</value>
+  </data>
+  <data name="Archive_ForDay" xml:space="preserve">
+    <value>Archive for {0}</value>
+  </data>
+  <data name="Archive_ForMonth" xml:space="preserve">
+    <value>Archive for {0}</value>
+  </data>
+  <data name="Archive_ForTag" xml:space="preserve">
+    <value>Posts Tagged &amp;#8216;{0}&amp;#8217;</value>
+  </data>
+  <data name="Archive_ForYear" xml:space="preserve">
+    <value>Archive for year {0}</value>
+  </data>
+  <data name="Author_NoBio" xml:space="preserve">
+    <value>This user hasn't shared any biographical information</value>
+  </data>
+  <data name="Category_LinkTitle" xml:space="preserve">
+    <value>View all posts filed under</value>
+  </data>
+  <data name="Comment_Author_Anonymous" xml:space="preserve">
+    <value>Anonymous</value>
+  </data>
+  <data name="Comment_By" xml:space="preserve">
+    <value>by</value>
+  </data>
+  <data name="Comment_Closed" xml:space="preserve">
+    <value>Sorry, the comment form is closed at this time.</value>
+  </data>
+  <data name="Comment_CommentsNumber_More" xml:space="preserve">
+    <value>% Comments</value>
+  </data>
+  <data name="Comment_CommentsNumber_Off" xml:space="preserve">
+    <value>Comments off</value>
+  </data>
+  <data name="Comment_CommentsNumber_One" xml:space="preserve">
+    <value>1 Comment</value>
+  </data>
+  <data name="Comment_CommentsNumber_Zero" xml:space="preserve">
+    <value>No Comments</value>
+  </data>
+  <data name="Comment_Email" xml:space="preserve">
+    <value>Mail (will not be published) (required)</value>
+  </data>
+  <data name="Comment_LeaveAComment" xml:space="preserve">
+    <value>Leave a comment</value>
+  </data>
+  <data name="Comment_Link_CommentOn" xml:space="preserve">
+    <value>Comment on</value>
+  </data>
+  <data name="Comment_Message_Closed" xml:space="preserve">
+    <value>Sorry, comments are closed on this post!</value>
+  </data>
+  <data name="Comment_Message_DuplicateComment" xml:space="preserve">
+    <value>It seems that you already posted the same comment!</value>
+  </data>
+  <data name="Comment_Message_GenericError" xml:space="preserve">
+    <value>Sorry, an error occured while saving your comment...</value>
+  </data>
+  <data name="Comment_Message_ValidationErrors" xml:space="preserve">
+    <value>Please, fill all the required field to comment.</value>
+  </data>
+  <data name="Comment_Name" xml:space="preserve">
+    <value>Name (required)</value>
+  </data>
+  <data name="Comment_NoComments" xml:space="preserve">
+    <value>No comments yet.</value>
+  </data>
+  <data name="Comment_Submit" xml:space="preserve">
+    <value>Submit Comment</value>
+  </data>
+  <data name="Comment_Type_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Comment_Type_Pingback" xml:space="preserve">
+    <value>Pingback</value>
+  </data>
+  <data name="Comment_Type_Trackback" xml:space="preserve">
+    <value>Trackback</value>
+  </data>
+  <data name="Comment_Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="Contact_Email" xml:space="preserve">
+    <value>Your Mail (required)</value>
+  </data>
+  <data name="Contact_Message" xml:space="preserve">
+    <value>Your message</value>
+  </data>
+  <data name="Contact_Message_Sent" xml:space="preserve">
+    <value>Your message has been sent.</value>
+  </data>
+  <data name="Contact_Message_ValidationErrors" xml:space="preserve">
+    <value>Some validation errors occurred. Please confirm the fields and submit it again.</value>
+  </data>
+  <data name="Contact_Name" xml:space="preserve">
+    <value>Your Name (required)</value>
+  </data>
+  <data name="Contact_Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="Contact_Submit_Button" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Contact_Title" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="Label_Archives" xml:space="preserve">
+    <value>Archives</value>
+  </data>
+  <data name="Label_Meta" xml:space="preserve">
+    <value>Meta</value>
+  </data>
+  <data name="Label_Tags" xml:space="preserve">
+    <value>Popular tags</value>
+  </data>
+  <data name="Link_ReturnToTheHomePage" xml:space="preserve">
+    <value>Return to the Homepage</value>
+  </data>
+  <data name="Pager_Simple_NewerEntries" xml:space="preserve">
+    <value>Newer Entries &amp;raquo;</value>
+  </data>
+  <data name="Pager_Simple_OlderEntries" xml:space="preserve">
+    <value>&amp;laquo; Older Entries</value>
+  </data>
+  <data name="Post_MoreLinkText" xml:space="preserve">
+    <value>(more...)</value>
+  </data>
+  <data name="Post_PostedBy" xml:space="preserve">
+    <value>Posted by</value>
+  </data>
+  <data name="Post_PostedIn" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="Post_PostedIn2" xml:space="preserve">
+    <value>Posted in</value>
+  </data>
+  <data name="Post_ReadMore" xml:space="preserve">
+    <value>Read More</value>
+  </data>
+  <data name="Search_NextPage" xml:space="preserve">
+    <value>Next Page &amp;raquo;</value>
+  </data>
+  <data name="Search_NoItemsFound" xml:space="preserve">
+    <value>No items found. Try a different search.</value>
+  </data>
+  <data name="Search_PreviousPage" xml:space="preserve">
+    <value>&amp;laquo; Previous Page</value>
+  </data>
+  <data name="Search_Title" xml:space="preserve">
+    <value>Search results</value>
+  </data>
+  <data name="TagCloud_TitleTopics" xml:space="preserve">
+    <value>topics</value>
+  </data>
+  <data name="_302_Message1" xml:space="preserve">
+    <value>Please come back later...</value>
+  </data>
+  <data name="_302_Title" xml:space="preserve">
+    <value>This site is temporarily closed for maintenance. We'll reopen as soon as possible!</value>
+  </data>
+  <data name="_404_Message1" xml:space="preserve">
+    <value>Unfortunately we were not able to find that page you were looking for...</value>
+    <comment>Set 1</comment>
+  </data>
+  <data name="_404_Message2" xml:space="preserve">
+    <value>We suggest that you try going back one page or visit our homepage instead.</value>
+    <comment>Set 1</comment>
+  </data>
+  <data name="_404_Message3" xml:space="preserve">
+    <value>The page that you're looking for either doesn't exist or has been moved.</value>
+    <comment>Set 2</comment>
+  </data>
+  <data name="_404_Message4" xml:space="preserve">
+    <value>You can try browsing the navigation above, or try using the search bar at the top right.</value>
+    <comment>Set 2</comment>
+  </data>
+  <data name="_404_Message5" xml:space="preserve">
+    <value>You might wanna browse our site instead</value>
+  </data>
+  <data name="_404_Title1" xml:space="preserve">
+    <value>Error 404 - Not Found</value>
+  </data>
+  <data name="_404_Title2" xml:space="preserve">
+    <value>Sorry! Nothing here!</value>
+  </data>
+  <data name="_404_Title3" xml:space="preserve">
+    <value>404 - PAGE NOT FOUND</value>
+  </data>
+</root>

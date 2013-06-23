@@ -1,0 +1,18 @@
+﻿<%@ Control Language="C#" Inherits="Arashi.Web.Mvc.Views.AdminViewUserControlBase" %>
+<tr id="reply-container" class="ui-state-default">
+   <td colspan="5">
+      <% using(Html.BeginForm("SaveReply", "AdminComment", new { siteid = RequestContext.ManagedSite.SiteId }, FormMethod.Post, new { id = "replytocommentform" })) { %>
+         <div id="reply-header">Reply to comment:</div>
+         <div id="reply-content-container">
+            <textarea id="replyContent" name="replyContent" cols="40" rows="8" ></textarea>
+         </div>
+         <div id="reply-footer">
+            <%= Html.AntiForgeryToken() %>
+            <input type="hidden" id="replyToCommentId" name="replyToCommentId" />
+            <button type="submit" class="button ui-state-default ui-priority-primary ui-corner-all ui-shadow" >Submit reply</button>
+            &nbsp;|&nbsp;
+            <a id="reply-cancel-link" href="#" class="ui-priority-secondary">Cancel</a>
+         </div>
+      <% } %>
+   </td>
+</tr>

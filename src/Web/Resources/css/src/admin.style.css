@@ -1,0 +1,1017 @@
+﻿/* LOADING MASK - BLOCKUI - jGROWL
+------------------------------------------------------------------------------------- */
+/*#loading{
+   display:none;
+	position:absolute;
+	left:45%;
+	top:40%;
+	border:1px solid #FFF;
+	padding:2px;
+	background:#F00;
+	width:150px;
+	text-align: center;
+	z-index:20001;
+}
+.loading-indicator{
+   height: 38px;
+   padding: 10px 10px 5px 10px;
+   margin: 0;
+   background: #FFF;
+   font-size: 1.2em;
+   color: #000;
+   text-align: center;
+}
+.loading-indicator img {
+   display: block;
+   margin: 0 auto;
+}
+
+#loading-mask {
+   width:100%;
+   height:100%;
+   background:#C3DAF9 url(/Templates/Admin/images/loadingmask.gif) repeat 0 0;
+   position:absolute;
+   z-index:20000;
+   left:0px;
+   top:0px;
+   opacity: 0.8;
+}*/
+
+
+div.blockUI {
+	-moz-border-radius: 6px;
+   -webkit-border-radius: 6px;
+}
+
+
+div.jGrowl {
+	padding: 			10px;
+	z-index: 			9999;
+	color: 				#fff;
+}
+
+/** Normal Style Positions **/
+body > div.jGrowl {
+	position:			fixed;
+}
+
+body > div.jGrowl.top-left {
+	left: 				0px;
+	top: 				0px;
+}
+
+body > div.jGrowl.top-right {
+	right: 				0px;
+	top: 				0px;
+}
+
+body > div.jGrowl.bottom-left {
+	left: 				0px;
+	bottom:				0px;
+}
+
+body > div.jGrowl.bottom-right {
+	right: 				0px;
+	bottom: 			0px;
+}
+
+body > div.jGrowl.center {
+	top: 				0px;
+	width: 				50%;
+	left: 				25%;
+}
+
+/** Cross Browser Styling **/
+div.center div.jGrowl-notification, div.center div.jGrowl-closer {
+	margin-left: 		auto;
+	margin-right: 		auto;
+}
+
+div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
+	zoom: 					1;
+	width: 					300px;
+	padding: 				10px;
+	margin-top: 			5px;
+	margin-bottom: 			5px;
+	font-family: 			Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 				12px;
+	text-align: 			left;
+	display: 				none;
+	-moz-border-radius: 	5px;
+	-webkit-border-radius:	5px;
+}
+
+div.jGrowl div.jGrowl-notification {
+	min-height: 			40px;
+}
+
+div.jGrowl div.jGrowl-notification div.header {
+	font-weight: 			bold;
+	font-size:				12px;
+}
+
+div.jGrowl div.jGrowl-notification div.close {
+	z-index:				99;
+	float: 					right;
+	font-weight: 			bold;
+	font-size: 				12px;
+	cursor:					pointer;
+}
+
+div.jGrowl div.jGrowl-closer {
+	padding-top: 			4px;
+	padding-bottom: 		4px;
+	cursor: 				pointer;
+	font-size:				11px;
+	font-weight: 			bold;
+	text-align: 			center;
+}
+
+/** Hide jGrowl when printing **/
+@media print {
+	div.jGrowl {
+		display: 			none;
+	}
+}
+
+/* Customization by Aozora */
+div.jGrowl-notification {border-width: 6px}
+div.jGrowl div.message {font-weight: bold}
+
+
+/* UI Notify
+------------------------------------------------------------------------------------- */
+.ui-notify { width:350px; position:absolute; top:10px; right:10px; }
+.ui-notify-message { padding:10px; margin-bottom:15px; background:#000; background:rgba(0,0,0,0.8); -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow: 0 0 6px #000; -webkit-box-shadow: 0 0 6px #000; box-shadow: 0 0 6px #000; }
+.ui-notify-message:last-child { margin-bottom:0 }
+.ui-notify-message h1 { color:#fff; font-size:14px; font-weight:bold; margin:0; padding:0 }
+.ui-notify-message p { color:#fff; margin:3px 0; padding:0; line-height:18px }
+.ui-notify-close { color:#fff; text-decoration:underline }
+.ui-notify-click { cursor:pointer }
+.ui-notify-cross { margin-top:-4px; float:right; cursor:pointer; text-decoration:none; font-size:12px; font-weight:bold; text-shadow:0 1px 1px #fff; padding:2px }
+.ui-notify-cross:hover { color:#ffffab }
+.ui-notify-cross:active { position:relative; top:1px }
+
+
+/* HTML
+------------------------------------------------------------------------------------- */
+html#html-wave {
+   background: transparent url('/Resources/img/bkg_wave.jpg') no-repeat center center;
+   height: 100%;
+   width: 100%;
+}
+
+#header {
+   border: 0;
+}
+
+.#nav {
+}
+
+
+#cp-content.wave {
+   background: transparent url(/Resources/img/bkg_wave-light.jpg) no-repeat center center;
+}
+
+
+/* NOSCRIPT
+------------------------------------------------------------------------------------- */
+#noscript {width: 100%;}
+#noscript #noscript-container {
+   text-align: center;
+   padding: 8px;
+	z-index:30001;
+	position:absolute;
+	top: 40%;
+	left: 33%;
+}
+#noscript #noscript-container-inner {
+   text-align: center;
+   padding: 4px;
+}
+
+#noscript img {
+   vertical-align: middle;
+   width:32px;
+   height: 32px;
+}
+
+
+
+
+/* ........ UI additionals ...................  */
+
+/* Grid overrides */
+table.ui-state-default tbody.ui-widget-content {
+   font-weight: normal;
+}
+
+.handle {
+   height: 100%;
+   width: 16px;
+   display: block;
+   cursor: pointer;
+   background: transparent url("/Resources/img/ui/grip.png") repeat-y 0 0;
+}
+
+/* Sortable placeholder row */
+.ui-sortable tr.ui-state-highlight {height: 50px}
+
+
+
+/* MESSAGE
+------------------------------------------------------------------------------------- */
+.message {
+   display: block
+}
+td .message {margin-left: 10px; margin-right: 10px}
+
+.message div {
+   padding: 0.5em; 
+}
+.message p {
+   /*float: left;*/
+   line-height: normal;
+}
+.message a {font-weight: bold}
+
+.message a.message-close {
+   float: right;
+   width: 19px;
+   height: 16px;
+   border: solid 1px transparent;
+}
+/* Overrides the margin if the message is displayed in a dialog */
+.ui-dialog-content .message {
+   margin: 4px 0;
+}
+.ui-dialog-content .message div {
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+}
+
+
+
+
+
+/* GLOBAL CLASSES
+------------------------------------------------------------------------------------- */
+.clear {clear:both} 
+.noborder {border: 0}
+.hint {font-size: 10px; color: #888}
+.hidden {display:none}
+.shown {display: block;}
+
+
+/* GLOBAL WIDTH,ALIGN, COLS 
+------------------------------------------------------------------------------------- */
+.width-auto {width: auto}
+.width-600 {width: 600px}
+.width-550 {width: 550px}
+.width-500 {width: 500px}
+.width-450 {width: 450px}
+.width-400 {width: 400px}
+.width-350 {width: 350px}
+.width-300 {width: 300px}
+.width-250 {width: 250px}
+.width-220 {width: 220px}
+.width-200 {width: 200px}
+.width-150 {width: 150px}
+.width-120 {width: 120px}
+.width-100 {width: 100px}
+.width-80 {width: 80px}
+.width-70 {width: 70px}
+.width-50 {width: 50px}
+.width-40 {width: 40px}
+
+.width-100perc {width: 100%}
+.width-99perc {width: 99%}
+.width-70perc {width: 70%}
+.width-15perc {width: 15%}
+
+.col-command {} /* Marker */
+.col-check {text-align: center;width: 20px;} /* Se il width viene messo prima del text-align su IE non funziona! */
+.col-icons {text-align: center;width: 40px}
+
+.align-left {text-align: left}
+.align-center  {text-align: center}
+.align-right {text-align: right}
+
+
+/* ERROR.ASPX
+------------------------------------------------------------------------------------- */
+#cp-content.status403 {
+}
+#cp-content.status404 {
+   background: transparent url(/Resources/img/404.png) no-repeat bottom left;
+   min-width: 1024px;
+   min-height: 600px;
+}
+.status500 {
+}
+.status403 {
+}
+.status403 {
+}
+
+#errorbox {
+   margin: 0 30%;
+   padding: 10px;
+}
+#errorbox p {
+   font-size: 1.2em;
+}
+#cp-content.status404 #errorbox {
+   width: 400px;
+   margin-left: 500px;   
+   opacity: 0.8;
+}
+
+
+
+/* SECTION SPECIFIC CLASSES
+------------------------------------------------------------------------------------- 
+.section {
+   margin-bottom: 8px;
+}
+
+.cp-utility .section {
+   width: 265px;
+   margin: 14px 15px 0 0;
+}
+.cp-utility .section.margin-top-pagetitle {
+   margin-top: 42px; 
+}
+
+.cp-utility .section h2,
+.cp-utility .section h3 {
+   padding: 0;
+	padding-left: 10px;
+   margin-top:0;
+	overflow: hidden; 
+}
+.cp-utility .section h2 {
+   font-size: 1.8em;
+   height: 1.8em;
+   line-height: 1.8em;
+}
+.cp-utility .section h3 {
+   font-size: 1.3em;
+   height: 1.5em;
+   line-height: 1.5em;
+   border-bottom: 0;
+}
+
+.cp-utility .section ul:not(.ui-tabs-nav) li {
+   list-style-position: outside;
+   list-style-type:none; 
+   width: 213px;
+	height: 22px;
+   margin: 0;
+   padding: 0
+}
+.cp-utility .section ul:not(.ui-tabs-nav) li label {
+   vertical-align: top;
+}
+.cp-utility .section input[type="checkbox"], 
+.cp-utility .section input[type="radio"] {
+   vertical-align:text-top;
+}
+.cp-utility .section ul:not(.ui-tabs-nav) li a {
+	display: block;
+	width: 213px;
+	height: 20px;
+	border: solid 1px inherit;
+	line-height:20px;
+	font-weight: bold;
+	text-decoration: none;
+	overflow: hidden;
+}
+
+.cp-utility .section li img {
+   margin-right:2px; 
+   padding: 2px 0; 
+   vertical-align:top;
+}
+
+.cp-utility .section .section-body{
+	padding: 4px 10px;
+	border-top: 0;
+}
+
+
+#cp-content .section {}
+#cp-content .section h2 {
+   font-size: 1.5em;
+   height: 1.5em;
+   line-height: 1.5em;
+}
+*/
+
+
+
+/* SETUP BOX
+------------------------------------------------------------------------------------- */
+#setupbox {
+   display: block;
+   width: 500px;
+   margin: 0 auto;
+   margin-top: 50px;
+   padding: 0;
+}
+#setupbox-inner {
+   z-index: 10000;
+}
+#setupbox #setupbox-title {
+   height: 25px;
+   padding: 10px 0 32px 0;
+   border: 0;
+}
+
+#setup-logo {
+   position: absolute;
+   margin-top: -40px;
+}
+
+#setupbox h2 {}
+
+#setupbox .section-body {
+   padding: 16px;
+}
+#setupbox form#setupform {margin: 0 auto;}
+
+
+ul#setup-steps {
+}
+ul#setup-steps li {
+   display: block;
+   width: 131px;
+   height: 56px;
+   padding-right: 19px;
+}
+ul#setup-steps li div {
+   display: block;
+   height: 48px;
+   padding: 4px 2px;
+   font-size: 14px;
+   line-height: 48px;
+}
+ul#setup-steps li.current {
+   background: transparent url(/Resources/img/setup-current.png) no-repeat top right;
+}
+ul#setup-steps li.current div {
+   border-right: 0
+}
+
+#step-content {
+   width: 305px;
+   padding-left: 5px;
+}
+
+/* override for validation */
+#setupbox #step-content .field-validation-error {
+   display: block
+}
+
+/* override for messages */
+.message {
+   display: block;
+   width: auto;
+   margin: 10px auto 0 auto;
+   padding: 0;
+}
+
+
+/* LOGIN BOX
+------------------------------------------------------------------------------------- */
+#loginbox {
+   display: block;
+   width: 400px;
+   margin: 0 auto;
+   margin-top: 100px;
+   padding: 0;
+}
+#loginbox-inner {
+   z-index: 10000;
+}
+
+#loginbox .login-logo {
+   text-align: center;
+}
+#loginbox #loginbox-title {
+   height: 25px;
+   padding: 30px 0 20px 0;
+   border: 0;
+}
+
+#loginbox h2 {}
+
+#loginbox .section-body {
+   padding: 16px;
+}
+#loginbox form#loginform {margin: 0 auto;}
+
+/* override for .ui-form-default */
+#loginbox .ui-form-default {margin-bottom: 4px}
+#loginbox .ui-form-default ol li label {color: #999; font-size: 1.3em}
+#loginbox .ui-form-default input.logintext {
+   font-size: 1.3em;
+   margin-bottom: 2px;
+   width: 98%;
+   color:#2779AA;
+   font-weight:bold;   
+}
+#loginbox .ui-form-default label.error {
+   width: auto;
+   margin-left: 0;
+   font-size: 1.1em;
+}
+#loginbox .section-body label.loginbox-rememberme {
+   display: inline; 
+   width: 70px;
+   font-size: 1.1em;
+}
+#loginbox .section-body div.loginbox-failure { /* replace with UI ui-state-alert */
+   color: #FFF;
+   background-color: #F00;
+   font-weight: bold;
+}
+
+
+/* GRID (TABLE)
+------------------------------------------------------------------------------------- */
+.grid {
+   width: 100%;
+   empty-cells: show;
+   border-collapse: separate;
+}
+.grid thead tr,
+.grid tfoot tr {
+   height: 24px;
+}
+.grid thead tr th,
+.grid tfoot tr th {
+   padding: 5px;
+   font-size: 1em;
+}
+.grid thead tr th {font-weight: bold;}
+
+.grid tbody {}
+.grid tbody tr {
+   border: solid 1px transparent;
+}
+.grid tbody tr td {
+   height: 26px;
+   padding: 5px;
+   border: solid 1px transparent;
+   vertical-align: top;
+}
+
+/* Hover Actions */
+.grid tbody tr td a:hover {text-decoration: underline; }
+.grid tbody tr td .hover-actions {visibility: hidden; padding: 2px 0 0 0; vertical-align: top;}
+.grid tbody tr:hover td .hover-actions {visibility: visible}
+.grid tbody tr td .hover-actions .ui-icon {display: inline-block;}
+.grid tbody tr td .hover-actions a {font-weight: normal;font-size: 1.0em; vertical-align: top;}
+.grid tbody tr td .hover-actions span.separator {font-weight: normal; line-height: normal; vertical-align: top;}
+
+
+.grid tbody tr td.title {
+   font-weight: bold;
+   font-size: 1.2em;
+}
+.grid tbody tr td span.title {
+   font-weight: bold;
+   color: #2779AA;
+}
+.grid tbody tr td .button {
+   font-size: 1.1em;
+}
+
+
+/* width overrides for table cells */
+td.width-auto {width: auto}
+td.width-450 {width: 450px}
+td.width-400 {width: 400px}
+td.width-350 {width: 350px}
+td.width-300 {width: 300px}
+td.width-250 {width: 250px}
+td.width-200 {width: 200px}
+td.width-150 {width: 150px}
+td.width-120 {width: 120px}
+td.width-100 {width: 100px}
+td.width-50 {width: 50px}
+td.width-40 {width: 40px}
+td.width-20 {width: 20px}
+td.width-16 {width: 16px}
+
+td.width-100perc {width: 100%}
+td.width-70perc {width: 70%}
+td.width-20perc {width: 20%}
+td.width-15perc {width: 15%}
+
+td.multitext {
+   word-wrap: break-word;
+   overflow: hidden;
+}
+
+table.width-auto {width: auto}
+table.width-100perc {width: 100%}
+table.width-70perc {width: 70%}
+
+td.col-command {padding-right:4px} /* Marker */
+td.col-check {text-align: center; width: 20px;} /* if width is before the text-align, on IE don't work! */
+td.col-icons {text-align: center; width: 40px}
+
+td.align-left {text-align: left}
+td.align-center  {text-align: center}
+td.align-right {text-align: right}
+
+.col-date {text-align: center;width:85px}
+.col-fulldate {text-align: center;width:140px}
+
+
+/* PAGER
+-----------------------------------------------------------------------------------*/
+.wp-pagenavi a, .wp-pagenavi a:link {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;
+	text-decoration: none;
+	border: 1px solid #aed0ea;
+	color: #2779aa;
+	background-color: #d7ebf9;	
+}
+/*
+.wp-pagenavi a:visited {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;
+	text-decoration: none;
+	border: 1px solid #0066cc;
+	color: #0066cc;
+	background-color: #FFFFFF;	
+}*/
+
+.wp-pagenavi a:hover {	
+	border: 1px solid #74b2e2;
+	color: #e17009;
+	background-color: #e4f1fb;
+}
+
+.wp-pagenavi a:active {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;
+	text-decoration: none;
+	/*border: 1px solid #0066cc;
+	background-color: #FFFFFF;	*/
+	color: #000;
+}
+
+.wp-pagenavi span.pages {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px 2px 2px 2px;
+	color: #362b36;
+}
+
+.wp-pagenavi span.current {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;
+	font-weight: bold;
+	border: 1px solid #dddddd;
+	color: #362b36;
+}
+
+.wp-pagenavi span.extend {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;	
+	border: 1px solid #dddddd;
+	color: #362b36;
+}
+		
+
+/* Advanced Toogle Link 
+------------------------------------------------------------------------------------- 
+a.advanced-settings-toggle {
+   background: url(/Resources/img/16x16/gear.gif) no-repeat 2px center;
+   padding: 2px;
+   padding-left: 20px;
+   outline: 0;
+   text-decoration: underline;
+   color: #585858;
+}
+.advanced-settings {
+   display: none;
+}
+*/
+
+
+/* CONTROLPANEL 
+------------------------------------------------------------------------------------- */
+
+/*a.controlpanelicon {
+   text-decoration: none;
+}*/
+.controlpanelgroup {padding-bottom: 10px;}
+
+.controlpanelicon {
+   display: inline-block;
+   vertical-align: top;
+   overflow: hidden;
+}
+.controlpanelicon.ui-iconplustext {
+   width: 260px;
+   height: 54px;
+   margin-top: 10px;
+   text-align: left;
+}
+.controlpanelicon span.ui-button-text {
+   padding: 0.4em 1em 0.4em 0.4em;
+}
+
+#stats .controlpanelicon {
+   border: solid 1px transparent;
+   width: auto;
+   height: auto;
+   font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+   font-size: 1.1em;
+}
+
+
+.block-align {
+   display: inline-block;
+   vertical-align: top;
+}
+.block-align-left {float: left;}
+img.block-align-left {padding: 0 8px 8px 0;}
+
+.wizard-img {
+   padding: 0 16px 8px 0;
+}
+
+
+/* BOX DI PREVIEW PER I THUMBNAIL
+------------------------------------------------------------------------------------- */
+span.image-preview {
+   background-color: #FFF;
+   border: 1px solid #ABADB3;
+   clear: both;
+   display: block;
+   width: 120px;
+   height: 120px;
+   margin: 0;/*pt auto;*/
+   overflow: hidden;
+   position: relative;
+}
+span.image-preview img {
+   display: block;
+   margin: 0pt auto;
+   vertical-align: middle;
+}
+table.image-preview-container tr td {
+   border: 0; margin: 0;
+}
+table.image-preview-container tr td a.button-secondary {
+   display: block;
+   margin: 4px 0 0 4px;
+   height: 24px;
+   line-height: 24px;
+}
+
+
+/* Themes Selector
+----------------------------------------------------------------------------------------------------*/
+#theme-selector li {
+   display: inline-block;
+   height: 300px;
+   vertical-align: top;
+}
+
+#theme-selector div {
+   display: inline-block;
+   width: 300px; 
+   height: 290px;
+   margin: 2px 8px 8px 2px;
+}
+#theme-selector div.theme-thumbnail {
+   display: block;
+   width: 240px;
+   height: 200px;
+   margin: 4px 30px;
+   overflow: hidden;
+}
+#theme-selector div img {
+   display: block;
+}
+
+#theme-selector h3 {
+   display: block;
+   margin: 7px;
+   font-family: Verdana; 
+   font-size: 1.3em;
+   text-align: center;
+}
+
+#theme-selector div.theme-button {
+   display: block;
+   margin: 0;
+   height: 24px;
+   text-align: center;
+}
+#theme-selector div.theme-button a.button {
+   display: inline-block;
+   margin-left: 13px;
+   font-size: 1.1em; /* adjust the font for the buttons */
+}
+#theme-selector div.theme-button div.current {
+   height: 24px;
+   margin: 0;
+   padding: 0;
+   border-right: 0;
+   border-left: 0;
+   font-weight:bold;
+   text-align: center;
+   text-transform:uppercase;   
+}
+#theme-selector div.theme-button div.current span {
+   display: block;
+   vertical-align: middle;
+   padding-top: 4px;
+   font-size: 1.1em; /* adjust the font for the buttons */
+}
+
+
+
+/* Tag Check list
+----------------------------------------------------------------------------------------------------*/
+ul#tagchecklist {
+   margin: 4px 0;
+}
+ul#tagchecklist li {
+   margin-bottom: 4px;
+   width: auto;
+   height: auto;
+}
+ul#tagchecklist li .tag {
+   display: inline-block;
+   height: 22px;
+   line-height: 22px;
+   max-width: 130px;
+   margin-right: 8px;
+   padding: 2px 4px 2px 24px;
+   overflow: hidden;
+   background: transparent url(/Resources/img/tag.png) no-repeat 0 50%; 
+   font-weight: bold; 
+   color: #3B67E2;
+}
+ul#tagchecklist li a.tag-remove {
+   display: none;
+   width: auto;
+   height: 22px;
+   float: right;
+} 
+ul#tagchecklist li span.ui-icon {
+   display: inline-block;
+   vertical-align: middle;
+   line-height: 22px;
+}
+
+
+
+/* Tag Cloud
+----------------------------------------------------------------------------------------------------*/
+#tagcloud a {
+   width: auto;
+   display:inline-block;
+   margin-right: 4px;
+   font-weight: normal;
+   height: auto;
+   line-height: normal;
+   overflow: inherit;
+   color: #3B67E2;
+}
+
+#tagcloud a {
+	text-decoration: none !important;
+}
+#tagcloud a:hover {
+	text-decoration: underline !important;
+}
+
+
+/* Posts Table
+----------------------------------------------------------------------------------------------------*/
+.comment-count {
+   display: block;
+   width: 25px;
+   height: 22px;
+   margin: 0 auto;
+   background: transparent url("/Resources/img/ui/comment.gif") no-repeat scroll 50% 60%;
+   color: #FFF;
+}
+
+
+/* Comments Table
+----------------------------------------------------------------------------------------------------*/
+table#comments td {
+   vertical-align: top;
+}
+
+table#comments td.col-author {
+   width: 20%;
+}
+
+table#comments td.col-author img {
+   display: inline-block;
+   margin-right: 4px;
+   word-wrap: break-word;
+   vertical-align: top;
+}
+table#comments td.col-author div {
+   display: inline-block;
+}
+
+
+/* initial status: hidden*/
+#reply-container {
+   display: none;
+}
+#reply-header {
+   padding: 4px 0;
+   font-size: 12px;
+   font-weight: bold;
+}
+#reply-content-container {
+   height:120px;
+   padding: 4px;
+}
+#reply-footer {
+   height: 32px;
+   padding: 4px 0 0 0;
+   text-align: center;
+}
+#replyContent {
+   width: 100%;
+   height: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 12px;
+   font-weight: normal;
+   line-height: 150%;
+   outline: medium none;
+}
+
+
+/* Filter Actions (on top of grids)
+----------------------------------------------------------------------------------------------------*/
+.filter-actions {
+   margin: 8px 0 6px 0;
+}
+.filter-actions a {
+   padding: 0 0.2em;
+}
+.filter-actions a.current {
+   font-weight: bold;
+}
+
+
+/* CodeMirror Editor */
+.CodeMirror-line-numbers {
+   width: 2.2em;
+   color: #aaa;
+   background-color: #eee;
+   text-align: right;
+   padding-right: .3em;
+   font-size: 10pt;
+   font-family: monospace;
+   padding-top: .4em;
+}
+
+
+/* Media Browser (when used inline in a page)
+----------------------------------------------------------------------------------------------------*/
+#mediabrowser {
+   width: 550px;
+}
+#mediabrowser tr,
+#mediabrowser td {
+   height: 48px;
+}
+#mediabrowser {
+   -moz-box-shadow: transparent;
+   -webkit-box-shadow: transparent;
+}
+#mediabrowser.grid tbody tr td .hover-actions {
+   margin: 0;
+   padding: 0;
+}
+#mediabrowser.grid tbody tr td .hover-actions a {
+   font-size: 1.1em;
+   display: block;
+   width: auto;
+   padding: 2px 0;
+   text-decoration: none;
+}
+
+#mediabrowser.grid tbody tr td .hover-actions a:hover {text-decoration: none; }
+
+#mediabrowser .ui-button-text { text-decoration: none; padding-left: 11px;}
