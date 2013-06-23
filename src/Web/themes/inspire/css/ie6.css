@@ -1,0 +1,14 @@
+#nav .sf-sub-indicator { display:none; }
+#nav li a:hover { text-decoration:none; }
+#nav li a.sf-with-ul { padding-right:10px; }
+.button, .button:visited { margin:0; color:#555 !important; font-weight:normal; } .reply a {  color:#555 !important; }
+#featured .col-right { margin-bottom:0px; }
+#featured a.btn, #featured a.btn span { background:#ccc; }
+.widget_woo_news .rss{ right:40px; }
+#nav li.current_page_item, #nav li.current_page_parent { background:#222; }
+#content { background:none; }
+.pagination {
+margin-top:15px;
+}
+#searchform .btn { display:none; }
+.widget_woo_twitter h3  { zoom: 1; }

@@ -1,0 +1,143 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<Arashi.Core.Domain.Page>
+@using Arashi.Core.Domain.Extensions
+@using Arashi.Core.Extensions
+@using Arashi.Web.Areas.Admin.Models
+@using Arashi.Core.Domain
+
+@section head {
+	<title>New Page</title>
+   @{
+      Html.RequiresJs("~/Resources/js/src/admin.page.new.js", 100);
+   }
+}
+@section ScriptPlaceHolder {
+   <script type="text/javascript">
+      var currentSiteId = '@RequestContext.ManagedSite.SiteId';
+      var urlBrowse = '@Url.Action("Browse", "MediaManager", new { siteid = RequestContext.ManagedSite.SiteId })';
+      var localized_Editor_AddMedia = '@GlobalResource("Editor_AddMedia")';
+      var localized_Editor_More = '@GlobalResource("Editor_More")';
+	</script>
+   @Html.HtmlEditorScripts() 
+}
+
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}))
+                              .Add("Pages", Url.Action("Index", "AdminPage", new {siteid = RequestContext.ManagedSite.SiteId}))
+                              .AddCurrent("New Page")) )
+}
+
+
+@using(Html.BeginForm("SaveNew", "AdminPage", new { siteid = RequestContext.ManagedSite.SiteId }, FormMethod.Post, new { id = "newpageform", @class = "_ui-form-default" })) { 
+   <div id="adminpagetitle">
+      @Html.AntiForgeryToken() 
+      <img class="icon" src="/Resources/img/32x32/page_add.png" alt="new page" />
+      <h2>New Page</h2>
+      <div class="clear" ></div>
+
+      <br />
+      <div class="ui-widget ui-helper-clearfix">
+         <span>
+            @GlobalResource("Status"):&nbsp;
+            @Html.DropDownList("WorkflowStatus", new SelectList(ViewBag.WorkflowStatusList, "Key", "Value", "Published"), string.Empty)
+            @GlobalResource("On")
+	         @Html.DropDownList("Month", ViewData["MonthsList"] as SelectList)
+	         @Html.TextBox("Day", DateTime.Now.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).Day.ToString().PadLeft(2, '0'), new {@class = "veryshorttext"}) 
+	         ,
+	         @Html.TextBox("Year", DateTime.Now.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).Year, new {@class = "shorttext"}) 
+            @@
+	         @Html.TextBox("Hour", DateTime.Now.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).Hour.ToString().PadLeft(2, '0'), new {@class = "veryshorttext"}) 
+	         :
+	         @Html.TextBox("Minute", DateTime.Now.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).Minute.ToString().PadLeft(2, '0'), new {@class = "veryshorttext"}) 
+         </span>
+      </div>
+   </div>
+   <div class="clear"></div>
+
+   <div id="tabs">
+      <ul>
+         <li><a href="#tabContent"><span>@GlobalResource("Content")</span></a></li>
+         <li><a href="#tabCustomTemplate"><span>@GlobalResource("Custom Template")</span></a></li>
+         <li><a href="#tabParentPage"><span>@GlobalResource("ParentPage")</span></a></li>
+         <li><a href="#tabSeo"><span>SEO</span></a></li>
+      </ul>
+
+      <div id="tabContent">
+         <div class="ui-widget">
+            <h3>@GlobalResource("Title")</h3>
+	         @Html.TextBox("Title", Model.Title, new { @class = "width-99perc" })
+
+            <br />
+            <br />
+
+            <h3>@GlobalResource("Content")</h3>
+	         @Html.HtmlEditor("Content", Model.Content)
+            <br />
+         </div>
+      </div>
+
+      <div id="tabCustomTemplate">
+         @*<span>
+            @if (!string.IsNullOrEmpty(ViewBag.CustomTemplateFile)) { 
+               @ViewBag.CustomTemplateFile 
+               } else { 
+            @:none
+               } 
+         </span>*@
+         <ol>
+            <li class="vertical">
+               @if ( ((SelectList)ViewBag.CustomTemplateFiles).Count() > 0) { 
+                  <label>Template File:</label>
+	               @Html.DropDownList("CustomTemplateFile", (SelectList)ViewBag.CustomTemplateFiles, "", new { @class = "mediumtext" })
+               } else { 
+                  @:No custom template files available for the current theme.
+               } 
+           </li>
+         </ol>
+      </div>
+
+      <div id="tabParentPage">
+         @*<span>
+            @if (Model.ParentPage == null) { 
+               @:none
+               } else { 
+               @Model.ParentPage.Title 
+               } 
+         </span>*@
+         <ol>
+            <li class="vertical">
+               <label>Parent page:</label>
+               @Html.ParentPageDropDownList("ParentPage", (IList<Arashi.Core.Domain.Page>)ViewBag.ParentPages, Model.ParentPage)
+           </li>
+         </ol>
+      </div>
+
+      <div id="tabSeo" class="ui-form-default">
+         <p>@GlobalResource("EnableMetaDescription")&nbsp;<a href='@Url.Action("Index", "Seo", new {siteid = RequestContext.ManagedSite.SiteId})'>@GlobalResource("SEOSettings")</a></p>
+         <ol>
+            <li>
+               <label for="Post_EnableMeta">@GlobalResource("EnableMeta")</label>
+               @Html.CheckBoxFor(m => m.EnableMeta)
+            </li>
+            <li>
+               <label for="Post_MetaDescription">@GlobalResource("MetaDescription")</label>
+               @Html.TextAreaFor(m => m.MetaDescription, 4, 40, new { @class = "largetext" }) 
+            </li>
+            <li>
+               <label for="Post_MetaKeywords">@GlobalResource("MetaKeywords")</label>
+               @Html.TextBoxFor(m => m.MetaKeywords, new { @class = "largetext" }) 
+            </li>
+         </ol>
+      </div>
+
+
+   </div>
+
+   <div id="adminpagefooter" class="ui-widget">
+      @Html.SubmitUI(GlobalResource("Save"))	
+      &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "AdminPage", new {siteid = RequestContext.ManagedSite.SiteId}) '>Back to Pages list</a>
+   </div>
+ } 
+
+
+

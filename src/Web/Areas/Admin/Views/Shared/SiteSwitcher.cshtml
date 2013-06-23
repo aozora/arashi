@@ -1,0 +1,36 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase
+@using Arashi.Core.Domain
+@using Arashi.Core.Domain.Extensions
+<div class="col_3">
+   <ul>
+      <li>
+         <img src="/Resources/img/32x32/browser_view.png" alt="view site" />
+         <a href='@RequestContext.ManagedSite.DefaultUrl()'>
+            @GlobalResource("ViewCurrentSite") 
+         </a>
+      </li>
+      <li>
+         <img src="/Resources/img/32x32/browser_add.png" alt="newsite" />
+         <a href='@Url.Action("NewSite", "Site", new {siteid = RequestContext.ManagedSite.SiteId})'>
+            @GlobalResource("CreateNewSite") 
+         </a>
+      </li>
+   </ul>
+</div>
+<div class="col_3">
+   <h3>@GlobalResource("SwitchToSite")</h3>
+   <hr />
+   <ul>
+      @if (ViewData["SitesList"] != null) { 
+         foreach (Site site in ViewData["SitesList"] as IList<Site>) { 
+            <li>
+               <img src="/Resources/img/32x32/browser.png" alt="newsite" />
+               <a class="ui-corner-all" href='@Url.Action("Index", "Site", new {siteid = site.SiteId})' >
+                  @site.Name 
+               </a>
+            </li>
+          } 
+       } 
+   </ul>
+</div>
+

@@ -1,0 +1,277 @@
+﻿body {
+   color: #585858;
+}
+
+/* HEADINGS
+------------------------------------------------------------------------------------- */
+h1 {
+	font-size: 32px; /*2.0em;*/
+	font-weight:normal;
+	font-style:italic;
+	letter-spacing:1px;
+}
+h2 {
+   font-size: 24px; /*1.5em;*/	
+	font-weight: bold;
+}
+h3 {
+   font-size: 14px; /*1.0em;*/
+	font-weight: bold;
+}
+h4 {}
+h5 {}
+h6 {}
+
+
+/* GLOBAL ELEMENTS FORMATTING
+------------------------------------------------------------------------------------- */
+p {line-height: 1.8em;}
+code {}
+acronym {}
+ul li {}
+ol li {}
+ul span, ol span {}
+img {
+   border: 0;
+   vertical-align: middle;
+   -ms-interpolation-mode: bicubic; /* only for IE */
+}
+hr {border-top: solid 1px #D2D4D5;border-bottom: solid 1px #E2E4E4}
+strong {font-weight: bold}
+
+input {
+   background-color: #FFF;
+   border: 1px solid #AED0EA;
+}
+
+
+/* LINKS
+------------------------------------------------------------------------------------- */
+a {text-decoration: underline; outline: 0}
+a:hover {text-decoration: underline; }
+
+
+/* BUTTONS
+------------------------------------------------------------------------------------- */
+.button { 
+   outline: 0; 
+   zoom: 1; 
+}
+.button .ui-icon { 
+   position: absolute; 
+   top: 50%; 
+   margin-top: -8px; 
+   left: 50%; 
+   margin-left: -8px; 
+}
+
+/* remove extra button width in IE */
+button.button { width:auto; overflow:visible; outline:0 }
+   
+.button.button-left-hover {padding-left: 2em}
+   
+a.button-secondary {
+   text-decoration: underline;
+   color: #2E6E9E;
+   font-weight:bold;
+}
+a.button-secondary:hover {color: #2E6E9E}
+
+.button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+
+
+
+/* Big IconButtons (used as toolbar % action buttons)
+------------------------------------------------------------------------------------- */
+a.coolbutton {
+   display: inline-block;
+   text-decoration: none;
+}
+a.coolbutton .ui-button-text {padding: 0 4px;}
+
+a.coolbutton div.coolbutton-image {
+   float: left;
+   width: 32px;
+   margin-right: 4px;
+}
+a.coolbutton .coolbutton-text {
+   display: block;
+   float: left;
+   padding-left: 3px;
+   border-left: solid 1px #A6C9E2
+}
+a.coolbutton .coolbutton-text span {display: block;}
+a.coolbutton .coolbutton-text span.coolbutton-title {
+   margin-bottom: 2px;
+   font-weight: bold; 
+   color: #2E6E9E;
+}
+
+a.coolbutton .coolbutton-text span.coolbutton-desc {color: #585858; font-weight: normal;}
+a.coolbutton .coolbutton-text a {color: #E17009; text-decoration: none}
+a.coolbutton .coolbutton-text a:hover {text-decoration: underline}
+
+
+   
+
+/* FORM, FORM ELEMENTS, FORMBOX
+------------------------------------------------------------------------------------- */
+.ui-form-default {
+}
+.ui-form-default ol {
+  margin: 0;
+  padding: 0;
+}
+.ui-form-default ol li {
+   clear: left;
+   padding: 4px;
+   list-style: none;
+   vertical-align: text-top;
+}
+
+/* OL exception */
+.ui-form-default ol.ol li {list-style-type: decimal; list-style-position: inside;}
+
+.ui-form-default ol li label {
+   clear: left;
+   float: none;
+   display: inline-block;
+   width: 200px;
+   padding-right: 12px;
+   text-align:right;
+   font-weight: bold;
+}
+
+.ui-form-default ol li.vertical label {
+   display: block;
+   width: auto;
+   text-align: left;
+   vertical-align: top;
+}
+
+.ui-form-default ol.longlabel li label {
+   width: 300px;
+}
+
+.ui-form-default ol.shortlabel li label {
+   width: 110px;
+}
+
+
+.ui-form-default ol li input, 
+.ui-form-default ol li select,
+.ui-form-default ol li textarea {
+	-moz-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border: 1px solid #aed0ea;
+   padding: 1px;
+   vertical-align: top;
+   font-size: 1.1em;
+   outline: 0 none; /* this remove the blue border on webkit browsers */
+}
+.ui-form-default ol li .hint {
+   display: block;
+   margin-left: 212px;
+}
+.ui-form-default ol li.vertical .hint {
+   display: block;
+   margin-left: 0;
+}
+.ui-form-default ol.longlabel li .hint {
+   margin-left: 320px;
+}
+.hint {font-size: 10px; color: #888}
+.hint.info {
+   font-size: 12px;
+   padding-left: 20px;
+   background: transparent url(/Resources/img/16x16/information.png) no-repeat 0 0;
+}
+
+/* same as ui-state-hover [ui.css] */
+.ui-form-default ol li input.ui-form-hover,
+.ui-form-default ol li select.ui-form-hover,
+.ui-form-default ol li textarea.ui-form-hover {
+   border: 1px solid #74b2e2;
+}
+
+.ui-form-active {
+}
+
+
+/*
+.ui-form-default ol li input.required,
+.ui-form-default ol li select.required,
+.ui-form-default ol li textarea.required {
+   background-image: url(/Resources/img/16x16/exclamation.png);
+   background-position: 99% center;
+   background-repeat: no-repeat;
+}
+*/
+
+
+/* Input, Custom overrides
+input.uppercase {text-transform: uppercase}
+input.lowercase {text-transform: lowercase}
+input.capitalize {text-transform: capitalize}
+ */	
+ 
+ 
+input.checkbox, .ui-form-default input.checkbox,
+input.radio, .ui-form-default input.radio {width:22px; border:0; padding:0}
+
+/* fix for checkbox label */
+.ui-form-default ol li input[type=checkbox]+label,
+.ui-form-default ol li input[type=radio]+label {
+   display: inline;
+   padding: 0;
+}
+
+
+/* per input, select, textarea */
+input.veryshorttext {width: 20px;}
+input.shorttext, select.shorttext, textarea.shorttext {width: 40px;}
+input.mediumtext, select.mediumtext, textarea.mediumtext {width: 200px;}
+input.largetext, select.largetext, textarea.largetext {width: 350px;}
+
+input.date  {width: 80px;}
+input.largedate {width: 140px;}
+input.numbers {width: 80px; text-align: right; padding-right: 2px;} /* Applico il padding a dx come workaround per IE Bug (Cursor disappear on align right)*/
+input.hours  {width: 50px;}
+
+
+
+/* VALIDATION
+------------------------------------------------------------------------------------- */
+.ui-form-default ol li span.ui-state-error {
+   margin-left: 4px;
+   padding: 0 4px;
+   vertical-align: middle;
+}
+
+/*
+.validation-required {
+   padding-right: 20px;
+   background: url(/Resources/img/16x16/asterisk.png) no-repeat right center;
+}*/
+
+div.form-item input.error {background: #FFEBA7 url(/Resources/img/err.gif) repeat-x left bottom;}
+
+/* jQuery Validation Classes */
+.field-validation-error {
+   padding-left: 20px;
+   color: #F00;
+   font-weight: bold;
+   text-align: left;
+   background: url(/Resources/img/16x16/minus_circle.png) no-repeat 2px center;
+}
+
+.input-validation-error {
+   background: #FFEBA7 url(/Resources/img/err.gif) repeat-x left bottom;
+}
+
+.validation-summary-errors {
+   color: #F00;
+   font-weight: bold;
+   text-align: center;
+   margin: 10px 10px 0 10px;
+}

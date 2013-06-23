@@ -1,0 +1,40 @@
+/*
+* Arashi Project
+* Copyright (c) 2010
+*/
+a {color: #734d99} /* ui-state-hover a */
+
+.ui-link,
+.ui-widget-header .ui-link, 
+.ui-widget-content .ui-link { /* use with 'a' element */
+   color: #ffffff; /* ui-widget-content */
+}
+.ui-title { color: #665874; } /* ui-state-default a */
+
+.ui-shadow {
+   -moz-box-shadow: 3px 3px 6px #aaaaaa;
+   -webkit-box-shadow: 3px 3px 6px #aaaaaa;
+   box-shadow: 3px 3px 6px #aaaaaa;
+}
+/* this is a variant slighlty light of the default ui-shadow
+.ui-button-shadow {
+   -moz-box-shadow: 2px 2px 4px #aaaaaa;
+   -webkit-box-shadow: 2px 2px 4px #aaaaaa;
+}*/
+
+.wp-pagenavi span {
+}
+.wp-pagenavi a:hover {
+}
+
+.ui-state-default-border { border: solid 1px #dcd9de; /* the border color is the same as ui-state-default */ }
+   .ui-state-default-border-top { border-top: solid 1px #dcd9de; /* the border color is the same as ui-state-default */ }
+   .ui-state-default-border-right { border-right: solid 1px #dcd9de; /* the border color is the same as ui-state-default */ }
+   .ui-state-default-border-bottom { border-bottom: solid 1px #dcd9de; /* the border color is the same as ui-state-default */ }
+   .ui-state-default-border-left { border-left: solid 1px #dcd9de; /* the border color is the same as ui-state-default */ }
+
+.ui-state-hover-border { border: solid 1px #d1c5d8; /* the border color is the same as ui-state-default */ }
+   .ui-state-hover-border-top { border-top: solid 1px #d1c5d8; /* the border color is the same as ui-state-default */ }
+   .ui-state-hover-border-right { border-right: solid 1px #d1c5d8; /* the border color is the same as ui-state-default */ }
+   .ui-state-hover-border-bottom { border-bottom: solid 1px #d1c5d8; /* the border color is the same as ui-state-default */ }
+   .ui-state-hover-border-left { border-left: solid 1px #d1c5d8; /* the border color is the same as ui-state-default */ }

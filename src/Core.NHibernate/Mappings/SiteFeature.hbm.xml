@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+   <class name="Arashi.Core.Domain.SiteFeature, Arashi.Core.Domain"
+          table="cms_SiteFeatures">
+
+      <!--<cache usage="read-write" />-->
+
+      <id name="SiteFeatureId" column="SiteFeatureId" type="Int32" unsaved-value="-1">
+         <generator class="hilo"/>
+      </id>
+
+      <many-to-one name="Feature" class="Arashi.Core.Domain.Feature, Arashi.Core.Domain"
+             column="FeatureId"
+             not-null="true" />
+      <many-to-one name="Site" class="Arashi.Core.Domain.Site, Arashi.Core.Domain"
+             column="SiteId"
+             not-null="true" />
+
+      <property name="Enabled" column="Enabled" type="Boolean" not-null="true" />
+      <property name="StartDate" column="StartDate" type="DateTime" not-null="true" />
+      <property name="EndDate" column="EndDate" type="DateTime" not-null="false" />
+
+   </class>
+</hibernate-mapping>

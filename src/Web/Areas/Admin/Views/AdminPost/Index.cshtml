@@ -1,0 +1,181 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<IPagedList<Arashi.Core.Domain.Post>>
+@using Arashi.Core.Extensions
+@using Arashi.Core.Domain
+@using Arashi.Core.Domain.Extensions
+
+@section head {
+	<title>@GlobalResource("Posts")</title>
+   @{
+      Html.RequiresJs("~/Resources/js/src/admin.post.index.js", 100);
+   }
+}
+
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId }))
+                              .AddCurrent("Posts")))
+}
+
+
+<div id="adminpagetitle">
+   <img class="icon" src="/Resources/img/32x32/word.png" alt="list posts" />
+   <h2>@GlobalResource("Posts") </h2>
+</div>
+
+<div class="ui-widget ui-helper-clearfix">
+   <a id="newPostLink" 
+            href='@Url.Action("NewPost", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId }) '  
+            title="Create new post" 
+            class="coolbutton ui-iconplustext  ui-shadow" >
+      <img src="/Resources/img/32x32/word_add.png" alt="new post" />
+      <em>
+         <span class="ui-iconplustext-title ui-title">@GlobalResource("NewPost") </span>
+         <span>@GlobalResource("PostsNew") </span>
+      </em>
+   </a>
+</div>
+
+<br />
+   
+<div>
+   <div id="actions-container" class="ui-widget ui-helper-clearfix">
+      <div class="filter-actions">
+         @GlobalResource("View")&nbsp;
+         <a class='@string.IsNullOrEmpty((string)ViewData["WorkflowStatus_Current"]) ? "current" : string.Empty'
+            href='@Url.Action("Index", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId })'>
+            @GlobalResource("All") 
+         </a>
+         @{ foreach (KeyValuePair<string, string> kv in (IDictionary<string, string>)ViewData["WorkflowStatusDictionary"]) { 
+            @:|
+            <a class='@(ViewData["WorkflowStatus_Current"] as string) == kv.Key ? "current" : string.Empty'
+               href='@Url.Action("Index", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId, status = kv.Key })'>
+               @GlobalResource("WorkflowStatus_" + kv.Key) 
+            </a>
+            } 
+         }
+      </div>
+
+      @if (!string.IsNullOrEmpty(ViewBag.CurrentSearchPattern))
+      { 
+         <div id="filter-search">
+            <span>@GlobalResource("DisplayingResultsFor"):&nbsp;<strong>@ViewBag.CurrentSearchPattern</strong></span>
+            &nbsp;|&nbsp;
+            <a href='@Url.Action("Index", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId })'>@GlobalResource("ShowAll")</a> 
+         </div>
+      } 
+      <div id="searchbox-container">
+         @using (Html.BeginForm("Index", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId }, FormMethod.Get, new { id = "searchform", @class = "ui-form-default" }))
+         { 
+            <input id="searchtext" name="s" type="text" class="ui-link ui-corner-left ui-shadow" value='@GlobalResource("SearchWithEllipsis")' />
+            <button id="search-submit" type="submit" class="ui-button ui-state-default ui-corner-right ui-shadow" title='@GlobalResource("Search")'>
+               <img src="/Resources/img/16x16/magnifier.png" alt="search" />
+            </button>
+         } 
+      </div>
+   </div>
+
+   <table class="grid ui-widget ui-widget-content ui-corner-all ui-shadow">
+      <thead class="ui-widget-header ui-corner-top">
+         <tr>
+            <th>@GlobalResource("Title")</th>
+            <th class="width-15perc">@GlobalResource("Author")</th>
+            <th class="width-15perc">@GlobalResource("Categories")</th>
+            <th class="width-15perc">@GlobalResource("Tags")</th>
+            <th class="width-70">@GlobalResource("Comments")</th>
+            <th class="">@GlobalResource("Status")</th>
+            <th class="width-15perc">@GlobalResource("PublishedDate")</th>
+         </tr>
+      </thead>
+      <tfoot class="ui-widget-header ui-corner-bottom">
+         <tr>
+            <th colspan="7">
+               @if (Model != null)
+               { 
+                  @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, null, (string)ViewBag.CurrentSearchPattern)
+               } 
+            </th>
+         </tr>
+      </tfoot>
+      <tbody class="ui-widget-content">
+         @if (Model != null)
+         {
+            foreach (Post post in Model)
+            { 
+               <tr>
+                  <td class="title">
+                     <a class="ui-text-shadow-light" href='@Url.Action("Edit", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId, id = post.Id }) '>
+                        @(string.IsNullOrEmpty(post.Title) ? GlobalResource("NoTitle") : post.Title)
+                     </a>
+                     <div class="hover-actions">
+                        &nbsp;&nbsp;&nbsp;
+                        <span class="ui-icon ui-icon-pencil"></span>
+                        @Html.ActionLink(GlobalResource("Edit"), "Edit", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId, id = post.Id }, new { @class = "button-secondary" })
+                        <span class="separator">&nbsp;|&nbsp;</span>
+                        @Html.ActionLink(GlobalResource("Delete"), "Delete", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId, id = post.Id }, new { @class = "post-delete" })
+                        <span class="separator">&nbsp;|&nbsp;</span>
+                        <a href='@RequestContext.ManagedSite.DefaultUrl() + post.GetContentUrl() ' >@GlobalResource("Preview") </a>
+                     </div>
+                  </td>
+                  <td>@post.Author.Email </td>
+                  <td class="multitext">
+                     @for (int index = 0; index < post.Categories.Count; index++)
+                     { 
+                        @Html.ActionLink(post.Categories[index].Name, "Edit", "AdminCategory", new { id = RequestContext.ManagedSite.SiteId, categoryId = post.Categories[index].Id }, new { id = "post-" + post.Id + "category-" + post.Categories[index].Id }) 
+                        if (index < (post.Categories.Count - 1))
+                        { 
+                           @:,
+                        }
+                     } 
+                  </td>
+                  <td class="multitext">
+                     @for (int index = 0; index < post.Tags.Count; index++)
+                     {
+                        @Html.ActionLink(post.Tags[index].Name, "Edit", "AdminTag", new { id = RequestContext.ManagedSite.SiteId, tagId = post.Tags[index].TagId }, new { id = "post-" + post.Id + "tag-" + post.Tags[index].TagId }) 
+                        if (index < (post.Tags.Count - 1))
+                        { 
+                           @:,
+                        }
+                     } 
+                  </td>
+                  <td class="width-70 align-center">
+                     <span class="comment-count">
+                        @post.Comments.Count.ToString() 
+                     </span>
+                  </td>
+                  <td>
+                     @GlobalResource("WorkflowStatus_" + post.WorkflowStatus.ToString())
+                  </td>
+                  <td>
+                     @if (post.PublishedDate.HasValue)
+                     {
+                        if (post.PublishedDate.Value > DateTime.Now.ToUniversalTime())
+                        { 
+                           @GlobalResource("ScheduledOn")
+                           <br />
+                        } 
+                        @post.PublishedDate.Value.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).ToShortDateString() 
+                     }
+                     else
+                     { 
+                        @GlobalResource("NotYetPublished") 
+                     } 
+                  </td>
+               </tr>
+            }
+         }
+         else
+         { 
+            <!-- Empty Template -->
+            <tr class="emptyrow">
+               <td colspan="7">@GlobalResource("NoPostsExists") </td>
+            </tr>
+         } 
+      </tbody>
+   </table>
+</div>
+   
+<div id="adminpagefooter" class="ui-widget">
+   <a href='@Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId }) '>@GlobalResource("BackToControlPanel") </a>
+</div>
+
+
+

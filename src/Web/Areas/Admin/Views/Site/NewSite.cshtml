@@ -1,0 +1,52 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<NewSiteModel>
+@using Arashi.Web.Areas.Admin.Models
+
+@section head {
+	<title>New Site</title>
+   @{
+      Html.RequiresJs("~/Resources/js/src/jquery.openid.js", 100);
+   }
+}
+
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}))
+                              .AddCurrent("New Site")) )
+}
+
+@using(Html.BeginForm("SaveNew", "Site", new { siteid = RequestContext.ManagedSite.SiteId }, FormMethod.Post, new { id = "newsiteform", @class = "ui-widget ui-form-default" })) { 
+   <div class="align-left">
+      <img class="block-align wizard-img" src="/Resources/img/128x128/web_add.png" alt="webadd" />
+      <div class="block-align">
+         <h2>Create a new site</h2>
+         <p>To create a new site fill the required fields below</p>
+         @Html.AntiForgeryToken() 
+         <ol>
+            <li>
+               <label for="Name">Name:</label>
+               @Html.TextBox("Name", Model.Name, new {maxlength = "70", @class = "mediumtext"}) 
+            </li>
+            <li>
+               <label for="Description">Description:</label>
+               @Html.TextBox("Description", Model.Description, new {maxlength = "160", @class = "largetext"}) 
+            </li>
+            <li>
+               <label for="DefaultHostName">Host name:</label>
+               http://@Html.TextBox("DefaultHostName", Model.DefaultHostName, new {maxlength = "100", @class = "mediumtext"}) 
+               <span class="hint">Can be a domain name or an IP address, i.e. mywebsite.com, 192.198.0.1</span>
+            </li>
+            <li>
+               <br />
+               <br />
+               <br />
+            </li>
+            <li class="align-center">
+               @Html.SubmitUI("Create")
+               &nbsp;|&nbsp;
+               <a href='@Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}) '>@GlobalResource("BackToControlPanel")</a>
+            </li>
+         </ol>
+
+      </div>
+   </div>
+} 
+

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Arashi.Core.Domain.SiteHost, Arashi.Core.Domain" 
+          table="cms_SiteHosts">
+      
+      <!--<cache usage="read-write" />-->
+
+      <id name="SiteHostId" column="SiteHostId" type="Int32" unsaved-value="-1">
+         <generator class="hilo"/>
+      </id>
+
+      <property name="HostName" column="HostName" type="String" not-null="true" />
+      <many-to-one name="Site" class="Arashi.Core.Domain.Site, Arashi.Core.Domain"
+                   column="SiteId"
+                   not-null="true" />
+      <property name="IsDefault" column="IsDefault" type="Boolean" not-null="true" />
+      <many-to-one name="Theme" class="Arashi.Core.Domain.Theme, Arashi.Core.Domain"
+                   column="ThemeId"
+                   not-null="false" />
+
+      <property name="CreatedDate" column="CreatedDate" type="DateTime" />
+      <property name="UpdatedDate" column="UpdatedDate" type="DateTime" not-null="false"/>
+
+	</class>
+</hibernate-mapping>

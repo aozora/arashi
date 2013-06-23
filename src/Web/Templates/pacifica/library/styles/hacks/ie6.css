@@ -1,0 +1,52 @@
+/* jCarousel Fix */ 
+.jcarousel-skin-atlantica .jcarousel-container-horizontal,
+.jcarousel-skin-atlantica-small .jcarousel-container-horizontal {
+	 padding-right: 34px;
+}
+
+#page .navigation{
+	width: 1000px;
+	background: #FFF;
+	margin-left: 29px; /* IMPORTANT! DO NOT REMOVE! */
+	margin-right: 29px; /* IMPORTANT! DO NOT REMOVE! */
+	z-index: 999;
+}
+
+/* Footer  Fix */
+#footer .footerWrap{
+	width: 1000px;
+}
+
+/* Search Bar  Fix */
+#page .navigation .search{
+	width: 200px;
+	margin:0 -20px 0 0;
+}
+
+#page .navigation .search .button{
+	text-indent: -9999px;
+	font-size: 0px;
+	line-height: 0px;
+	color: white;
+}
+
+.title{
+	width: 300px;
+	position: relative;
+	top: -25px;
+}
+
+.jcarousel-prev-horizontal {
+    left: 0px !important;
+	background: transparent url(../jcarousel/skins/atlantica/arrow_left.gif) no-repeat 0 0 !important;
+} 
+.jcarousel-next-horizontal {
+    right: 0px !important;
+	background: transparent url(../jcarousel/skins/atlantica/arrow_right.gif) no-repeat 0 0 !important;
+}
+
+.jcarousel-skin-atlantica-gallery .jcarousel-container-horizontal {
+width:920px !important;
+overflow: hidden; 
+}
+

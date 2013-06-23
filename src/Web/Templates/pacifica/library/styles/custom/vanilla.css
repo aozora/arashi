@@ -1,0 +1,21 @@
+/* --------------------- */
+/*     QUICK STYLING     */
+/*  CHANGE THE BG IMAGE  */
+/*  & LINK COLORS HERE   */
+/* --------------------- */
+
+body{background: #eefaff url(img/ltblue.jpg) repeat-x;}
+
+a{color: #1780b9;}
+a:hover {color: #0d72a8;}
+
+#content .content_wrap.entries .entry h2, #content .content_wrap .full-entry .post h2{color: #333333;}
+#sidebar ul.categories li a{color: #1780b9;}
+
+#footer {padding-bottom:30px; margin-bottom: 0px;}
+
+#footer h2 {color:#ffffff;}
+#footer .footerList li ul li a {color: white;}
+#footer .copyright span {color: white;}
+#footer .copyright {color: white;}
+

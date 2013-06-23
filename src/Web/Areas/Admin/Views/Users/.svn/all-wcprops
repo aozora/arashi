@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/arashi/!svn/ver/301/trunk/src/Web/Areas/Admin/Views/Users
+END
+Index.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/arashi/!svn/ver/226/trunk/src/Web/Areas/Admin/Views/Users/Index.cshtml
+END
+ChangePassword.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/Users/ChangePassword.cshtml
+END
+NewUser.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/Users/NewUser.cshtml
+END
+RolesListUserControl.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/arashi/!svn/ver/226/trunk/src/Web/Areas/Admin/Views/Users/RolesListUserControl.cshtml
+END
+Details.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/arashi/!svn/ver/301/trunk/src/Web/Areas/Admin/Views/Users/Details.cshtml
+END

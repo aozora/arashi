@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/arashi/!svn/ver/292/trunk/src/Web/Areas/Admin/Views/Site
+END
+Index.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/arashi/!svn/ver/283/trunk/src/Web/Areas/Admin/Views/Site/Index.cshtml
+END
+NewSite.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/Site/NewSite.cshtml
+END
+Settings.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/arashi/!svn/ver/292/trunk/src/Web/Areas/Admin/Views/Site/Settings.cshtml
+END

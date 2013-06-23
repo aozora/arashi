@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/arashi/!svn/ver/280/trunk/src/Web/Areas/Admin/Views/AdminPost
+END
+Index.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/arashi/!svn/ver/280/trunk/src/Web/Areas/Admin/Views/AdminPost/Index.cshtml
+END
+TagList.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/arashi/!svn/ver/225/trunk/src/Web/Areas/Admin/Views/AdminPost/TagList.cshtml
+END
+Edit2.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/arashi/!svn/ver/244/trunk/src/Web/Areas/Admin/Views/AdminPost/Edit2.cshtml
+END
+NewPost.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/AdminPost/NewPost.cshtml
+END
+Edit.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/AdminPost/Edit.cshtml
+END

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="html-wave"> 
+<head>
+   @RenderSection("head", false)
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   @{
+      Html.RequiresCss("~/Resources/css/src/admin.reset.css", 1);
+      Html.RequiresCss("~/Resources/css/src/admin.layout.css", 2);
+      Html.RequiresCss("~/Resources/css/themes/arashi/jquery-ui.css", 4);
+      Html.RequiresCss("~/Resources/css/themes/arashi/arashi-ui.css", 5);
+      Html.RequiresCss("~/Resources/css/src/admin.form.css", 6);
+      Html.RequiresCss("~/Resources/css/src/admin.style.css", 7);
+      Html.RequiresCss("~/Resources/css/src/admin.ui.common.css", 8);
+
+      Html.RequiresJs("~/Resources/js/src/jquery.js", 1);
+      Html.RequiresJs("~/Resources/js/src/jquery-ui.js", 2);
+   }
+   <!--[if IE]>  
+   <link href="/Resources/css/src/admin.ie.css" rel="stylesheet" type="text/css" />
+   <![endif]--> 
+   <!--[if lte IE 7]>
+   <script type="text/javascript">
+      try {document.execCommand("BackgroundImageCache", false, true);} catch(err) {};
+   </script>
+   <![endif]--> 
+   @MvcHtmlString.Create(Html.RenderCssHere())
+</head>
+
+<body>
+   <!--[if lte IE 7]>
+       @Html.Partial("ObsoleteWarning") 
+   <![endif]-->
+   <div id="wrap">
+      <div id="content-wrap">
+         <div id="content">
+            <noscript id="noscript">
+               <div class="ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                  <h1>
+                     <img src="/Resources/img/32x32/error.png" alt="warning" />
+                     Warning!
+                     <img src="/Resources/img/32x32/error.png" alt="warning" />
+                  </h1>
+                  <h3>The Control Panel requires that JavaScript is enabled on this browser.</h3>
+                  <p>Follow the instructions at this link: 
+                     &nbsp;
+                     <a onclick="window.open(this.href);return false;" 
+                        href="/Resources/help/HowToEnableJavascript.it-IT.htm" 
+                        class="morelink" >help</a>
+                  </p>
+                  <br />
+               </div>
+            </noscript>
+            @{ Html.RenderRegisteredMessages(); }
+            @RenderBody()
+         </div>
+      </div>
+   </div>
+   @MvcHtmlString.Create(Html.RenderJsHere())
+   @RenderSection("ScriptPlaceHolder", false)
+</body>
+</html>
+
+            

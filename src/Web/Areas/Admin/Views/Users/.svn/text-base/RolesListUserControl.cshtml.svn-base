@@ -1,0 +1,22 @@
+﻿@model NewUserModel
+@using Arashi.Core.Domain
+@using Arashi.Web.Areas.Admin.Models
+
+<table class="inlineblock grid ui-widget ui-widget-content ui-corner-all width-auto ui-shadow">
+   <tbody class="ui-widget-content">
+		@{ foreach (Role role in Model.AllRoles) { 
+		<tr>
+		   <td class="width-200">
+			   <label for="Role_@(role.RoleId)">@role.Name</label>  
+		   </td>
+		   <td class="width-40">
+			   <input type="checkbox" id="Role_@role.RoleId " name="roleIds" 
+			          value="@role.RoleId" 
+			          @(Model.IsInRole(role) ? "checked" : String.Empty) />
+		   </td>
+		</tr>
+		 } }
+   </tbody>
+</table>
+
+

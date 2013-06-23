@@ -1,0 +1,1 @@
+this folder is required for the compile.time view check for ASP.NET MVC Views

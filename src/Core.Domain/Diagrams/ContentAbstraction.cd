@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Arashi.Core.Domain.ContentItem" Collapsed="true">
+    <Position X="4.5" Y="1.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IBGCEAAAQAAQgEAAggAAAACBASAAEMQgAkAQiAIAIgA=</HashCode>
+      <FileName>Domain\ContentItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Arashi.Core.Domain.Page">
+    <Position X="3.25" Y="3" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAgAAAQQAABAAAAAAgAAAAAABAAAAA=</HashCode>
+      <FileName>Domain\Page.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Arashi.Core.Domain.Post">
+    <Position X="6.25" Y="3" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="Arashi.Core.Domain.ContentItem" FixedToPoint="true">
+      <Path>
+        <Point X="5.75" Y="2.062" />
+        <Point X="5.75" Y="2.625" />
+        <Point X="7.333" Y="2.625" />
+        <Point X="7.333" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAQCAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Post.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Arashi.Core.Domain.IContentItem" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBGCEAAAAAAQgEAAgAAAAACBASAAEEQAAkAQCAIAIAA=</HashCode>
+      <FileName>Domain\IContentItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

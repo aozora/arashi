@@ -1,0 +1,22 @@
+/* --------------------- */
+/*     QUICK STYLING     */
+/*  CHANGE THE BG IMAGE  */
+/*  & LINK COLORS HERE   */
+/* --------------------- */
+
+body{background: #000000 url(img/grunge-bg.jpg) repeat-x center top;}
+
+a{color: #f55507;}
+a:hover {color: #f55507;}
+
+#content .content_wrap.entries .entry h2, #content .content_wrap .full-entry .post h2{color: #f55507;}
+#sidebar ul.categories li a{color: #f55507;}
+
+#footer {padding-bottom:20px; margin-bottom: 0px;}
+#footer h2 {color:#ffffff;}
+#footer .footerList li ul li a {color:#888888;}
+#footer .copyright span {color:#999999;}
+#footer .copyright {color:#888888;}
+
+#content .content_wrap .entries ul li .entry ul li, #content .content_wrap .full-entry .post ul li {
+background:transparent url(img/grey-bullet.gif) no-repeat scroll 0 0;}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Arashi.Core.Domain.FeatureCategory, Arashi.Core.Domain" 
+          table="cms_FeatureCategories">
+		
+      <!--<cache usage="read-write" />-->
+
+      <id name="FeatureCategoryId" column="FeatureCategoryId" type="Int32" unsaved-value="-1">
+	      <generator class="hilo"/>
+      </id>
+
+      <property name="Name" column="Name" type="String" not-null="true" />
+      <property name="Order" column="Order" type="Int32" not-null="true" />
+      <property name="ImageSrc" column="ImageSrc" type="String" not-null="true" />
+
+   </class>
+</hibernate-mapping>

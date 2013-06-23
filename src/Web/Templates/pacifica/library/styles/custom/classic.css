@@ -1,0 +1,17 @@
+/* --------------------- */
+/*     QUICK STYLING     */
+/*  CHANGE THE BG IMAGE  */
+/*  & LINK COLORS HERE   */
+/* --------------------- */
+
+body{background: #000000 url(img/stripes.jpg) repeat-x;}
+
+a{color: #1780b9;}
+a:hover {color: #0d72a8;}
+
+#page .navigation ul li a:hover, #page .navigation .search .button:hover{color: #1780b9;}
+
+#sidebar ul.categories li a{color: #1780b9;}
+
+#footer .copyright a{color: white;}
+

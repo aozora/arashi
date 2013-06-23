@@ -1,0 +1,360 @@
+/* --------------------------------------------------------------    
+   Set default typography based on Blueprint   
+   http://code.google.com/p/blueprintcss/     
+-------------------------------------------------------------- */   
+
+body {
+    color:#666;    
+    font: 12px "Lucida Grande", "Lucida Sans Unicode", Garuda, sans-serif;
+    line-height:24px;
+}
+
+input, textarea {
+    line-height:normal !important;
+}
+
+
+/* HEADINGS -------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6 { 
+	font-weight:bold;
+	clear:both;
+	letter-spacing:-0.02em;
+	font-family: Arial;
+}
+
+/*#content h1{font-size: 26px; margin: 5px 0px 10px;}*/
+#content h1{font-size: 22px; margin: 10px 0 5px;}
+#content h2{font-size: 22px; margin: 10px 0 5px;}
+#content h3{font-size: 18px; margin: 15px 0px 10px;}
+#content h4{font-size: 16px; margin: 10px 0px 10px;}
+#content h5{font-size: 14px; margin: 5px 0px 10px;}
+#content h5{font-size: 12px; margin: 5px 0px 10px; text-transform: uppercase;}
+
+
+/* TEXT ELEMENTS -------------------------------------------------------------- */
+
+p {
+	margin-bottom:18px;
+}
+ul, ol {
+	margin: auto;
+}
+ul {
+	list-style:none;
+}
+ol {
+	list-style-type: decimal;
+	margin-left: 40px;
+}
+ol ol {
+	list-style:upper-alpha;
+}
+ol ol ol {
+	list-style:lower-roman;
+}
+ol ol ol ol {
+	list-style:lower-alpha;
+}
+ul ul, ol ol, ul ol, ol ul {
+	margin-bottom:0;
+}
+dl	{
+    margin:0 1.5em;
+}
+dd {
+	margin-bottom:18px;
+}
+strong {
+	font-weight: bold;
+}
+cite, em, i {
+	font-style: italic;
+}
+blockquote {
+	color: #666666;
+	border-left: 3px solid #eaeaea;
+	line-height: 24px;
+	margin:30px 20px;padding-left:15px;
+}
+blockquote em, blockquote i, blockquote cite {
+	font-style:normal;
+}
+pre {
+	font:11px Monaco, monospace;
+	line-height:18px;
+	margin-bottom:18px;
+}
+code {
+	font:11px Monaco, monospace;
+}
+ins {
+	text-decoration:none;
+}
+sup,
+sub {
+	height: 0;
+	line-height: 1;
+	vertical-align: baseline;
+	_vertical-align: bottom;
+	position: relative;
+	
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+
+/* PULLQUOTES -------------------------------------------------------------- */
+
+blockquote.left {
+	float: left;
+	margin-right:20px;
+	text-align: right;
+	width: 33%;
+}
+blockquote.right {
+	float: right;
+	margin-left:20px;
+	text-align: left;
+	width: 33%;
+}
+
+
+
+
+/* ------------------------------------------------- */
+/* CUSTOM TEXT STYLING FOR THIS THEME -------------- */
+/* ------------------------------------------------- */
+
+/* GENERAL MODIFICATIONS -------------- */
+#page .navigation ul li a{
+	text-decoration: none;
+	color: #333;
+}
+
+#content .from_title .page_title, #content .from_title .page_title a{
+	font-size: 16px;
+        color: #222; 
+        font-family: Arial;
+}
+
+#content .from_title li.page_title{
+	font-size: 16px;
+	background: none;
+}
+
+
+.full_entry ul{
+	margin-left: 20px;
+}
+
+.content_wrap hr{
+	margin: 20px 0;
+height: 1px;
+}
+
+
+
+
+
+/* POST COLUMN MODIFICATIONS (MAIN CONTENT COLUMN) -------------- */
+.title h1, .title h2, .title h3{clear: none !important;}
+.title h1,
+.title h2{margin: 0 !important; padding: 2px 0 0 !important;}
+.title h1 a,
+.title h2 a{color: #111 !important;}
+.title h1 a,
+.title h2 a{width: 450px !important;}
+
+
+#content .content_wrap .entries ul li .date,
+#content .content_wrap .full-entry .date{
+	background: url(library/img/blog/date_bg.jpg) no-repeat;
+	width: 36px;
+	height: 42px;
+	float:left;
+	margin: 5px 15px 0 0;
+	text-transform: uppercase;
+}
+
+#content .content_wrap .entries ul li .date p,
+#content .content_wrap .full-entry .date p{
+	padding-top: 2px;
+	font-size: 10px;
+	text-align: center;
+	line-height: 13px;
+	color: white;
+	font-family: Arial;
+	font-weight: bold;
+}
+
+#content .content_wrap .entries ul li .date p span,
+#content .content_wrap .full-entry .date p span{
+	display: block;
+	font-size: 19px;
+}
+
+#content .content_wrap .entries ul li .entry-title h1,
+#content .content_wrap .full-entry .entry-title h1{
+	font-size: 26px; 
+	color: #333333;
+	height: 30px;
+	overflow: hidden;
+	font-family: Arial, sans-serif;
+}
+
+#content .content_wrap .entries ul li .entry,
+#content .content_wrap .full-entry .post,
+#content .content_wrap .full-entry .page{
+	clear: both;
+	height: auto;
+	padding-top: 10px;
+	border-bottom: 1px dotted #c2c2c2;
+	padding-bottom: 10px;
+	font-size: 12px;
+}
+
+.comment_list p{
+	margin: 0;
+}
+
+#content .content_wrap .entries ul li .entry ul li,
+#content .content_wrap .full-entry .post ul li{
+	background: url(library/img/blog/bullet.jpg) no-repeat 0 5px;
+	padding-left: 15px;
+	/* -- margin-top: 10px;
+	margin-bottom: 10px; -- */
+}
+
+
+
+
+/* SIDEBAR TEXT MODIFICATIONS -------------- */
+#sidebar h3 a, a h3{color: #333333;}
+#sidebar h3{
+	font-family: Arial, sans-serif;
+        color: #333333; margin: 0 0 10px;
+}
+
+
+
+/* FOOTER TEXT STYLING FOR THIS THEME -------------- */
+
+.footer_nav .prev{
+	font-size:20px; 
+	color: #999999;
+}
+
+.footer_nav .cur{
+	font-size:12px; 
+	color: #333333;
+	text-align:center;
+}
+
+.footer_nav .cen a{
+	font-size:12px; 
+	color: #333333;
+	text-align:center;
+}
+
+.footer_nav .cur i, .footer_nav .cen i{
+	font-size:12px; 
+	color: #999999;
+	text-transform:lowercase;
+}
+
+.footer_nav .next{
+	font-size:12px; 
+	color: #999999;
+}
+
+
+.footer_links li {padding-right: 25px; display: inline;}
+.footer_links li a {color: white; font-weight: bold;}
+.footer_links {margin: 0 0 12px; text-align: center;}
+
+
+#footer .copyright{
+	clear: both;
+	color: #8c8c8c;
+	padding-top: 25px;
+	font-size: 11px;
+	text-align: center;
+}
+
+#footer .copyright span{
+	color: #FFF;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#footer .copyright ul{
+	padding: 8px;
+	padding-left: 0px;
+	padding-right: 0px;
+	float:left;
+	width: 750px;
+}
+
+#footer .copyright ul li{
+	display: inline;
+	padding-left: 20px;
+	padding-right: 12px;
+}
+
+
+#footer .copyright ul li, 
+#footer .copyright ul li li{
+        margin: 0 auto;
+	float: left;
+}
+
+#footer .copyright a{
+	color: white;
+        font-style: normal;
+}
+
+
+
+/* ---------- SPECIAL RULES ------------- */
+
+.comments_tally{
+background: url(library/img/blog/comments_bg.jpg) no-repeat;
+color: white;
+text-align: center;
+width: 112px;
+height: 30px;
+float: right;
+margin-top: 6px;
+line-height: 22px;
+}
+
+.comments_tally a, .comments_tally a:hover{color: white;}
+
+.title h1,
+.title h2 {color:#333333; font-size:24px; font-weight:bold; height:28px; overflow:hidden;}
+
+#content .content_wrap .entries ul li .title h3, #content .content_wrap .full-entry .title h3 {
+font-family: "Lucida Grande", "Lucida Sans Unicode", Garuda,sans-serif; font-weight: normal; font-size:11px; margin: -6px 0 0 0 !important;}
+
+#wp-calendar{width: 100%;}
+#wp-calendar td{text-align: center;}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){#page .navigation .search .button {top:-4px;}}
+
+
+
+/* ---------- @FONT-FACE RULES ------------- */
+
+
+#sidebar h3, .title h2, .title h1, #content h1, #content h2, .page_title{font-family: "Gotham", "Helvetica", Arial !important; letter-spacing: -0.01em;}
+
+/* aozora */
+#content .page_title h1 {margin: 0; display: inline;}
+
+/* custom override */
+.from_title {border-top: 1px dotted #C2C2C2;}
+.from_title ul li {padding: 0}

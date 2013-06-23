@@ -1,0 +1,31 @@
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 6000,
+  width: 198,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#ededed',
+      color: '#777777'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#88a241'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('arashiproject').start();
+</script>

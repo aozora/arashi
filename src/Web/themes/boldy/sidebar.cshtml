@@ -1,0 +1,33 @@
+﻿@model Arashi.Web.Mvc.Models.TemplateContentModel
+<!-- Begin #colRight -->
+		<div id="colRight">
+      @*@{
+		if (get_option("boldy_blog") != "" && is_category(get_option("boldy_blog")) || post_is_in_descendant_category( get_option("boldy_blog"))){
+         var _current = get_the_category();
+		if(_current.Count() > 0) { 
+		   var _current_id = _current[0].Id; 
+		   string _categs_list = get_category_parents(_current_id);
+         var _pieces = _categs_list.Split('/');
+		   var _category_name = _pieces[0].ToLower();
+		   var _categs = get_cat_id(_category_name);
+		}
+      <div class="rightBox">
+			<h2>@get_cat_name(get_option("boldy_blog")) Categories </h2>
+			<ul>
+				@{	
+				var _categories = get_categories("hide_empty=1&child_of=" + _categs);
+				foreach (var _cat in _categories) {
+					'<li><a href="'
+               get_category_link(_cat.cat_ID).'">'.$cat->cat_name.'</a></li>');
+				} }
+			</ul>
+		</div>
+		}}
+      *@
+		
+		@*Widgetized sidebar*@
+	   @if (!dynamic_sidebar() ) {}
+		
+		</div>
+<!-- End #colRight -->
+		

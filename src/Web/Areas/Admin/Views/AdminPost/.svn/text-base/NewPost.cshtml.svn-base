@@ -1,0 +1,265 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<Post>
+@using Arashi.Core.Domain.Extensions
+@using Arashi.Core.Extensions
+@using Arashi.Web.Areas.Admin.Models
+@using Arashi.Core.Domain
+
+@section head {
+	<title>New Post</title>
+   @{
+      Html.RequiresJs("~/Resources/js/src/admin.post.new.js", 100);
+   }
+}
+@section ScriptPlaceHolder {
+   <script type="text/javascript">
+      // global documents vars
+      var currentSiteId = '@RequestContext.ManagedSite.SiteId';
+      var urlSaveNewTag = '@Url.Action("SaveNew", "AdminTag", new { siteid = RequestContext.ManagedSite.SiteId })';
+      var urlSaveNewCategory = '@Url.Action("SaveNew", "AdminCategory", new { siteid = RequestContext.ManagedSite.SiteId })';
+      var urlGetTagCloud = '@Url.Action("GetTagsFormatted", "AdminTag", new { siteid = RequestContext.ManagedSite.SiteId })';
+      var urlBrowse = '@Url.Action("Browse", "MediaManager", new { siteid = RequestContext.ManagedSite.SiteId })';
+      var localized_Editor_AddMedia = '@GlobalResource("Editor_AddMedia")';
+      var localized_Editor_More = '@GlobalResource("Editor_More")';
+	</script>
+   @Html.HtmlEditorScripts() 
+}
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}))
+                              .Add("Posts", Url.Action("Index", "AdminPost", new {siteid = RequestContext.ManagedSite.SiteId}))
+                              .AddCurrent("New Post")) )
+}
+
+
+@using(Html.BeginForm("SaveNew", "AdminPost", new { siteid = RequestContext.ManagedSite.SiteId }, FormMethod.Post, new { id = "newpostform", @class = "_ui-form-default" })) { 
+   <div id="adminpagetitle">
+      @Html.AntiForgeryToken() 
+      <img class="icon" src="/Resources/img/32x32/word_add.png" alt="new post" />
+      <h2>New Post</h2>
+      <div class="clear"></div>
+
+      <br />
+      <div class="ui-widget ui-helper-clearfix">
+         <span>
+            @GlobalResource("CurrentStatus"):&nbsp;
+            @Html.DropDownList("WorkflowStatus", new SelectList(ViewBag.WorkflowStatusList, "Key", "Value", "Published"), string.Empty)
+            @GlobalResource("On")
+	         @Html.DropDownList("Month", ViewData["MonthsList"] as SelectList)
+	         @Html.TextBox("Day", DateTime.Now.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).Day.ToString().PadLeft(2, '0'), new {@class = "veryshorttext"}) 
+	         ,
+	         @Html.TextBox("Year", DateTime.Now.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).Year, new {@class = "shorttext"}) 
+            @@
+	         @Html.TextBox("Hour", DateTime.Now.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).Hour.ToString().PadLeft(2, '0'), new {@class = "veryshorttext"}) 
+	         :
+	         @Html.TextBox("Minute", DateTime.Now.AdjustDateToTimeZone(RequestContext.CurrentUser.TimeZone).Minute.ToString().PadLeft(2, '0'), new {@class = "veryshorttext"}) 
+         </span>
+      </div>
+   </div>
+   <div class="clear"></div>
+
+   <div id="tabs">
+      <ul>
+         <li><a href="#tabContent"><span>@GlobalResource("Content")</span></a></li>
+         <li><a href="#tabTags"><span>@GlobalResource("Tags")</span>&nbsp;<span class="infoball ui-widget ui-state-active ui-corner-all ui-shadow">@Model.Tags.Count.ToString()</span></a></li>
+         <li><a href="#tabCategories"><span>@GlobalResource("Categories")</span>&nbsp;<span class="infoball ui-widget ui-state-active ui-corner-all ui-shadow">@Model.Categories.Count.ToString()</span></a></li>
+         <li><a href="#tabSeo"><span>SEO</span></a></li>
+      </ul>
+
+      <div id="tabContent">
+         <div class="ui-widget">
+            <h3>@GlobalResource("Title")</h3>
+	         @Html.TextBox("Title", Model.Title, new { @class = "width-99perc" })
+
+            <br />
+            <br />
+
+            <h3>@GlobalResource("Content")</h3>
+	         @Html.HtmlEditor("Content", Model.Content)
+
+            <br />
+            @if (string.IsNullOrEmpty(Model.Summary)) { 
+               <a id="showSummaryLink" class="button-secondary" href="#">@GlobalResource("DoYouWantToSpecifyTheSummaryForThisPost")?</a>
+               <br />
+            } 
+
+            <div id="summaryFieldset" class='@(string.IsNullOrEmpty(Model.Summary) ? "hidden" : "")'>
+               <h3>@GlobalResource("Summary")</h3>
+	            @Html.TextArea("Summary", Model.Summary, new {@class = "width-100perc"})
+            </div>
+            <br />
+
+            <h3>
+               @GlobalResource("Comments") 
+               @if (Model.Comments.Count > 0) { 
+                  @:&nbsp;(@Model.Comments.Count.ToString())
+               } 
+            </h3>
+            <ol class="longlabel">
+               <li>
+                  @Html.LabelFor(m => m.AllowComments, GlobalResource("AllowCommentsOnThisPost"))
+                  @Html.CheckBoxFor(m => m.AllowComments) 
+               </li>
+               <li>
+                  @Html.LabelFor(m => m.AllowPings, GlobalResource("AllowTrackbacksPingbacksOnThisPost"))
+                  @Html.CheckBoxFor(m => m.AllowPings)
+               </li>
+               @if (Model.Comments.Count > 0) { 
+                  <li>
+                     <a id="showCommentsLink" class="button-secondary" href="#">@GlobalResource("ShowComments")</a>
+                  </li>
+                  }                
+            </ol>
+
+         </div>
+      </div>
+
+      <div id="tabTags">
+         <div>
+            <span><strong>@GlobalResource("TagsUsedByThisPost"):</strong></span>
+               
+            <ul id="tagchecklist">
+               <li id="tagchecklist-empty" class='@(Model.Tags.Count == 0 ? "" : "hidden")'>
+                  <span>@GlobalResource("Message_NoTagsAssociated")</span>
+               </li>
+               @foreach (Tag tag in Model.Tags) { 
+               <li>
+                  <div class="tag">
+                     @tag.Name 
+                     <input id='tagid-@(tag.TagId.ToString())' name="tagid" 
+                              type="hidden" 
+                              value='@tag.TagId.ToString()' />
+                  </div>
+                  <a title='@GlobalResource("RemoveThisTag")' href="#" class="tag-remove" >
+                     <span class="ui-icon ui-icon-circle-close" ></span>
+                     @GlobalResource("Remove") 
+                  </a>
+               </li>
+                } 
+            </ul>
+         </div>
+         <hr />
+         <div>
+            <span><strong>@GlobalResource("ChooseATagFromThese"):</strong></span>
+            <div id="tab-tag-selection">
+               <ul>
+                  <li><a href="#tabPopular"><span>@GlobalResource("Popular")</span></a></li>
+                  <li><a href="#tabAll"><span>@GlobalResource("All")</span></a></li>
+                  <li><a href="#tabAdd"><span>@GlobalResource("AddNew")</span></a></li>
+               </ul>
+               <div id="tabPopular">
+                  <span>@GlobalResource("Message_NoTagsPopular")</span>
+               </div>
+               <div id="tabAll">
+                  @if (ViewBag.SiteTags.Count == 0) { 
+                     <span>@GlobalResource("Message_NoTags")</span>
+                   } else { 
+                     <label>@GlobalResource("SelectATagFromTheList"):</label>
+                     <br />
+                     <select id="all-tags-select">
+                         @*@Html.RenderPartial("TagList", ViewBag.SiteTags) *@
+                        <option value=""></option>
+                        @{ foreach (Tag tag in ViewBag.SiteTags) { 
+                           <option value='@tag.TagId.ToString()'>@tag.Name</option>
+                        }}
+                     </select>
+                   } 
+               </div>
+               <div id="tabAdd">
+      	         <div id="newtagform" class="ui-form-default">
+                     <ol>
+                        <li class="vertical">
+                           <label>@GlobalResource("Name")</label>
+                           @Html.TextBox("TagName") 
+                           <span class="hint">@GlobalResource("SeparateTagsWithCommas")</span>
+                        </li>
+                        <li class="align-right">
+                           <a id="submitNewTagLink" 
+                              class="button ui-shadow" 
+                              href="#" >@GlobalResource("Add")</a>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>               
+         </div>
+      </div>
+
+      <div id="tabCategories">
+         <span><strong>@GlobalResource("CategoriesUsedByThisPost"):</strong></span>
+         <ol>
+            @foreach (Category category in ViewBag.SiteCategories) { 
+               <li>
+                  @for (int level = 0; level < category.Level; level++) { 
+                     @:&nbsp;&nbsp;&nbsp;&nbsp;
+                  } 
+			         <input id='category_@(category.Id)' name="categoryid" 
+			                  type="checkbox"
+			                  @if (Model.Categories.Contains(category)) { 
+			                     @:checked="checked" 
+			                  } 
+			                  value="@category.Id" />
+			         <label for="category_@(category.Id)">@category.Name</label>
+               </li>
+             } 
+            @if (ViewBag.SiteCategories.Count == 0) { 
+               <li>
+                  <span>@GlobalResource("Message_NoCategories") </span>
+               </li>
+             } 
+         </ol>
+         <hr />
+         <a id="addNewCategoryLink" href="#" class="button-secondary" >@GlobalResource("AddANewCategory")</a>
+         <fieldset id="newCategoryPanel" class="margin-top hidden">
+         	<div id="newcategoryform" class="ui-form-default">
+               <ol>
+                  <li class="vertical">
+                     <label>@GlobalResource("Name")</label>
+                     @Html.TextBox("CategoryName") 
+                  </li>
+                  <li class="vertical">
+                     <label>@GlobalResource("ParentCategory")</label>
+                     @*@Html.DropDownList("ParentCategory", ViewBag.SiteCategoriesSelectList, "") *@
+                     @Html.DropDownList("ParentCategory", new SelectList(ViewBag.SiteCategories, "Id", "Name"), string.Empty) 
+                  </li>
+                  <li class="align-right">
+                     <a id="submitNewCategoryLink" 
+                        href="#"
+                        class="button ui-shadow" >
+                        @GlobalResource("Add") 
+                     </a>
+                  </li>
+               </ol>
+            </div>
+         </fieldset>
+      </div>
+
+      <div id="tabSeo" class="ui-form-default">
+         <p>@GlobalResource("EnableMetaDescription")&nbsp;<a href='@Url.Action("Index", "Seo", new {siteid = RequestContext.ManagedSite.SiteId})'>@GlobalResource("SEOSettings")</a></p>
+         <ol>
+            <li>
+               <label for="Post_EnableMeta">@GlobalResource("EnableMeta")</label>
+               @Html.CheckBoxFor(m => m.EnableMeta)
+            </li>
+            <li>
+               <label for="Post_MetaDescription">@GlobalResource("MetaDescription")</label>
+               @Html.TextAreaFor(m => m.MetaDescription, 4, 40, new { @class = "largetext" }) 
+            </li>
+            <li>
+               <label for="Post_MetaKeywords">@GlobalResource("MetaKeywords")</label>
+               @Html.TextBoxFor(m => m.MetaKeywords, new { @class = "largetext" }) 
+            </li>
+         </ol>
+      </div>
+   </div>
+
+   <div id="adminpagefooter" class="ui-widget">
+      @Html.SubmitUI(GlobalResource("Save")) 	
+      &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "AdminPost", new {siteid = RequestContext.ManagedSite.SiteId})'>
+         @GlobalResource("BackToPostsList")
+      </a>
+   </div>
+
+ } 
+
+
+

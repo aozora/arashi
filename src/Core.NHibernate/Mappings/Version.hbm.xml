@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Arashi.Core.Domain.Version, Arashi.Core.Domain" 
+          table="cms_Versions" >
+
+		<!--<cache usage="read-write" />-->
+		
+		<id name="VersionId" column="versionid" type="Int32" unsaved-value="-1">
+         <!--<generator class="hilo"/>-->
+      </id>
+
+      <property name="Assembly" column="assembly" type="String" not-null="true" />
+      <property name="Major" column="major" type="Int32" not-null="true" />
+      <property name="Minor" column="minor" type="Int32" not-null="true" />
+      <property name="Patch" column="patch" type="Int32" not-null="true" />
+
+   </class>
+</hibernate-mapping>

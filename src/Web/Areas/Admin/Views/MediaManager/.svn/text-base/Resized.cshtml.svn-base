@@ -1,0 +1,3 @@
+﻿@model dynamic
+<img id="media" src='@Url.Action("GetResized", "MediaManager", new {siteid = ViewBag.SiteId, name = ViewBag.Name, resizewidth = ViewBag.Width, resizeheight = ViewBag.Height})' alt='@(string)ViewBag.Name' />
+

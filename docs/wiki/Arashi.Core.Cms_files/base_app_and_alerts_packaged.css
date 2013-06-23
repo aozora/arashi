@@ -1,0 +1,1375 @@
+/* Copyright (c) 2005 Assembla, Inc. Released under the Singleton Development License */ /* Design by Andrea Peltrin <http://passiomatic.com/> */ /* --------------------------------------------------- STANDARD STYLES The following block of styles should be placed in the new base.css file ------------------------------------------------------ */ /* --------------------------------------------------- = Page ------------------------------------------------------ */ html, body {margin: 0; padding: 0; direction: ltr}
+body {color: #000; background: #eee; background: #fff; font: normal 13px/18px Arial, Helvetica, serif}
+* {/* normalize */ margin: 0; padding: 0}
+/* --------------------------------------------------- = Titles ------------------------------------------------------ */ h1, h2, h3, h4, h5, h6, caption {margin: 0; margin-bottom: .75em; padding: 0; font: bold 100%/18px Arial, Helvetica, serif; color: #000}
+h1 {font-size: 20px; margin: 0; padding: 0 0 .5em 0}
+h1 strong {color: #6488b4}
+h2 {font-size: 1.25em; margin-top: .75em}
+.h2-separator {border-bottom: 1px solid #ddd; padding-bottom: 4px}
+h3 {font-size: 1.12em}
+h3 .clarification{ font-size: 0.75em; font-weight: normal}
+h4 {font-size: 1em}
+.bold-title-underline {border-bottom: 3px solid #D4DCE8; padding-bottom: .5em; margin-bottom: 0}
+/* --------------------------------------------------- = General HTML tags ------------------------------------------------------ */ a:link, a:visited {padding: 1px 0; color: #15478C; text-decoration: underline}
+a:hover {text-decoration: none; border: none; color: #06b}
+a img {border: none}
+a.feed-link {padding-left: 16px !important; background: transparent url(/images/blue/feed-icon.gif) center left no-repeat}
+hr {visibility: hidden; border: none; height: 0; margin-top: 3em}
+dt {font-weight: bold}
+dd {margin-bottom: .75em}
+dl {margin-bottom: .75em}
+p {margin-bottom: .75em}
+p.note {color: #666; font-style: italic}
+p.small-text {font-size: .9em; color: #666}
+ul, ol {margin: 0 2em .75em 2.5em}
+pre {background: #f8f8f8; padding: .375em; margin: 1.25em 0; overflow: auto; border: 1px dashed #dcdcdc; _overflow-x: scroll; /* otherwise IE will wrap the sidebar! */ _padding: 0}
+pre code {background: #f8f8f8; border: none; padding: 0px}
+code {background: #f7f7f7; border: 1px solid #dcdcdc; padding: .1em .375em}
+blockquote {margin-bottom: .75em; margin-left: 3em; font-style: italic}
+.no-docs {border: 1px dashed #ccc; padding: 2px 4px; display: inline; color: #999}
+address {margin: .75em 1.5em}
+/* --------------------------------------------------- = Forms = These are the new form styles and should be used for = most form creation situations. ------------------------------------------------------ */ .new-form {font-family: Arial, Helvetica, Sans-serif}
+.new-form fieldset label {font-weight: bold; margin: 8px 0 4px 0; padding: 0; color: #333}
+.new-form fieldset legend {font-size: 1.15em; padding: 0; margin: 0 0 10px 0}
+.new-form fieldset .bold-border input {font-size: 1.4em; margin: 0 7px 3px 0; border: 3px solid #ddd}
+.new-form fieldset .bold-border .fieldWithErrors input {border: 3px solid #a62929}
+.new-form fieldset input {margin: 0 7px 3px 0; letter-spacing: .025em}
+.new-form fieldset input:focus, .new-form fieldset select:focus, .new-form fieldset textarea:focus {border-color: #5274A5}
+.new-form fieldset input.bold-border {border: 3px solid #999}
+.new-form fieldset textarea {font-size: 1.1em; margin-bottom: 4px; width: 80%; letter-spacing: .025em}
+.new-form fieldset .size-button {font-size: .85em; margin-bottom: 15px}
+.new-form .sub-panel {background-color: #f9f9f9; padding: 10px 20px 7px 15px; margin: 15px 0; border: 1px solid #f6f6f6}
+.new-form .sub-panel h4 {font-size: 1.35em; font-weight: bold; margin-bottom: 5px; padding: 0; color: #000}
+.new-form .sub-panel h5 {font-size: 1.1em; font-weight: bold; border-bottom: 1px solid #ccc; padding-bottom: 3px; margin: 4px 0 5px 0; color: #444; width: 100%}
+.new-form .security-page h5 {font-size: 1.2em; font-weight: bold; border-bottom: 1px solid #ccc; padding-bottom: 3px; margin: 4px 0 5px 0; color: #444; width: 100%}
+/* Default form styles */ form {margin: 0}
+fieldset {padding: 0; border: none; margin-bottom: .75em}
+legend {padding: 0; font-weight: bold; _margin-left: -7px}
+label {display: block; cursor: pointer; _cursor: default; font-size: 1em; margin: 8px 0 4px 0; padding: 0; color: #333; margin-top: .75em; font-weight: bold}
+label span {color: #666}
+/* required field marker */ label span.req {color: #AA273D; font-weight: bold}
+input,textarea {padding: .25em; margin: 0; font-family: Arial, Helvetica, Sans-serif; font-size: 1.1em; _font: normal 12px/1.5em Verdana, Arial, Helvetica, sans-serif}
+select {margin: 0; font: inherit; font-size: 1em; font-weight: normal}
+/* option{ padding:0 0.1em;}
+spacing between dropdown list items select > option */ input[type='text'], input[type='password'], textarea, select {border: 1px solid #999}
+/* reset value */ input[type='checkbox'], input[type='radio'] {padding: 0}
+textarea {line-height: 1.5; width: 90%}
+input:focus, select:focus, textarea:focus {border-color: #15478C}
+/* for forms validators */ #errorExplanation {margin: 0; margin-bottom: 1.5em; background: #ffd9d9; padding: 1em}
+#errorExplanation ul {list-style: none}
+#errorExplanation h2 {color: #591212}
+.fieldWithErrors {display: inline}
+.fieldWithErrors input, .fieldWithErrors textarea, .fieldWithErrors select {border: 2px solid #a62929}
+/* --------------------------------------------------- = Buttons ----------------------------------------------------- */ /* Grey input button */ input.button,input.nbutton, a.button, a.button:visited, a.nbutton, a.nbutton:visited {font-weight: bold; background: #eee url(/images/bg-grey-button.jpg) top left repeat-x; color: #039; border: 1px solid #bbb; border-top: 1px solid #ddd; border-left: 1px solid #ddd; cursor: pointer; padding: 4px 6px; line-height: 1em; font-size: 1.1em; margin: 0; width: auto; overflow: visible}
+/* Grey text button */ a.nbutton, a.nbutton:visited, a.button, a.button:visited {cursor: pointer; padding: 4px 8px; line-height: 1em; font-size: 85%; margin: 0 .3em 0 0; width: auto; overflow: visible; text-decoration: none; font-style: normal; width: auto; overflow: visible}
+input.button:hover, input.nbutton:hover, a.button:hover, a.nbutton:hover {color: #06c; border: 1px solid #aaa}
+/* Big grey icon button */ .icon-button {float: left; clear: both; background: transparent url(/images/btn_left.png) no-repeat; padding: 0 0 0 10px; margin: 0}
+.icon-button a {float: left; height: 30px; background: url(/images/btn_stretch.png) repeat-x left top; line-height: 30px; padding: 0 .15em; font-size: 15px; font-weight: bold; text-decoration: none !important}
+.icon-button a:hover {color: #06c}
+.icon-button span {background: url(/images/btn_right.png) no-repeat; float: left; width: 10px; height: 30px}
+.icon-button img {float: left; margin: 6px 5px 0 0; background: none}
+.icon-button em {font-style: normal}
+/* --------------------------------------------------- = Utilities = Use this styles to prevent the use of inline styles ----------------------------------------------------- */ .cut {clear: both; height: 1px; overflow: hidden; width: auto}
+.hidden {display: none}
+.inline {display: inline}
+/* clear floated children */ .clear-float, .row {overflow: hidden; height: 1%}
+.center {text-align: center }
+.float-left {float: left}
+.float-right {float: right}
+/* Styles to emphasize urls and texts */ .big-url-panel {background-color: #f9f9f9; font-size: 1.4em; padding: 10px; margin-bottom: .75em; border-top: 1px solid #D4DCE8; border-bottom: 1px solid #D4DCE8}
+.text-highlight {background-color: #F3FCDD; padding: 5px 10px; font-size: 1em; margin: 5px 0 10px 0}
+/* use this styles to handle margin and padding without using inline styles */ .extra-font-size {font-size: 120%; margin: 0}
+.space-top {margin-top: .75em}
+.space-right {margin-right: .75em}
+.space-bottom {margin-bottom: .75em}
+.space-left {display:table; margin-left: .75em}
+.space-description {vertical-align:top; display:table-cell}
+.space-image {margin-left:1em; vertical-align:top; display:table-cell}
+.no-padding {padding: 0}
+.extra-padding {padding: 1em 1.25em}
+.extra-padding-bottom {padding-bottom: .75em}
+.padding-top-off {padding-top: 0}
+.padding-bottom-off {padding-bottom: 0}
+.no-margin {margin: 0}
+.extra-margin {padding: .25em .75em}
+.extra-margin-top {margin-top:2em}
+.extra-margin-bottom {margin-bottom:2em}
+.extra-margin-left{ margin-left:2em}
+.extra-margin-right{ margin-right:2em}
+/* Solid line and dotted separator */ .line-separator {height: 2px; border-bottom: 1px solid #D4DCE8; margin: .75em 0}
+.dotted-separator {height: 1px; border-bottom: 1px dotted #ccc; margin: .75em 0}
+.tip, .new_tip {font-size: 11px; line-height: 1.25em !important; border-left: 3px solid #E7FABB; padding: 0px 5px 0px 8px !important; color: #666; width: 75%}
+.tip {margin: 8px 0 !important}
+.new_tip {margin-bottom: 8px; margin-top: 1px}
+.red-warn {width: auto; background-color: #ffd9d9; border-top: 1px solid #FEC0BA; border-bottom: 1px solid #FEC0BA; padding: 3px 7px 10px 7px; margin: 10px 0 0 0}
+/* Add this to make rounded boxes */ .rounded {-moz-border-radius: .7em; -webkit-border-radius: .7em}
+/* Cursor pointer */ .cursor-pointer {cursor: pointer}
+/* Clearfix */ .clearfix:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0}
+.clearfix {display: inline-block}
+html[xmlns] .clearfix {display: block}
+* html .clearfix {height: 1%}
+/* Styles used on 'popup.js' */ div.popup {max-width: 600px; border: 1px solid grey; padding: 5px; background-color: red; /* The following properties should not be changed */ position: absolute}
+#popup_overlay {background-color: whitesmoke; /* The following properties should not be changed */ position: absolute; top: 0; left: 0; width: 100%; height: 500px}
+span.popup_link, a.popup_link {cursor: pointer; border-bottom: 1px dotted}
+.popup_draghandle {cursor: move}
+.smaller {font-size:0.75em}
+/* --------------------------------------------------- = Content ------------------------------------------------------ */ #content {margin: 1.5em 3em 3em; width: auto; z-index: -1}
+/* --------------------------------------------------- = Columns ------------------------------------------------------ */ .col, .main-col, .side-col {margin: 0 1em 0 0}
+.last {margin-right: 0}
+html>body .side-col {width: 17em; float: left; margin-left: -17em}
+html>body .main-col-w {width: 100%; float: left}
+html>body .main-col {margin-right: 18em}
+.col {width: 49%; float: left}
+.main-col-w {width: 76%; float: left}
+.side-col {width: 17em; float: right}
+html>body #team-page .side-col {width: 20em; margin-left: -20em}
+html>body #team-page .main-col {margin-right: 21em}
+html>body .left-side-col {width: 17em; float: left}
+html>body .right-main-col {margin-left: 18em;}
+html>body .right-main-col .col-wrap {float: left; width: 100%;}
+#team-page .side-col {width: 20em; float: right}
+.side-col .action {padding: .375em 0; padding-left: 30px; background: #E7FABB; margin-bottom: .75em}
+.side-col .action a:link, .side-col .action a:visited {display: block; border: none; text-decoration: underline}
+.side-col .action a:hover {text-decoration: none}
+.side-col .checkbox {padding: .375em 0; padding-left: 7px; background: #E7FABB; margin-bottom: .75em}
+.side-col .main-box {padding: .1em 1.25em 1em 1.25em; background: #f6f6f6; margin: .75em 0; -moz-border-radius: .7em; -webkit-border-radius: .7em}
+.side-col .main-box ul {margin: 0 0 .75em 0; list-style: none}
+.side-col .main-box li {margin: 0 0 .3em 0; height: 1.75em}
+.side-col .main-box h2 {font-size: 1.15em}
+.side-col .main-box h3 {font-size: 1em}
+/* Flexible 50%-50% columns */ .col-left {width: 49%; float: left}
+.col-right {width: 49%; float: right}
+.left-round-nav-box {padding: 12px; background: #f6f6f6; -moz-border-radius-topleft: .7em; -moz-border-radius-bottomleft: .7em; -webkit-border-top-left-radius: .7em; -webkit-border-bottom-left-radius: .7em}
+.left-round-nav-box ul {margin: 0; list-style-type: none; margin-bottom: 10px; font-size: 1.15em; font-weight: bold}
+.left-round-nav-box a, .left-round-nav-box a:visited {background-color: #e3e3e3; padding: 2px 4px; margin: 1px; text-decoration: none; line-height: 1.85em}
+.left-round-nav-box h4 {margin-bottom: 5px}
+.left-round-nav-box ul.filter-tags a, .left-round-nav-box ul.filter-tags a:visited {background-color: transparent; text-decoration: underline}
+.left-round-nav-box a:hover, .left-round-nav-box a.current, .left-round-nav-box a:visited.current, .left-round-nav-box ul.filter-tags a:hover, .left-round-nav-box ul.filter-tags a.current, .left-round-nav-box ul.filter-tags a:visited.current {background-color: #15478C; color: #fff; text-decoration: none}
+/* --------------------------------------------------- = Tables ------------------------------------------------------ */ table {border-collapse: collapse; margin-bottom: .75em; width: 100%; border-top: 1px solid #D4DCE8; border-bottom: 1px solid #D4DCE8}
+table th {text-align: left; background: #EAF3FA; padding: .2em .5em; height: 21px; font-weight: bold; font-size: 1em; color: #333}
+table td {vertical-align: top; text-align: left; padding: .375em .5em; border-bottom: 1px solid #eee}
+table tr.even {background-color: #fff}
+table tr.odd {background-color: #f9f9f9}
+table.key-value {margin: 0}
+/* Clean tables */ table.clean, table.clean th, table.clean td{ border: none; background: none}
+/* Mostly used in user profiles and detail panels */ table.key-value td {padding: 0.25em; padding-left: 0; padding-right: 0}
+table.key-value td.key {color: #333}
+table.key-value td.apptxt {width: 25em; color: #666}
+table.key-value td.keyval {width: 50%; color: #666}
+table.key-value td i {color: #666}
+table.sortable th{ cursor:pointer; color: #15478c}
+/* --------------------------------------------------- = Footer ------------------------------------------------------ */ #footer-w {clear: both; padding-top: 10px}
+#footer {color: #999; margin-bottom: 1.5em; padding-top: 1.5em; border-top: 2px dotted #ccc; text-align: center}
+#footer a:link, #footer a:visited {color: #666; text-decoration: underline; border-bottom-color: #aaa}
+#footer a:hover {text-decoration: none; border: none}
+#copyr-contact {font-size: 90%}
+/* --------------------------------------------------- = List with gray line separator ------------------------------------------------------ */ .gray-line-list {margin: 0}
+.gray-line-list ul {margin: 0 0 .75em 0; list-style-type: none; padding-top: 4px}
+.gray-line-list ul li {border-bottom: 1px solid #ddd; padding: 4px 4px 0 4px; margin-bottom: 2px}
+/* --------------------------------------------------- = Icons = Use this tags on divs or list ------------------------------------------------------ */ /* Single icon tag for div */ .icon {float: left; margin: 0 .5em 0 0}
+/* styles to add action icons to DIVs or UL LIs */ .icon-edit {background: transparent url(/images/ico-edit.png) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-page-history {background: transparent url(/images/wiki/ico_pagehistory.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-print {background: transparent url(/images/wiki/ico_print.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-delete {background: transparent url(/images/remove.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-settings {background: transparent url(/images/ico_settings.png) left top no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-add {background: transparent url(/images/ico_add.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-import-export {background: transparent url(/images/tools/icons/ico-import-export.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-teamsize {background: transparent url(/images/admin/ico_teamsize.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-diskspace {background: transparent url(/images/admin/ico_diskspace.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-spacepayer {background: transparent url(/images/admin/ico_payer.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-email {background: transparent url(/images/admin/ico_email.gif) left 1px no-repeat; padding-left: 23px !important; list-style: none; margin-bottom: .25em}
+.icon-time {background: transparent url(/images/ico-time.png) left 1px no-repeat; padding-left: 21px !important; list-style: none; margin-bottom: .25em}
+.icon-chart {background: transparent url(/images/ico-chart.png) left 1px no-repeat; padding-left: 22px !important; list-style: none; margin-bottom: .25em}
+.icon-addmessage {background: transparent url(/images/ico-addmessage.png) left 1px no-repeat; padding-left: 22px !important; list-style: none; margin-bottom: .25em}
+.icon-addtask {background: transparent url(/images/ico-addtask.png) left 1px no-repeat; padding-left: 22px !important; list-style: none; margin-bottom: .25em}
+.icon-uncomplete {background: transparent url(/images/uncheck.png) left 1px no-repeat; padding-left: 22px !important; list-style: none; margin-bottom: .25em}
+/* --------------------------------------------------- = Searches ------------------------------------------------------ */ h3.search-term {color: #666; border-bottom: 1px solid #ccc; padding-bottom: 0.375em; margin-bottom: 1.5em}
+h3.search-term span {font-style: italic; color: #15478C}
+#search-again {margin: 0 auto; background: #EAF3FA; padding: 1em 1.25em; border: 1px solid #D4DCE8; width: 30em}
+#search-again h2 {border-bottom: none; color: #15478C; margin-bottom: .375em}
+#search-again fieldset.options {margin-top: .75em}
+#search-again fieldset.options label {margin-right: .375em}
+#search-again fieldset.separator {padding-top: .375em; margin-top: .375em; border-top: 1px solid #ccc57a}
+#search-again legend {margin-bottom: .375em}
+#search-again-spaces {margin: 0 auto; background: #EAF3FA; border: 1px solid #D4DCE8; padding: 1em}
+#search-again-for {border: 3px solid #A7CC52; border: 2px solid #15478C}
+#search-results {list-style: none; margin-left: 0}
+#search-results li {margin-bottom: .375em}
+#search-results li span {float: left; width: 16px; height: 16px}
+#search-results li div {margin-left: .75em; width: 100%}
+/* --------------------------------------------------- = Messages (Rails' flash styling) ------------------------------------------------------ */ /* Use this to grab use attention on a importart message */ .panel-critical {background: #ffd9d9 url(/images/ico-alert.gif) .75em .75em no-repeat; padding: .75em; padding-left: 30px; color: #591212; margin-bottom: 1.5em}
+.panel-critical a:link, .panel-critical a:visited {color: #a62121; border-color: #a62121}
+.panel-info {background: #FFFFBB url(/images/ico-info.gif) .75em .75em no-repeat; padding: .75em; padding-left: 30px; margin-bottom: 1.5em}
+/* --------------------------------------------------- = Boxes ------------------------------------------------------ */ /* General box attributes */ .box, .outlined-box, .highlight-box, .green-box, .blue-box, .lightblue-box {padding: 1em 1.25em; margin-bottom: .75em}
+.box ul, .outlined-box ul, .highlight-box ul, .green-box ul, .blue-box ul, .lightblue-box ul {list-style: none; margin: .5em 0 0 0}
+.box ul li, .outlined-box ul li, .highlight-box ul li, .green-box ul li, .blue-box ul li, .lightblue-box ul li {padding: 0; vertical-align: text-bottom; margin-bottom: .75em}
+.box h2 {margin-top: 0}
+.blue-box-title, .green-box-title, .blue-box-title {color: #2E4B73; padding: 6px 8px; margin-bottom: 0; font-size: 1.2em}
+/* Legend for fieldset.blue-box */ .blue-box legend{ font-size: 14px; font-weight: bold; padding: 0 7px 0 7px}
+/* This grey box can be used for instructions panels on tools */ .box {background: #f6f6f6; border: 1px solid #f6f6f6}
+.box ul li.current {background: #e3effc; font-weight: bold; padding: 5px 3px 1px 5px; margin-left: -5px}
+#tool_page .box .faq h3{ margin-top:2.5em}
+/* Outline box used on the top of the SVN Code browser */ .outlined-box {background: #fcfcfc; border: 1px solid #BCC5D7}
+/* Box with a green bold outline */ .highlight-box {background: #fcfcfc; border: 4px solid #E7FABB}
+/* Green box */ .green-box-title {background: #cde595}
+.green-box {background: #E7FABB}
+.green-box p.tip {font-size: .95em; line-height: 1.25em !important; border-left: 3px solid #ddd; margin: 8px 0 !important; padding: 0px 5px 0px 8px !important; color: #666; width: 75%}
+.green-box p img {border: 3px solid #cde595}
+.empty-tool {font-style: italic; color: #333}
+.empty-tool p.float-right {margin-left: 1em; margin-bottom: 1em}
+.empty-tool ul, #flows .empty-tool ul {margin: 0 0 0.75em 2em; list-style-position: inside}
+.empty-tool ul li {margin: 0}
+/* Blue box */ .blue-box-title {background-color: #D4DCE8; font-weight: bold}
+.blue-box-title span {font-weight: normal; font-style: inherit}
+.blue-box {border: 1px solid #D4DCE8}
+.blue-box hr{ visibility:visible; border: 1px solid #D4DCE8; height:auto; margin:10px 0 20px 0}
+/* Lightblue box */ .lightblue-box {background: #EAF3FA; border: 1px solid #D4DCE8}
+.lightblue-box p.tip {font-size: .95em; line-height: 1.25em !important; border-left: 3px solid #ddd; margin: 8px 0 !important; padding: 0px 5px 0px 8px !important; color: #666; width: 75%}
+.lightblue-box.customer-support {padding-top: 16px; margin: 0 0 20px 0}
+.lightblue-box.customer-support div.cut {margin: 0; padding: 0; height: 0; visibility: hidden}
+.lightblue-box.customer-support p {margin: 5px 40px 0 20px; padding: 0; font-size: 14px; float: left}
+.lightblue-box.customer-support ul {margin: 0; padding: 0; border: none; list-style: none}
+.lightblue-box.customer-support ul li {float: left; margin: 0 20px; padding: 0; font-size: 14px; color: #13478c}
+.lightblue-box.customer-support ul li.phone {background: url(/images/ico_telephone.gif) left 50% no-repeat; padding-left: 20px; margin-top: 5px}
+.lightblue-box.customer-support ul li.email {background: url(/images/ico_email.gif) left 50% no-repeat; padding-left: 20px; margin-top: 5px}
+/* Box style reset */ .box-nostyle {background: #fff; border: none; padding: 0}
+/* Box styles to emphasize boxed content */ .boxed-styles {margin: 0; padding: 10px 15px; border: 4px solid #E7FABB}
+.boxed-styles h2 {font-size: 1.45em; line-height: 1.2em; color: #333; margin: 0 0 5px 0}
+.boxed-styles em {color: #C00; font-weight: bold; font-style: normal}
+.boxed-styles ul {margin: 0; list-style-type: none}
+.boxed-styles ul li {margin: 0 0 2px 0; list-style-type: none; background: url(../images/arrow-featured.gif) no-repeat left 5px; padding-left: 15px; font-size: 1.15em; line-height: 1.5em}
+.boxed-styles ul li.note {margin: 5px 0 2px 0; list-style-type: none; background: none; font-size: .9em; line-height: 1.5em; padding: 0}
+/* This brings back overriden bullets on boxes */ .bulleted-box ul li {list-style-type: disc; margin-left: 12px; margin-bottom: 4px}
+p.simple-video-link a {font-weight: bold; padding-left: 20px; background: url(/images/features/bullet-video.png) 0px 0px no-repeat}
+p.video-link a {font-weight: bold; font-size:13px; padding: 5px 8px 5px 28px; background: #f3fcdd url(/images/features/bullet-video.png) 6px 4px no-repeat}
+p.video-link a:hover {color: #fff; background-color: #15478c}
+/* --------------------------------------------------- = Panels - panel which you can open/close = those are NOT the ones in the user start page. ------------------------------------------------------ */ .collapsible-panel {padding: .75em 1.25em; margin-bottom: 1em; background: #f6f6f6; border: 1px solid #BCC5D7}
+.collapsible-panel h3 {margin: -.75em -1em -.5em -1em; cursor: pointer; padding: 0px; color: #15478C; font-size: 100%}
+.collapsible-panel h3 img {padding: 4px 0px 0 4px}
+/* This is the style for the open/close panel used on Staffing */ .panels {background: #fff; border: 1px solid #D4DCE8; margin-top: .75em; margin-bottom: 1.5em}
+.panels-title {background: #D4DCE8; padding: .3em; cursor: pointer; font-weight: bold}
+.panels .panels-content {padding: 1em}
+/* --------------------------------------------------- = Pagination ------------------------------------------------------ */ .pagination {padding-top: 15px; height: 26px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 13px; border-top: 1px solid #CCCCCC}
+.pagination a {font-weight: bold; padding: 2px 5px 2px 5px; border: 1px solid #bbb; text-decoration: none}
+.pagination a:hover, .pagination a:active {border: 1px solid #2E4B73; background-color: #15478C; color: #fff}
+.pagination span.current {padding: 4px 7px 4px 7px; margin: 2px; border: 1px solid #15478C; font-weight: bold; background-color: #15478C; color: #FFF}
+.pagination span.disabled {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #ddd; color: #ddd}
+/* --------------------------------------------------- =Tag styles ------------------------------------------------------ */ /* Use this style when you need tags on the left content column */ .tags {background: transparent url(../images/ico_tag.gif) 0px 4px no-repeat; padding: 0 0 4px 20px; border-bottom: 1px solid #D4DCE8; margin-bottom: 1.5em}
+.tags a:link {background: #ECF3FE; padding: 0 .3em .2em .3em; margin: 0; line-height: 1.8em}
+.tags a:hover {background: #15478C; color: #fff}
+/* tag cloud */ .cloud {margin: 0; padding: 0; line-height: 230%}
+.cloud li {display: inline; padding-right: .5em}
+.cloud a:link, .cloud a:visited {color: #15478C}
+.cloud a:hover {background: #E3EFFC}
+a.cloud1:link {}
+a.cloud2:link, a.cloud2:visited {font-size: 125%}
+a.cloud3:link, a.cloud3:visited {font-size: 150%}
+a.cloud4:link, a.cloud4:visited {font-size: 175%}
+a.cloud5:link, a.cloud5:visited {font-size: 200%}
+a.cloud6:link, a.cloud6:visited {font-size: 225%}
+.tag-list {font-size: 90%; /* 11px */ margin-bottom: .375em}
+.tag-list b {font-weight: normal; color: #666}
+/* --------------------------------------------------- =404, 422, 500 and 503 error pages ------------------------------------------------------ */ #container {width: auto; margin: 0}
+#container #text {padding: 5px 65px 45px 140px}
+#container #header {background-color: #2D4B73; border-bottom: 3px solid #D4DCE8; padding: 10px 0 10px 25px}
+#container #text h1 {font-size: 5em; margin: .5em 0 0 0; padding: 0; line-height: 125%}
+#container #text h2 {color: #666; font-size: 2.25em; letter-spacing: -1px; margin: 0; padding: 0}
+#container #text p {font-size: 1.25em; margin: 35px 0 40px 0; padding: 0}
+#container #text span {color: #F60; font-size: 1.15em}
+#container #text em {color: #999; font-style:normal}
+#container .dialog {width: 350px; padding: 1em 4em; margin: 4em auto 0 auto; border: 2px solid #ccc; border-right-color: #999; border-bottom-color: #999; text-align: center}
+#container .dialog h1 {font-size: 1.25em; color: #f00; line-height: 1.25em}
+/************* For Video Intro Panel *******/ #video-tut .empty-tool {font-style: normal; color: #333}
+#video-tut .empty-tool div.float-right {margin-left: 1em; margin-bottom: 1em}
+#video-tut .empty-tool ul{ margin: 0 0 0.75em 2em; list-style-position: inside; list-style:disc; width:50%; float:left}
+#video-tut .empty-tool ul li {margin: 0; line-height:170%}
+/* Edit Time Entry */ div.edit-timeentry{ width: 520px}
+h2.edit-timeentry{ width: 537px}
+.and_at {float: left; padding-right: 35px}
+.and_at2 {float: left; background-color: #eee}
+.btn-timeentry{margin-top:1em;}
+/*THIS IS THE LINE ------------------------------------------------*/ /* --------------------------------------------------- NONSTANDARD & QUESTIONABLE STYLES The following block of styles are controller or tool specific. They should be considered "below the line" and NOT included in the new base.css file. Move these styles to individual controller or specific tool stylesheets. ------------------------------------------------------ */ /* THIS DEFINITION COLLIDES WITH ANOTHER DEFINITION FOR '#wiki-content' */ #help-panel #wiki-content {padding: 0; width: 58em; margin: .375em auto; background: #fff; background: #e5f0ff; height: 20em; _overflow-y: scroll; /* for IE, need to test this */ }
+/* Link which look like button - from start page */ a.a-button:link, a.a-button:visited {background: #15478c url(/images/blue/bg-button.gif) top left repeat-x; border: 2px solid #15478C; color: #fff; padding: .375em .375em .5em .375em; font-weight: bold; display: block; width: 13em; /* Sized to hold 'Create personal space' */ margin: 0 auto; text-align: center; font-variant: small-caps}
+table.vital-stats th {padding: 0}
+table.vital-stats td {padding: .175em}
+/* "Add message", "Add ..." links. */ /* TODO: remove those */ a.a-add:link, a.a-add:visited {background: transparent url(/images/ico_add.gif) center left no-repeat; padding: 2px; padding-left: 21px; font-weight: bold}
+/* --------------------------------------------------- =about page ------------------------------------------------------ */ #philosophy {background-color: #e7fabb; color: #2d4000}
+#philosophy h2 {border-bottom: 1px solid #a7cc52}
+/* --------------------------------------------------- =portal page ----- Check this styles ------------------------------------------------------ */ #most-active-spaces dl {list-style: none; margin-left: 0; padding-left: 1em}
+#most-active-spaces dl dt {margin-top: .75em; padding: 4px 10px; background-color: #eaf3fa}
+#most-active-spaces dl dd {margin-left: .75em; padding: 0 10px; font-style: italic}
+.all {list-style: none}
+.all li {margin-top: .75em}
+.all span {color: #666; font-size: 90%; /* 11p x */ }
+#popular-tags {margin-top: 3em}
+/* --------------------------------------------------- =talent page ------------------------------------------------------ */ /* recent jobs / talent */ .recent {margin-bottom: 2em}
+.recent h2 {border-bottom: 1px solid #ddd; padding-bottom: 0.375em}
+.recent h3 {font-size: 14px; font-weight: normal; margin-bottom: 5px}
+.recent ul {list-style: none; margin-left: 0}
+.recent ul li {padding: .25em 0}
+/* --------------------------------------------------- =search controller ------------------------------------------------------ */ #post-a-job {background-color: #e7fabb; color: #2d4000}
+#post-a-job h2 {border-bottom: 1px solid #9db9e0; color: #15478C}
+#space-list {background: #cde595; padding: 1em; margin-top: 0.75em}
+#space-list ul {list-style: none; margin-left: 0}
+/* --------------------------------------------------- =messages/comment box ------------------------------------------------------ */ .public {background: #fff8a6; padding: 1em; margin: 2em 0 3em 0}
+.public h3 {margin-bottom: .75em}
+/* --------------------------------------------------- =wiki controller ------------------------------------------------------ */ .wlabel {color: #333; font-size: 1.2em; font-family: Arial, Verdana; padding-bottom: 4px}
+.extern-content {background: #e5f0ff}
+#wiki-sidebar-container {padding: 15px}
+.wiki-hk-deleted {list-style-image: url(/images/wiki/ico_wdeleted.gif); list-style-position: outside}
+.wiki-hk-new {list-style-image: url(/images/wiki/ico_wnew.gif); list-style-position: outside}
+#wiki-name {border-bottom: 3px solid #c6d3e1; padding-bottom: 5px; float: left; width: 100%}
+#wiki-name.panel-critical{ margin-bottom: 0px}
+#wiki-name h2 {float: left; margin: 0; padding: 0}
+#wiki-name-subtitle {font-size: 0.8em; color: gray; float: right; margin-right: 5px}
+#wiki_version_change_comment {width: 770px}
+/* --------------------------------------------------- =Buttons and general layout ------------------------------------------------------ */ /* * button-30: 30px high button */ .button-30 {margin: 0; padding: 0; background: url(/images/box-30-left.gif) top left no-repeat; height: 30px; overflow: hidden; float: left}
+.button-30-inner {background: url(/images/box-30-right.gif) top right no-repeat; margin: 0; padding: 0}
+.button-30-inner a {display: block; margin: 0; padding: 6px; font: bold 1.2em Arial, sans-serif; color: #039; text-decoration: none}
+.button-30-inner a:hover {color: #06c}
+.button-30-inner a.add {background: url(/images/ico_add.gif) 6px 50% no-repeat; padding-left: 25px}
+/* --------------------------------------------------- =spaces && spaces/admin controllers ------------------------------------------------------ */ .restrict_message {font-family: Arial, Helvetica, Sans-serif; background: #ffe8ec url(/images/admin/ico_restrict.gif) 11px 10px no-repeat; border-top: 1px solid #FEC0BA; border-bottom: 1px solid #FEC0BA; margin-bottom: 14px; padding: 10px 15px 9px 50px; font-size: 1.2em}
+.restrict_message p {line-height: 1.3em; margin-bottom: 4px}
+.pay-table {width: 100%; border: 0}
+.pay-table p {font-family: Arial, Helvetica, Sans-serif; font-size: 1.2em}
+.pay-table tr {border-top: 1px solid #ddd}
+.pay-table td.t-one {padding: 14px 0}
+.pay-table td.t-left {font-family: Arial, Helvetica, Sans-serif; font-size: 1.2em; padding: 7px}
+.pay-table td.t-left span {color: #777; font-size: 1em; margin-right: 7px; font-weight: bold}
+/* --------------------------------------------------- =user controller ------------------------------------------------------ */ .small-link {margin-top: 4px; font-size: 0.8em}
+/* --------------------------------------------------- = Portfolio member controller ------------------------------------------------------ */ ul.template_list {margin: 0; padding: 0; list-style: none; float: left}
+ul.template_list li {margin: 5px 0; padding: 0; clear: both; float: left}
+ul.template_list li strong {color: #2e4b73; font-size: 1.8em; margin: 6px 0 0 10px; float: left; font-weight: normal}
+ul.template_list li span {float: left; margin-top: 8px; margin-left: 10px; font-size: 1.2em; font-style: italic}
+/* --------------------------------------------------- = New calendar ------------------------------------------------------ */ #ticket-tool .metrics-col-right #metrics-calendar .blue-box-title h2 {font-size: 0.935em}
+#metrics-calendar .blue-box-title h2 {font-size: 1em; color: #2e4b73; margin: 0; padding: 0}
+#metrics-calendar .blue-box-title a {float: right; margin-top: -20px; padding: 2px 0 2px 18px; font-size: 0.8em; background: url( /images/calendar.png ) left center no-repeat}
+.new-calendar {padding: 0; margin: 0; border-left: 1px solid #BCC5D7; color: #888; text-align: center; background-color: #fff; margin-bottom: 1em; clear: both}
+.new-calendar p {margin-right: 3px; color: #000000}
+.new-calendar p.day {color: #888; margin: 0 0 0 3px; padding: 0; text-align: left; border:none}
+.new-calendar .nav, .nav a {text-decoration: none; font-size: 1.1em; padding: 0 .25em}
+.new-calendar caption {background: #EAF3FA; padding: .25em 0; font-weight: bold; font-size:1.2em; color: #333; margin-bottom: 0; width: auto; border-bottom: 1px solid #BCC5D7}
+.new-calendar caption a {text-decoration: none}
+.new-calendar th {font-weight: bold; color: #444; background: #D4DCE8; border-right: 1px solid #BCC5D7; border-bottom: 1px solid #BCC5D7; border-top: 1px solid #BCC5D7; text-align: center}
+.new-calendar .today {background: #D4DCE8}
+.new-calendar .today p.day {color: #444; font-weight: bold; text-decoration: underline}
+.new-calendar .other-month p.day, td.other-month p.day {color: #ddd}
+.new-calendar .weekend, td.weekend {background: #f9f9f9}
+.new-calendar td {border-right: 1px solid #BCC5D7; border-bottom: 1px solid #BCC5D7; text-align: left; padding: .2em 0 2.5em; width: 14%}
+.new-calendar td a {display: block; text-decoration: none; padding: 0 0 0 4px; margin: 0; font-weight: bold; letter-spacing: 0.3px}
+.new-calendar td a:link, td a:visited {color: #15478C}
+.new-calendar td a:hover, td a:active {color: #06c}
+.new-calendar td ul {list-style: none; margin: 0; padding: 0}
+.new-calendar td ul li div.details {display: none}
+.new-calendar td ul li div.details p a {display: inline}
+.new-calendar td ul li:hover div.details {position: absolute; display: block; margin-left: 14px; padding-top: 8px}
+.new-calendar td ul li:hover div.details p {padding: 4px 8px; margin: 0}
+.new-calendar td ul li.completed a {color: #3cc00d}
+.new-calendar td ul li.completed:hover div.details {background: url(/images/calendar-completed-details-bg.png) top left no-repeat}
+.new-calendar td ul li.completed:hover div.details p {background-color: #e9fbdb; border: 1px solid #3cc00d; border-top: none}
+.new-calendar td ul li.due a {color: #c00d0d}
+.new-calendar td ul li.due:hover div.details {background: url(/images/calendar-due-details-bg.png) top left no-repeat}
+.new-calendar td ul li.due:hover div.details p {background-color: #fad7d7; border: 1px solid #c00d0d; border-top: none}
+.new-calendar td ul li.upcoming a {color: #0d61c0}
+.new-calendar td ul li.upcoming:hover div.details {background: url(/images/calendar-upcoming-details-bg.png) top left no-repeat}
+.new-calendar td ul li.upcoming:hover div.details p {background-color: #dbe8f7; border: 1px solid #0d61c0; border-top: none}
+.new-calendar td#calendar-key {margin: 0; padding: 10px 0}
+.new-calendar td#calendar-key ul {list-style: none; margin: 0; padding: 0}
+.new-calendar td#calendar-key ul li {float: left; color: #333; margin: 0 10px; padding-left: 5px; border-left: 16px solid #fff}
+.new-calendar td#calendar-key ul li.due {border-left-color: #c00d0d}
+.new-calendar td#calendar-key ul li.completed {border-left-color: #3cc00d}
+.new-calendar td#calendar-key ul li.upcoming {border-left-color: #0d61c0}
+/* --------------------------------------------------- =Profile/Video popup ------------------------------------------------------ */ #popup-video, #popup-user-profile {width: 40em; height: auto; padding: 8px}
+#popup-video {width: 720px;}
+#popup-video #media {height: 558px}
+#popup-video h3 {float: left; font: bold 15px Arial, Helvetica, serif; margin: 4px 0 6px 0}
+#popup-video ul, #popup-user-profile ul {list-style: none; margin: 3px 0 0 0; padding: 0; height: 20px}
+#popup-video ul {float: right}
+#popup-user-profile ul li.full-profile {float: left}
+#popup-video ul li.close, #popup-user-profile ul li.close {float: right; background: url(/images/closelabel.gif) top left no-repeat; width: 66px; height: 22px; display: block}
+/* #popup-user-profile table{ width: 100%}
+*/ #wrapper table{ border:none}
+#wrapper td {padding-left: 0px; border-bottom:none}
+#wrapper td.firstkey {border-top:none; color: #666}
+#wrapper td.firstrow {border-top:none}
+#wrapper td.image {text-align:right; border-top:none; padding:5px}
+/* --------------------------------------------------- = Space - Admin - Appearance - Navigation Order Div ------------------------------------------------------ */ .admin-navigation-tab-list {border: solid 1px #333333; background-color: #fff; width: 50%; font-weight: bold}
+#header div.header-custom-banner {color: #b6cff2; margin: 5px 0 0 0; padding: 5px 0 15px 0; font-size: 2.1em; text-align: center }
+#header div.header-custom-banner a.header-text {text-decoration: none}
+/* Background colors ----------------*/ .bg_grey{ background:#eee}
+.bg_green{ background:#e7f9bb}
+.bg_yellow{ background:#fff8a6}
+.bg_red{ background:#FFE8EC}
+.txt_left_{ text-align:left}
+.txt_right_{ text-align:right}
+.txt_center_{ text-align: center}
+/* --------------------------------------------------- = Login ------------------------------------------------------ */ #login-box {}
+#login-box h2 {border-bottom: 1px solid #9db9e0; color: #15478C}
+#login-box label {margin-top: 0}
+#login-box ul {list-style: none}
+#login-box li {float: left; margin-top: 0; margin-right: 1em}
+#no-account {border-top: 1px dashed #9db9e0; padding-top: .75em; margin-top: .75em}
+/*------------------------- = Talents Page -------------------------*/ div.recent ul li {border-bottom: 1px dotted #cccccc; padding: 10px; clear: left; float: left; width: 100%}
+div.recent ul li .img_container {width: 60px; height: 60px; float: left; text-align: center; margin-right: 8px}
+div.recent ul li .img_container img {border: 1px solid #ccc}
+div.recent ul li a {font-size: 1.15em; font-weight: bold}
+div.recent ul li p {margin-bottom: 0}
+h2#partners {font-size: 1.5em; border-bottom: 1px dotted #ddd; padding-bottom: 0}
+h2#partners span {font-weight: normal; font-size: 0.85em}
+#odesk-partner h3 {background: url(/images/odesk/odesk_logo.png) top left no-repeat; height: 20px; width: 67px; overflow: hidden; text-indent: -1000px; margin-top: 10px}
+#rentacoder-partner h3 {background: url(http://www.rentacoder.com/RentACoder/images/HomePage/raclogo.jpg) -15px 0px no-repeat; height: 37px; width: 262px; overflow: hidden; text-indent: -1000px}
+/*------------------------- = oDesk Widget Styles -------------------------*/ #od, #od * {font-family: Tahoma, Arial, Helvetica, sans-serif; padding: 0; margin: 0}
+#od {width: 220px; border: 3px solid #ccc; padding: 12px; position: relative; margin: 0 auto}
+#team-page #od {/* TEAM PAGE ONLY */ width: 18em; border: 1px solid #d4dce8; padding: 0.9em}
+#od #new {color: red; font-weight: normal; font-size: 11px}
+#od form input, #od form select, #od form label {font-size: 14px}
+#od form input[type="text"] {width: 100%}
+#od form option {padding-right: 8px}
+#od #od_headline {font-weight: bold; font-size: 15px; margin-bottom: 3px}
+#od #od_subhead {font-size: 13px; margin-bottom: 12px}
+#od form {font-size: 14px}
+#od form .search {margin: 12px 0; text-align: right}
+#od form .search input {width: auto}
+#od #powered_by {text-align: center; font-size: 11px; color: #666}
+#od #powered_by img {position: relative; top: 4px}
+/* L I N E ------------------------------------------------------------------------ */ /* --------------------------------------------------- = QUESTIONABLE = These style definitions do not appear to be used = anymore and can probably be removed completely. ------------------------------------------------------ */ /* Styles from 'newsticket.css, used on 'newsticker.js' */ #newsticker {padding-top: 13px; padding-bottom: 15px; text-align: center; font-size: 1.1em; background: url(../images/bg_testimonials.jpg) repeat-x; margin-top: 20px}
+#newsticker ul {list-style: none; margin: 0px; font-style:italic; text-align:center}
+* html #newsticker ul {height: 1.6em; overflow: visible}
+#newsticker li.error {color: #f00}
+#newsticker li {border-bottom: 0px; padding-bottom:0px}
+#newsticker li span{ display: block; font-weight: bold; font-style: normal}
+#newsticker #togglenewsticker {display:none}
+* html #newsticker #togglenewsticker {right: 30px}
+p.quote {font-style: italic; font-size: 14px; text-align: center; margin: 50px 0 30px 0; border-bottom: 1px solid #5375A6; padding-bottom: 15px}
+p.quote span{ display: block; color:#2E4B73; font: bold 12px Arial, sans-serif}
+.services_ table {border: 1px dotted #999}
+.services_ th {width: 33%; padding: 0.5em 1em; border: 1px dotted #999}
+.services_ li {margin: 0; padding: 0px; margin-left: 17px}
+.services_ td {border: 1px dotted #999; padding: 0.5em 1em}
+.services_ p {margin: 0.5em 0}
+.whydoit_ table {border: 1px dotted #7EB5DE}
+.whydoit_ th {width: 33%; padding: 0.5em 1em; border: 1px dotted #7EB5DE}
+.whydoit_ li {margin: 0; padding: 0px; margin-left: 17px; margin-bottom: 0.7em}
+.whydoit_ td {border: 1px dotted #7EB5DE; padding: 0.5em 1em}
+.whydoit_ p {margin: 0.5em 0}
+.whydoit_ th.manager_ {text-align: center; background: #EAF7FF}
+.whydoit_ p.txt_bold {text-align: center; font-weight: bold }
+body .no_comments {/* this style is overloaded by #message-history.no_comments */ background: #F9F9F9; border: 1px solid #E0E7EF; color: #444}
+/* THIS DEFINITION MAY BE UNNECESSARY. CONSIDER REMOVING IT */ #help-panel iframe {width: 58em; border: 0; height: 20em; margin: 0; padding: 0}
+.help_panel_manager {padding: 0 0 0 1.5em; background: #e7f5fe; border: 1px solid #7eb5de; margin-bottom: 3em; position: relative; /* Reset image for IE6, it does not support PNG alpha masked images (wtf is this? we are not displaying .png file) _background-image: none; */ /* Firefox */ -moz-border-radius-topleft: 0.5em; -moz-border-radius-topright: 0.5em; -moz-border-radius-bottomright: 0.5em; -moz-border-radius-bottomleft: 0.5em; /* Safari */ -webkit-border-top-left-radius: 0.5em; -webkit-border-top-right-radius: 0.5em; -webkit-border-bottom-right-radius: 0.5em; -webkit-border-bottom-left-radius: 0.5em}
+ul.changes {list-style: none}
+span.tools {text-align: center; vertical-align: middle; width: 15%; padding-top: 3px; padding-bottom: 3px; font-size: 13px; font-weight: bold; color: #FF6600; height: 48px; font-family: Georgia, "Times New Roman", Times, serif; font-style: italic}
+span.description {text-align: left; vertical-align: middle; width: 60%; padding-top: 7px; padding-bottom: 7px; padding-right: 10px}
+strong.highlight {background-color: #fff8a6}
+#preconfiguredPost A {font-size: 1.2em; margin-bottom: 10px; display: block}
+/* --------------------------------------------------- = SUPER ADMIN Header style = We will delete this style after changing the header style of super admin pages = Below style moved from old stylesheets site.css and breakout.css ------------------------------------------------------ */ #utilities {position: absolute; /* align the elements of the login and search forms along the same baseline*/ vertical-align: middle; top: .5em; right: .5em}
+#utilities {/*color: #fff;*/ }
+#utilities a:link, #utilities a:visited, #utilities a:hover, #utilities a:active {/*color: #fff;*/ /*border-bottom: 1px solid #eee;*/ font-weight: bold}
+#utilities a:visited {}
+#utilities a:hover {color: #AA273D; border: none}
+/***** Navigation Tabs ********/ /* NAVIGATION TABS */ ul#primary {margin: 1em 0 0 0; padding: 0; position: relative; bottom: 0px; width: 100%; float:left; background:url(/images/top_tabbg.gif) bottom left repeat-x; list-style-type: none}
+/* Hack for IE because it treats height like min-height */ * html ul#primary {height:1%}
+ul#primary li {display: inline}
+ul#primary a, ul#primary span, ul#primary a.current {/*width: 6em;*/ display: block; float: left; padding: 4px 10px; margin: 1px 2px 0 0; text-align: center; text-decoration: none; color: #333}
+ul#primary a {background: #e6e6e6; border: 1px solid #999; /* border-bottom: none; */ }
+ul#primary a:hover {margin-top: 0; border-color: #666; background: #eee; padding-bottom: 5px}
+ul#primary span, ul#primary a.current, ul#primary a.current:hover {border: 1px solid #666; border-bottom: none; background: #fff; padding-bottom: 6px; margin-top: 0; color:#000; font-weight:bold}
+#middlecontent p {margin: 0; padding: 0}
+/* END NAVIGATION TABS */ #middlecontent{ background-color:#FFFFFF; border:1px solid #67925F; border-top:0; position:relative; z-index:1; font-size:1.2em; line-height: 16px; padding:5px 10px; clear:both}
+#middlecontent p{ margin-top:0}
+#middleleftcontent{ position:relative; border:1px solid white; z-index:5; float:left}
+#middlerightcontent{ width:250px; float:right; margin:-5px -10px 10px 5px; position:relative; font-size:1em; line-height:18px; z-index:500}
+* html #middlerightcontent{ margin:-5px -5px 10px 5px}
+#middleleftsidebar{ width:250px; float:left; margin:-5px 5px 10px -10px; position:relative; font-size:1em; line-height:18px; z-index:500}
+/* Old ones, have to replace them */ .side-col .add {background: #E3EFFC url(/images/blue/bg-action-add.gif) center left no-repeat}
+.side-col .edit {background: #E7FABB url(/images/blue/bg-action-edit.gif) center left no-repeat}
+.side-col .print {background: #E7FABB url(/images/blue/bg-action-print.gif) center left no-repeat}
+.side-col .show {background: #FAE7BB center left no-repeat}
+.side-col .complete {background: #fff9b2}
+.side-col .delete {background: #ffd9d9 url(/images/blue/bg-action-delete.gif) center left no-repeat}
+.side-col .center {background: #E7FABB url(/images/blue/bg-action-center.gif) center left no-repeat}
+.side-col .close {background: #eee}
+.greybg_ {background: #e6e6e6}
+.tab-bar {list-style: none; margin: 0; padding: 0; background: transparent url(/images/bg-tab-bar.gif) bottom left repeat-x}
+.tab-bar li {float: left; margin: 0; margin-left: .375em; padding: .375em .75em; border: 1px solid #eee; border-bottom: none; text-decoration: none; background: #eee}
+.tab-bar li.current {background: #fff; text-decoration: none; border: 1px solid #666; border-bottom: 1px solid #fff}
+.tab-bar li.current a:link, .tab-bar li.current a:visited {font-weight: bold; border: none; text-decoration: none}
+.tab-bar li a:link, .tab-bar li a:visited {text-decoration: none}
+.tab-bar li a:hover {text-decoration: underline}
+.tab-pages {margin: 0; margin-bottom: 1em; padding: .5em 0; padding-left: 1em; list-style: none; text-decoration: none; border-bottom: 1px solid #666; border-right: 1px solid #666; border-left: 1px solid #666}
+.tab-pages li {margin: 1em 0; display: none; text-decoration: none}
+.tab-pages li.current {display: block}
+.tab-bar a:link {border: none; text-decoration: none}
+.tab-bar a:hover {text-decoration: underline}
+/* fom deleted blue_home.css */ .jobs {font-size: 14px; font-family: Arial, sans-serif}
+.jobs h2 {font-size: 18px; text-transform: uppercase; color: #000; margin-bottom: 10px}
+.jobs ul {list-style-type: none; padding: 0px 10px; /* reset master value */ margin-left: 0}
+.jobs li {margin-bottom: 5px}
+.jobs a {border-bottom: none}
+.jobs a:hover {text-decoration: underline}
+.largelinks a {padding: 10px; display: block; background-color:#e7f9bb; font-size: 14px; font-weight: bold; text-align: center; border-bottom: none; text-decoration:underline; margin-bottom:10px}
+.largelinks a:hover {padding: 10px; display: block; color:#e7f9bb; background-color:#2E4B73; font-size: 14px; font-weight: bold; text-align: center; border-bottom: none}
+.separator {background-color:#e7ecf3;display:block;height:1px;margin:15px 0;}
+.newsfeed, .about {position: relative; margin-left: 80px; font:normal 14px Arial, sans-serif}
+.newsfeed h1, .about h1 {font-size: 18px; margin-bottom: 5px}
+.newsfeed h4 {font: normal 12px Arial, sans-serif; margin-bottom: 10px}
+.newsfeed a, .about a{ border: none}
+.newsfeed a:hover, .about a:hover{ text-decoration: underline}
+.newsfeed .rss {position: absolute; top: 0; left: 0; height: 64px; width: 64px; margin-left:-80px}
+.newsfeed .rss a {border:none}
+/* * FCKeditor - The text editor for internet * Copyright (C) 2003-2005 Frederico Caldeira Knabben * * Licensed under the terms of the GNU Lesser General Public License: * http://www.opensource.org/licenses/lgpl-license.php * * For further information visit: * http://www.fckeditor.net/ * * "Support Open Source software. What about a donation today?" * * File Name: fck_editorarea.css * This is the default CSS file used by the editor area. It defines the * initial font of the editor and background color. * * A user can configure the editor to use another CSS file. Just change * the value of the FCKConfig.EditorAreaCSS key in the configuration * file. * * File Authors: * Frederico Caldeira Knabben (fredck@fckeditor.net) */ /* body {font-family: Arial, Verdana, Sans-Serif; font-size: 12px; padding: 5px 5px 5px 5px; margin: 0px; border-style: none; background-color: #ffffff}
+*/ /* Just uncomment the following block if you want to avoid spaces between paragraphs. Remember to apply the same style in your output front end page. */ /* P, UL, LI {margin-top: 0px; margin-bottom: 0px}
+*/ .wiki-expand{ cursor:pointer}
+.Bold {font-weight: bold}
+.Title {font-weight: bold; font-size: 18px; color: #cc3300}
+.Code {border: #8b4513 1px solid; padding-right: 5px; padding-left: 5px; color: #000066; font-family: 'Courier New' , Monospace; background-color: #ff9933}
+/******************************************************************** Fixed layout for marketing pages (home_layout and search_layout) *********************************************************************/ #fixed-width-wrapper, .fixed-width-wrapper{width:990px; margin:0 auto;}
+.menu-wrapper{background:#2E4B73;}
+.sub-tab-wrapper {background:#E5E5E5 url(../images/bg-submenu.jpg) repeat-x scroll left top; border-bottom:none;}
+/* ------------------------------------------------------------ This stylesheet is for the grayed-out tabs and landing page --------------------------------------------------------------- */ /* Styles for the grayed out tabs, must be included in "top-bar.css" --------------------------------------------------------------- */ #main-menu li.grayed-out {float: left; margin-right: 2px; background: #eee url(/images/grayed-tabs/bg-grayed-tab-left.gif) top left no-repeat; padding-left: 8px; border-bottom: 1px solid #2E4B73}
+#main-menu li.grayed-out a {text-decoration: none; border: none; color: #777; background: transparent url(/images/grayed-tabs/bg-grayed-tab-right.gif) top right no-repeat; padding-top: 5px; padding-right: 8px; height: 21px; float: left; display: block; z-index:9999}
+#main-menu li.grayed-out a:hover {color: #039}
+/* Styles for the landing tab, must be included in "blue_spaces.css" --------------------------------------------------------------- */ /* Upgrade blue box */ .tab-landing .upgrade-box {padding: 0 15px; margin-bottom: 20px}
+.tab-landing .upgrade-box h2 {margin-bottom: 5px}
+.tab-landing .upgrade-box h2 span {font-weight: normal}
+.tab-landing .upgrade-box .upgrade-btn {float: right; margin-top: 13px}
+/* Main text and video screenshot */ .tab-landing .main-text {font-size: 16px; line-height: 1.4em}
+.tab-landing .main-text h1 {color: #15478C; font-size: 26px; margin: 30px 0 5px 0}
+.tab-landing .main-text .upgrade-btn-big {margin: 20px auto; width: 240px}
+.tab-landing .video-screenshot {margin: 0 auto; width: 490px}
+/* Benefits and Features */ .tab-landing .benefits-features {clear: both; width: auto}
+.tab-landing .benefits-features h2 {margin: 25px 0 15px 0; color: #15478C; font-size: 21px; padding-bottom: 10px; border-bottom: 1px solid #ddd}
+.tab-landing .benefits-features h3 {color: #666; font-size: 16px; margin-bottom: 10px}
+.tab-landing .benefits-features ul li {font-size: 13px; margin-bottom: 8px}
+/* Screenshots */ .tab-landing .tab-landing-screenshots {width: 940px; margin: 0 auto; clear: both}
+.tab-landing .tab-landing-single-screenshot {float: left; width: 308px; margin: 15px 8px 20px 0; text-align: center}
+.tab-landing .tab-landing-single-screenshot h4 {font-size: 15px; margin: 6px 0 4px 0; padding-right: 12px}
+.tab-landing .tab-landing-single-screenshot p {padding-right: 12px}
+/* Check out these great reasons to upgrade */ .tab-landing .upgrade-page-link {width: 100%; background-color: #F3FCDD; font-size: 20px; font-weight: bold; text-align: center; padding: 12px 0 14px 0; clear: both}
+/* Styles for the Upgrade page */ .upgrade-page .lightblue-box h1 {background: transparent url(/images/upgrade-arrow-big.gif) top left no-repeat; padding: 8px 0 0 40px; display: block; height: 30px; margin-top: 2px; font-size: 23px}
+.upgrade-page .lightblue-box h2 {font-weight: normal; margin: 15px 0}
+.upgrade-page .lightblue-box h2 span {background-color: #FFF; padding: 5px 8px}
+.upgrade-page .lightblue-box p.upgrade-text {font-size: 15px; line-height: 1.45em}
+.upgrade-page .lightblue-box p.upgrade-text span {color: #C00; font-weight: bold}
+/* Plans styles */ .plans {width: 890px; margin: 0 auto; text-align: center}
+.plans .plans-box {float: left; width: 178px; background-color: #FAFAED; margin: 0}
+.plans .price {color: #1D5A98; font-size: 21px; font-weight: bold; margin-top: 12px}
+.plans .price span {font-size: 16px; font-weight: normal}
+.plans .price em {font-size: 13px; color: #111; font-style: normal}
+.plans .plans-box p, .plans .plans-box-last p {font-size: 12px; color: #111; margin: 5px 0}
+.plans .signup {margin: 5px 0}
+.plans h3 {background-color: #666; color: #FFF; font-size: 13px; letter-spacing: 1px; padding: 5px 0; margin: 0; text-align: center}
+.plans h3.group-title {background-color: #333}
+.plans .plans-box {float: left; width: 177px; background-color: #FAFAED; margin: 0; border-left: 1px solid #DDD; border-bottom: 1px solid #DDD}
+.plans .plans-box-last {float: left; width: 176px; background-color: #FAFAED; margin: 0; border-left: 1px solid #DDD; border-right: 1px solid #DDD; border-bottom: 1px solid #DDD}
+.plans .metered, .plans .single, .plans .professional, .plans .entreprise {margin-top: 8px; height: 145px}
+.plans .group {height: 153px}
+.plans .group .price {margin-top: 17px; font-size: 28px}
+.plans .group p {margin: 6px 0 5px 0}
+/* Why upgrade section */ .why-upgrade {padding-top: 15px}
+.why-upgrade p.why-upgrade-text {font-size: 15px; line-height: 1.45em; padding: 0; display: block}
+.why-upgrade h3 {color: #3279BF; font-size: 16px; margin-bottom: 10px}
+.why-upgrade ul {margin: 0 0 30px 25px; font-size: 13px}
+.why-upgrade ul li {margin-bottom: 10px; list-style: none}
+.why-upgrade ul li.video-li {list-style: none; margin: 12px 0 25px -1px}
+.why-upgrade .tools-screenshots {float: right; margin: 0 5px 5px 5px}
+/* Testimonials */ .upgrade-testimonials {margin: 30px 0; padding: 5px 40px 20px 0; background-color: #FAFAED; border: 1px solid #F3F3F3; clear: both; font-size: 14px}
+.upgrade-testimonials h2 {margin-bottom: 25px; padding: 0; border: none}
+.upgrade-testimonials blockquote {background: url(/images/open-quote.gif) no-repeat left top; padding-left: 40px; text-align: center; line-height: 140%; margin-bottom: 8px; margin-top: 8px; min-height: 24px}
+.upgrade-testimonials blockquote span {background: url(/images/close-quote.gif) no-repeat right bottom; display: block; padding-right: 40px}
+.upgrade-testimonials .client {width: 480px; margin: 0 auto; padding-bottom: 18px; text-align: center; border-bottom: 1px dotted #ccc}
+.upgrade-testimonials .client-noborder {margin: 0 auto; text-align: center}
+.upgrade-testimonials .client-logo {width: 180px; margin: 0 auto; text-align: center; margin-top: 15px}
+.setup-link {font-size: 18px; font-weight: bold; background-color: #F3FCDD; padding: 16px 0 18px 0; color: #111; margin-top: 5px; border: none; text-align: center; clear: both}
+/* Copyright (c) 2005 Assembla, Inc. Released under the Singleton Development License */ /* --------------------------------------------------- NOTE: Tool styles. Additional and general styles can be found on base stylesheet "blue_site.css" ------------------------------------------------------ */ /* --------------------------------------------------- = Trac tool ------------------------------------------------------ */ .sub_os {}
+.sub_os ul {margin-left: 2em; margin-bottom: 1em}
+.sub_os li {line-height: 150%}
+pre.sub_ver, code.sub_ver {font-size: small; /* reset size for IE */ }
+pre.sub_ver {background: #eee; margin: 1em 0; padding: .1em; overflow: auto}
+.toolbox_ {padding: 0.8em}
+/*------------------------------------------------------------------- = Scrum --------------------------------------------------------------------*/ .scrum_report_tasks ul {margin-left: 20px; list-style: square}
+.quota_ok {color: green}
+.quota_not_ok {color: red}
+span.reply a:link, span.reply a:visited {font-weight: normal; color: #7A9CCC; border-bottom-color: #a1bde5; font-size: 11px; margin-left: 0}
+span.reply a:hover {font-weight: bold; color: #666; font-size: 11px; margin-left: 0}
+/* Scrum calendar styles */ .calendar {margin: auto; font-size: 0.85em}
+.calendar td, th {text-align: center}
+.calendar th {text-align: center; color: #333; font-size: 1.25em}
+.monthName th {font-weight: normal; text-align: center; padding-top: 1em; padding-bottom: 0.7em}
+.dayName th {font-size: 1.15em; padding: 0.2em; background-color: #D4DCE8; border: 1px solid #D4DCE8; color: #000; font-weight: normal}
+.otherMonth, .day, .specialDay, .selectedDay {}
+.otherMonth {color: #aaa; border-bottom: 1px solid #D4DCE8}
+.weekendDay {background-color: #f6f6f6}
+.day, .specialDay, .selectedDay {text-align: center; border-bottom: 1px solid #D4DCE8}
+.selectedDay {font-weight: bold; background-color: #D4DCE8}
+.specialDay {background-color: #F5CCCC; color: #333}
+.specialDay a, .specialDay a:visited, .specialDay a:hover {color: white; text-decoration: none}
+.specialDay a:hover {color: white; background-color: black}
+.today {background-color: #E3EFFC; color: white}
+/*------------------------------------------------------------------- = Trac/(Svn|Git|Hg) Tools pages --------------------------------------------------------------------*/ #tool_page {margin: 0px; padding: 0; border: 0; outline: 0}
+#tool_page h1 {color: #15478c; font-size: 18px; line-height: 24px}
+#tool_page h1 span {color: #444; float: none}
+#tool_page h2 {font-size: 1.35em; line-height: 18px}
+#tool_page h3 {color: #444; font-size: 1.15em; margin: 0.5em 0; line-height: 18px}
+#tool_page a, #tool_page a:link {color: #15478c; text-decoration: underline; border-bottom: none}
+#tool_page a:hover {color: #06c; text-decoration: none}
+#tool_page a:focus {color: #000}
+#tool_page a:active {color: #000}
+#tool_page .lista {color: #000; margin-bottom: 5px}
+#tool_page .lista a {line-height: 14px}
+#tool_page .lista a:hover {color: #06c; text-decoration: none}
+#tool_page #outerWrapper {background-color: #fff; margin: 0 auto 0 0}
+#tool_page ul.links {margin-top: 5px; margin-bottom: 5px}
+/*#tool_page #outerWrapper #contentWrapper*/ #leftColumn {padding: 0px; margin-top: 0; margin-left: 0px; margin-bottom: 0; float: left; width: 48% }
+/*#tool_page #outerWrapper #contentWrapper*/ #rightColumn {padding: 0px; float: right; width: 50%}
+#tool_page #outerWrapper #contentWrapper .clearFloat {clear: right; display: block}
+#tool_page .top {background-color: #e6eff8; background-repeat: no-repeat; padding-top: 10px; padding-right: 15px; padding-bottom: 10px; padding-left: 15px; font-size: 12px; color: #666666}
+#tool_page #greenboxsub {background-color: #F3FCDD; padding-top: 6px; padding-right: 15px; padding-bottom: 6px; padding-left: 15px; font-size: 12px; color: #FF9900; font-weight: bold; border-bottom: 2px solid #E0E7EF; border-top: 2px solid #E0E7EF; letter-spacing: 1px}
+#tool_page #greenboxsub div {font-size: 11px; letter-spacing: normal; font-weight: normal}
+#tool_page .hint {font-size: smaller; color: #666666; font-weight: normal}
+#tool_page #greenboxtrac {background-color: #E7FABB; padding-top: 8px; padding-right: 15px; padding-bottom: 8px; padding-left: 15px; font-size: 11px; color: #FF9900; font-weight: bold}
+#tool_page .settings {background-color: #F9F9F9; padding-top: 12px; padding-right: 13px; padding-bottom: 10px; padding-left: 15px; margin-top: 0px; margin-right: 0px; margin-bottom: 12px; margin-left: 0px}
+#tool_page .settings #forma {vertical-align: top; float: left}
+#tool_page .settings #tit {font-size: 14px; color: #444; font-weight: bold; padding-top: 3px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; margin-left: 0px}
+#tool_page .settings .tit {font-weight: bold; padding-top: 3px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; margin-left: 0px}
+#tool_page .settings .desc {color: #333333; line-height: 150%; margin: 0px; /*clear: left;*/ padding: 5px 5px 5px 0}
+#tool_page .settings pre {overflow: auto; background: #000; color: #fff}
+#tool_page .dotted {margin-top: 6px; height: 5px; margin-bottom: 6px; background-image: url(/images/tools/back_dot.gif); background-repeat: repeat-x}
+#tool_page .buttondiv {padding: 0px; margin: 0px}
+#tool_page #client-wrap {width: 380px; clear: left; margin-top: 0px}
+#tool_page .clients {background-image: url(/images/tools/back_clients.jpg); background-repeat: repeat-x; float: left; width: 104px; font-size: 10px; border-right-width: 2px; border-right-style: solid; border-right-color: #FFFFFF; margin-top: 10px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 5px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; line-height: 13px}
+#tool_page .clients b {font-size: 11px; color: #666666; line-height: 14px}
+#tool_page .clients a {font-size: 12px; line-height: 16px}
+#tool_page #win {height: 35px; margin-top: 0px; margin-right: 0px; margin-bottom: 5px; margin-left: 0px; padding-top: 5px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px}
+#tool_page #mac {height: 38px; margin-top: 0px; margin-right: 0px; margin-bottom: 5px; margin-left: 0px; padding-top: 2px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px}
+#tool_page #lin {padding: 0px; height: 40px; margin-top: 0px; margin-right: 0px; margin-bottom: 5px; margin-left: 0px}
+#tool_page div.svn-check {padding-bottom: 0.75em}
+#tool_page div.svn-check label {font-weight: bold}
+/* --------------------------------------------------- = Image Tool ------------------------------------------------------ */ #image-list {list-style: none}
+#image-list li {margin-bottom: .75em}
+#image-list li.current {font-weight: bold}
+#back_link{ margin-top: -10px; padding-bottom: 0px}
+#back_link a {padding-bottom: 0px; float:right}
+#document_title{ margin-top: 1em; font-size:1.35em}
+/* ------ Thumbnails -------- */ .gallery_thumbnail {float: left; text-align: center; width:110px; height:165px; overflow: hidden; margin-bottom:10px; margin-left:10px; border:7px solid #eee}
+.gallery_thumbnail a:link, .gallery_thumbnail a:visited {color:#333; border: 0px; text-decoration: none}
+.gallery_thumbnail a:hover {text-decoration: none}
+.gallery_thumbnail img{ border: 1px solid #ccc }
+.gallery_thumbnail .swf{ border: 1px solid #ccc; margin-left: 4px}
+.gallery_thumbnail p {text-align: center}
+.spacer {clear: both}
+.img-field{ float:left; padding-left:2em}
+/* ------ Image List -------- */ #displayed_images {width: 100%; min-height: 50px; float: left}
+#hidden_images {width: 96%; min-height: 50px; float: left}
+.drag {cursor: move}
+.hidden_panel {cursor: pointer}
+p.drag-info-box{ border: 1px solid #ccc; color:#aaa; padding:20px; width:113px}
+.toolbar{ background-color: #eee; padding-bottom: 1px; margin-bottom:5px}
+.toolbar a:link, .toolbar a:visited {color:#003366; border: 0px; text-decoration: underline}
+.toolbar a:hover {text-decoration: none}
+/* --------------------------------------------------- = Messages/comment box ------------------------------------------------------ */ #message-history {background: #fbfbfb; border: 1px solid #eee; padding: 14px 5px 5px 20px; margin: 2em 0 2em 0}
+#message-history.no_comments {border: 1px solid #F0F3F7; background: #F9F9F9; color: #333}
+#message-history h3 {margin-bottom: .75em; font-size: 14px}
+dl.messages {margin-top: .75em}
+dl.messages dt {font-weight: normal; padding-top: .75em}
+dl.messages dt span.when {color: #7a9ccc; font-weight: normal}
+dl.messages dd {padding-top: .375em}
+dl.messages dd p {margin: 0; margin-bottom: .75em}
+.wcomments {color: #333; font-size: 1.2em}
+#flows h2 {font-size:17px; margin-bottom: 8px}
+#flows h3.add-reply {font-size:15px; margin-top: -10px}
+.author-line {margin: 10px 20px 12px 0; padding: 0 0 10px 0; font-size:12px; color: #777; border-bottom: 1px dotted #ddd}
+.message-body {font-size: 14px; padding: 9px 50px 5px 24px; line-height: 1.5em}
+.reply-row {margin: 0 0 7px 0; padding: 0 0 10px 0}
+.reply-row .icon {margin-right: 3px}
+.add-reply {margin: -17px 0 5px 0}
+.reply-padding {padding: 0 20px 0 24px}
+#flows ul{ list-style:disc; margin: 0 5px 0 0}
+#flows ul.flow-list {list-style: none; margin-left: 0; padding-left: 0}
+#flows ul.flow-list li {margin-bottom: 0; padding: .25em 0 0 0}
+#flows ul.flow-list li h2 {font-size: 1.15em; margin: 0 0 .25em 0}
+#flows ul.flow-list li img {margin-top: 2px; margin-right: 5px}
+#flows div.attachments, #old_flows div.attachments {margin-left: 0; padding-left: 20px; background: transparent url('/images/ico-attachment.png') center left no-repeat; /*background: transparent url('/images/blue/bg-attachments.gif') center left no-repeat;*/ }
+.flow_header {color: #999999; font-weight: bold}
+#flows li div.meta {color: #666; font-size: 11px; margin-left: 0}
+.attachments-form {background: transparent url('/images/ico-attachment-big.png') left 7px no-repeat; padding-left: 40px; margin: 20px 0 10px 0 !important}
+/* used on grouped by priority */ #flows li.grouped {border-bottom: none}
+span#flow-by-line {font-size: 11px; margin-top: -5px}
+span#flow-by-line strong {color: #666}
+#flows li h2 span, #flows li h3 span {font-size: 12px; font-weight: normal; color: #666; text-decoration: none}
+.main-col h2#flow-heading {margin: 12px 0 8px 0; font-size: 17px}
+#message-history #flows li div.meta {color: #7A9CCC}
+#flows li div.meta a:link, #flows li div.meta a:visited {color: #666; border-bottom-color: #999}
+#message-history #flows li div.meta a:link, #message-history #flows li div.meta a:visited {color: #7A9CCC; border-bottom-color: #a1bde5}
+/* flow input */ input.newcomment, textarea.newcomment {width: 560px}
+/* high & highest */ span.priority-1, span.priority-2 {color: #AA273D; font-weight: bold}
+/* normal */ span.priority-3 {}
+/* low */ span.priority-4 {color: #2E4B73}
+/* lowest */ span.priority-5 {color: #2E4B73}
+#flow-details {border-top: 1px solid #ddd; padding-top: .75em}
+#flow-details dd {padding-bottom: .75em; border-bottom: 1px solid #ddd}
+#reply_message {height: 43px; width: 160px; margin: 0px 0px 0px 0px}
+.filter_cont {padding: 5px 20px 15px 15px}
+.attachment-icon {padding: 4px 0px 0px 20px; background: url(/images/ico-attachment.png) no-repeat 0 6px}
+/* --------------------------------------------------- = Toolbars for textareas ------------------------------------------------------ */ .small_toolbar {background-color: #fff; /*border: solid #d7d7d7; border-width: 1px 1px 1px 0;*/ height: 18px; width: 190px; margin-left: 180px}
+.small_toolbar a:link, .wikitoolbar a:visited {background: transparent url(../images/wiki/simple_toolbar.png) left top no-repeat; border-left: 1px solid #d7d7d7; border-right: 1px solid #d7d7d7; border-top: 1px solid #d7d7d7; border-bottom: 1px solid #fff; cursor: default; display: block; float: left; width: 24px; height: 16px}
+.small_toolbar a:link:hover, .wikitoolbar a:visited:hover {background-color: transparent; border: 1px solid #15478C}
+.small_toolbar a#em {background-position: 2px 0}
+.small_toolbar a#strong {background-position: 2px -16px}
+.small_toolbar a#heading {background-position: 1px -33px}
+.small_toolbar a#link {background-position: 2px -49px}
+.small_toolbar a#code {background-position: 2px -66px}
+.small_toolbar a#ol {background-position: 2px -82px}
+.small_toolbar a#ul {background-position: 2px -101px}
+.small_toolbar a#br {background-position: 0 -122px}
+/*------------------------------------------------------------------- = Admin pages --------------------------------------------------------------------*/ .summary-wrap {width: auto; background-color: #F5F5F5; padding: 5px; margin-bottom: 5px; width: 100%}
+.summary-wrap-red {width: auto; background-color: #FFE8EC; border-top: 1px solid #FEC0BA; border-bottom: 1px solid #FEC0BA; padding: 5px 5px 10px 5px; margin-bottom: 5px; width: 100%}
+.summary_section {/*margin-bottom: 2em;*/ }
+.summary_section .ico {float: left; margin: 10px 5px 5px 12px; text-align: center}
+.ico a:link, .ico a:visited {border: none; text-decoration: none}
+.summary_section .more_link {margin-top: 12px; margin-right: 14px; float: right; text-align: right}
+.summary_section .more_link span {margin-left: 4px; color: #f60}
+.summary_body {margin-left: 75px; margin-right: 65px; padding-top: 10px; padding-left: 5px}
+.summary_body h1 {font-size: 1.35em; margin-bottom: -1px}
+.summary_body ul#tool_list {margin: 0 0 0.75em 20px; padding: 0; list-style: none; float: left}
+.summary_body ul#tool_list li {width: 190px; float: left; margin: 0.4em 0; padding: 0; height: 1em}
+.warning {float: left; margin: 5px 0px 0px 50px; font-size: .85em}
+/* space/admin/resource page */ ul.backup_info {list-style: none; margin: 0}
+ul.backup_info li {padding-left: 0.5em}
+table.diskspace {margin-left: 20px; width: 35%}
+.but_add {width: auto; overflow: visible; background: #F30 url(../images/tools/bg_add.jpg); font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-weight: bold; font-size: 13px; padding: 2px 4px; border-top: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #aaa; border-left: 1px solid #aaa}
+.but_add:hover {width: auto; overflow: visible; background: #f60; color: #FFFFFF; border-top: 1px solid #aaa; border-right: 1px solid #aaa; border-bottom: 1px solid #ddd; border-left: 1px solid #ddd; cursor: pointer}
+.but_delete {width: auto; overflow: visible; background: #D0D0D0 url(../images/tools/bg_delete.jpg); font-family: Arial, Helvetica, sans-serif; color: #333333; font-weight: bold; font-size: 13px; padding: 2px 4px; border-top: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #aaa; border-left: 1px solid #aaa}
+.but_delete:hover {width: auto; overflow: visible; background: #ddd; color: #000; border-top: 1px solid #aaa; border-right: 1px solid #aaa; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; cursor: pointer}
+.but_canc {float: left; margin-left: 8px; margin-top: 8px}
+/* --------------------------------------------------- = Admin pages - Upgrade ------------------------------------------------------ */ .upgrade-title h1 {width: auto; font-size: 1.25em; border-bottom: 1px solid #BCC5D7; margin-bottom: 5px}
+/* Left column */ .upgrade-content {margin: 0 260px 0 0}
+.upgrade-content h2 {padding: 7px 0 8px 38px; margin: 18px 0 20px 0; background: url(/images/upgrade-arrow-big.gif) no-repeat left top; font-size: 1.75em}
+.main-features {}
+.main-features #mf-top {height: 2px; border-top: 1px solid #e0e7ef}
+.main-features ul.mf {margin: 0px; padding: 6px 0 6px 15px; list-style: none; background-color: #F3FCDD; border-top: 1px solid #e0e7ef; border-bottom: 1px solid #e0e7ef}
+.main-features ul.mf li {background: transparent url(/images/feature-star.gif) no-repeat 0px 3px; font-size: 1.1em; line-height: 1.35em; font-family: Arial, Helvetica, Sans-serif; font-weight: bold; padding: 4px 0 4px 24px; margin: 0px}
+.main-features #mf-bottom {height: 2px; border-bottom: 1px solid #e0e7ef}
+.main-features ul.mf li span {color: #F30}
+.main-features p.mkt-text {font-family: Arial, Helvetica, Sans-serif; font-size: 1.35em; line-height: 1.5em; margin: 20px 0 20px 0}
+.main-features p.mkt-text span {color: #2E4B73; font-weight: bold}
+.main-features .mf-button {width: auto; float: left}
+.main-features .mf-button #mfbutton {float: left; background: url(/images/box-right.gif) top right no-repeat}
+.main-features .mf-button #mfbtn-inner {margin: 0; padding: 5px 0 0 0; background: url(/images/box-left.gif) top left no-repeat}
+.main-features .mf-button #mfbtn-inner a {display: block; margin: 0; padding: 0px 0 0 12px; font: bold 1.2em Arial, sans-serif; color: #039; text-decoration: none; background: url(/images/box-left.gif) bottom left no-repeat}
+.main-features .mf-button #mfbtn-inner a:hover {color: #06c}
+.main-features .mf-button #mfbtn-inner em {display: block; margin: 0; padding: 1px 14px 5px 0; font-style: normal; background: url(/images/box-right.gif) bottom right no-repeat}
+.main-features .mf-button #mfbtn-inner img {margin-right: 5px; vertical-align: middle}
+.main-features .mf-or-cancel {float: left; padding-top: 4px; margin-left: 15px}
+/* Right sidebar */ .feature-list {width: 245px; float: right; margin-top: 10px}
+.feature-list-sidebar {margin: 0; padding: 0px; background: #EAF3FA;}
+b.rtop, b.rbottom{display:block;background: #FFF}
+b.rtop b, b.rbottom b{display:block;height: 1px; overflow: hidden; background: #EAF3FA;}
+b.r1{margin: 0 5px}
+b.r2{margin: 0 3px}
+b.r3{margin: 0 2px}
+b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px }
+.feature-list-sidebar .feature-content {padding: 7px 15px}
+.feature-list-sidebar .feature-content h2 {font-size: 1.25em; color: #2E4B73}
+.feature-list-sidebar ul.features {margin: 0px; list-style: none}
+.feature-list-sidebar ul.features li {background: transparent url(/images/tick-bgblue.gif) 0px 0px no-repeat; font-size: 1.1em; line-height: 1.25em; font-family: Arial, Helvetica, Sans-serif; margin: 4px 0 0; padding: 0 0 5px 22px; font-weight: bold}
+#migrate th.title{ font-size:1.5em; font-weight:bold; color:#000000}
+#migrate tr.odd{ background-color:#DBDBDB}
+/*------------------------------------------------------------------- = Admin pages - Space admin/tools page --------------------------------------------------------------------*/ .tools-title h1 {width: auto; font-size: 1.25em; border-bottom: 1px solid #BCC5D7; margin-bottom: 5px}
+/* Left column */ .tools-admin-content {margin: 0 300px 0 0}
+.tools-admin-content .listed-tool {width: auto; padding: 12px 0 3px 12px; border-bottom: 1px solid #D4DCE8; font-family: Arial, Helvetica, Sans-serif}
+.tools-admin-content .featured-tool {background-color: #EFF6FB}
+.tools-admin-content .listed-tool .add-button {float: left; margin: 1px 0 0 0}
+.tools-admin-content .listed-tool .tool-description {margin: 0 60px 0 120px; width: auto}
+.tools-admin-content .listed-tool .tool-description h1 {font-size: 1.4em; margin: 0; padding: 0 0 4px 0; display: block}
+.tools-admin-content .listed-tool .tool-description img{ float: left; margin-right: 10px}
+.tools-admin-content .listed-tool .tool-description p {font-size: 1em; line-height: 1.4em; padding-bottom: 5px}
+.tools-admin-content .listed-tool .tool-price {width: 50px; float: right; margin-right: 5px; text-align: center; font-weight: bold; color: #F60; font-size: 1.1em}
+/* Right sidebar */ .tools-list {width: 280px; float: right; margin-top: 10px; font-family: Arial, Helvetica, Sans-serif}
+.tools-list-sidebar {margin: 0; padding: 10px 14px 20px 15px; background: #f6f6f6}
+.tools-list-sidebar h2 {font-size: 1.25em; color: #2E4B73; padding-bottom: 5px; border-bottom: 1px solid #bcc5d7; margin: 0}
+.tools-list-sidebar ul.installed-tools {margin: 0px; list-style: none}
+.tools-list-sidebar ul.installed-tools li {border-bottom: 1px dotted #bcc5d7; padding: 8px 0 8px 0; margin: 1px 0 0 0}
+.tools-list-sidebar ul.installed-tools li h3 {float: left; width: 120px; margin: 0; padding: 0 0 0 0}
+.tools-list-sidebar ul.installed-tools li p.settings-tool {font-weight: normal; background: url(/images/ico_settings.png) no-repeat left 1px; float: right; padding-left: 20px; margin: 0}
+.tools-list-sidebar ul.installed-tools li p.delete-tool {font-weight: normal; background: url(/images/remove.gif) no-repeat left 1px; float: right; padding-left: 20px; margin: 0 0 0 8px}
+/* --------------------------------------------------- = Portfolio Manager Styles ------------------------------------------------------ */ .portfolio-manager {}
+.portfolio-manager .team-member {margin-bottom: 15px; float: left; width: 315px; min-height: 130px}
+.portfolio-manager .team-member .no-picture {border: 1px solid #D4DCE8; float: left}
+.portfolio-manager .team-member .user-spaces-info {float: left; margin: 0 0 0 13px; width: 195px}
+.portfolio-manager .team-member .user-spaces-info h2 {margin: 0px 0 5px 0}
+.portfolio-manager .team-member .user-spaces-info p {margin-bottom: 4px}
+.portfolio-manager .team-member .user-spaces-info p span {color: #666}
+.portfolio-manager .team-member .user-spaces-info span.spaces-count a {font-weight: bold; padding: 2px 4px; background-color: #f3fcdd; font-size: 13px}
+.portfolio-manager .team-member .user-spaces-info span.spaces-count a:hover {color: #fff; background-color: #15478c}
+.portfolio-manager .member_popup {min-width:200px; min-height:30px; background: #F6F6F6; border: 1px solid #eee; padding: 8px 5px 2px 12px; text-align:left}
+.portfolio-manager .member_popup ul {padding: 0; margin: 0 0 0 12px}
+.portfolio-manager .member_popup ul li {margin: 0 0 5px 0}
+.portfolio-manager .member_popup ul li span {color: #5274A5}
+.portfolio-manager .member_popup ul li em {color: #999; font-style: normal}
+/*THIS IS THE LINE ------------------------------------------------*/ /* --------------------------------------------------- NONSTANDARD & QUESTIONABLE STYLES The following block of styles are controller or tool specific. They should be considered "below the line" and NOT included in the new base.css file. Move these styles to individual controller or specific tool stylesheets. ------------------------------------------------------ */ /* OLD TOOLS STYLES BELOW -- REMOVE! */ #tools-wrapper {width: 98%}
+#tools-table {width: 100%}
+#tools-table th {text-align: center; vertical-align: middle}
+#tools-table td {text-align: center; vertical-align: middle}
+#tools-table td.tools {width: 18%; font-weight: bold}
+#tools-table td.actions {padding-top: 8px; width: 13%; font-weight: bold}
+#tools-table td.description {text-align: left; width: 54%; padding-top: 14px; padding-bottom: 8px; padding-right: 5px}
+#tools-table td.price {width: 15%; font-style: italic; font-weight: bold; font-size: 13px; color: #15478c}
+/* found on _builder.rhtml */ .ticket-reports .tab-bar {background: transparent url(/images/tr-bg-tab-bar.png) bottom left repeat-x}
+.ticket-reports .tab-bar li {background: #fff}
+.ticket-reports .tab-bar li.current {background: #eee; border-bottom: 1px solid #eee}
+/* order by links */ .page-list {margin: .75em 0; text-align: right; font-weight: bold}
+.page-list span, .page-list a {font-weight: normal}
+.help {background: #f6f6f6}
+.help pre {margin-bottom: .75em}
+.search-box {background: #EAF3FA; border: 1px solid #D4DCE8}
+.search-box h3 {color: #15478C}
+#crumb {list-style: none; padding: 0; padding-bottom: 1em; margin: 0; margin-bottom: 1.5em; border-bottom: 2px solid #ccc; text-align: center}
+#crumb li {display: inline; margin-right: 3em}
+#crumb li.last {background-image: none}
+#crumb li a:link, #crumb li a:visited {font-size: 110%}
+#crumb li.current a:link, #crumb li.current a:visited {font-weight: bold; border-bottom: none; color: #15478C}
+/* --------------------------------------------------- =search jobs ------------------------------------------------------ */ /* Message */ .messages_ {background: #E3EFFC; padding: 1em; margin: 2em 0 3em 0}
+.messages_ h3 {margin-bottom: .75em}
+.appintimation_{ padding:0.3em; width:100%; background:#FFE8EC; margin-bottom:1em}
+.job-list {list-style: none; margin-left: 0}
+.job-list li {}
+.job-list h3 {font-size: medium}
+.job-list p {/*margin-left: 2em;*/ }
+p.job-details {color: #666}
+p.job-details span {color: #000}
+.active{ background:#F2FFF0}
+.expired{ background: #FFF4F4}
+.summarypane_{ padding:1em}
+.rank_{ width:102em}
+h3.conver_{ display:inline; float:left}
+div.conver_txt{ text-align:right}
+div.exptitle{ background:#fff8a6; border:1px solid #fdf168; padding:0.3em}
+.txt_itlc{ font-style:italic}
+/* Buyer */ .buyer_info{ padding:1em}
+.appjobdesc{ padding:0; margin:0; border-bottom:1px solid #eee; margin-bottom:1em}
+.application_{ padding:0; margin:0; margin-bottom:1em}
+table.appbody_{ width:80%; border-bottom:0}
+/* ----------- jobs comparison table--------*/ .equal{ background-color: darkgreen}
+.not_equal{ background-color: tomato}
+/*== do not remove. It is used in jobs_helper::jobs_status_css ==*/ .commit{ background-color: tomato}
+.disputed{ background-color: yellow}
+.respond{ background-color: pink}
+/* CSS Document for Job Agreement */ /* --------------------------------------------------- =section: space --> Staffing Tool - Pravin 05 June 2007 ------------------------------------------------------ */ /*#recruit_ {margin-right: 17em; line-height: 150%;}*/ #recruit_ {line-height: 150%;}
+#recruit_.no-sidebar {margin-right: 0}
+#recruit_ .warning{color:#FF0000; background:#EBF7FA; text-align:left; font-size:1.2em; padding:0 0 1em 0; border:1px solid #A3E6F1;}
+#recruit_ .warning p{margin:0.3em 0 0em 1em}
+#recruit_ .warning h3{padding:5px; margin:5px 0 0 0;color:#000}
+#list h2{ color:#000; display:inline; font-size:111%}
+#list {margin:0;}
+#list fieldset{ margin:0.2em 0;}
+#list div{ margin-bottom:1.5em}
+#list span.txt{font-weight:normal; font-style:italic; margin-left:10px;}
+#list .instructions_, .discussion_, .required_terms, .optional_, .final_{border-bottom:1px dotted #999; margin:0 1em 1.5em 1.9em; padding: 0 0 0.5em 0;}
+#list .instructions_{ background:#ddd; border-bottom:0; margin:0 1em 1.5em 0em; padding: 0 0 0.5em 0; width:100%;}
+#list .instructions_ p{padding:0 1em; margin:0em 1.2em 0 1em; line-height:150%;}
+#list .instructions_ p.top{padding:1em 1em 0 1em; margin:0em 1.2em 0 1em;}
+#list .instructions_ ol{margin-left:4em; margin-right:2em; margin-top:0.4em}
+#list .instructions_ li{ margin:0.5em;}
+#list .inst_text {background:#e7f9bb; margin:0 1em;}
+#list .discussion_ p{ margin:0em 0; padding:0.2em 0;}
+#list .discussion_ p.dt_{border-bottom:1px dotted #000000;}
+#list .discussion_ p.dt_ span{background:#666; float:right; color:#FFFFFF; font-size:0.9em}
+#list .discussion_ p.dt_buyer {border-bottom:1px dotted #000000;}
+#list .discussion_ p.dt_buyer span{background:#f6f6f6; float:right; color:#333; font-size:0.9em}
+#list .selected{ background:#f6f6f6; padding: 0.2em 0 0.2em 1.8em; margin: 0px; border-bottom:1px dotted #999; cursor:pointer;}
+#list .up_arrow{ background:#f3f3f3; padding: 0.25em 0 0.3em 0.35em; margin: 1em 0 0 0; border: 1px solid #d4dce8; cursor:pointer}
+#list .up_arrow img{ border:0; padding:0 0.2em; float:left; cursor:pointer;}
+#list .discussion_ span.provider{ color:#005177; margin:0.5em;}
+#list .discussion_ span.buyer{ color:#990000; margin:0.5em;}
+#list .final{ background:#fff; margin-top:1em; clear:both; padding: 0.2em 0 0.2em .8em; margin:0; border:1px solid #D4DCE8}
+#list .tab1{width:100%; border:1px solid #ddd; background:#fff;}
+#list .tab1 th{ border-bottom:1px solid #ddd;}
+#list .tab1 td{ border-bottom:1px solid #ddd; padding:0.6em 1px; text-align:center;}
+#list .tab1 td.tooltip{ vertical-align: top; padding: 0 0 0.5em 1em; text-align:left;}
+#list .tab1 label{display:inline;}
+#list .tab1 label.ttip{background:url(../images/6.jpg) no-repeat; padding: 0 0 0 1.6em;}
+#list .tab1 span.txt{font-weight:normal; font-style:italic;}
+#list .tab1 input{ margin-top:2px;}
+#list .tab2{width:100%; border:none;}
+#list .tab2 td{ padding:1em 0 0 0; text-align:center; vertical-align:middle;}
+#list .tab2 td.but{ width:80%; text-align:left;}
+#list .tab2 input{display:inline; padding-right:5px;}
+#list .tab2 p{margin:0em 1em; text-align:left;}
+#list .tab1 .document_{border:0; padding:0;}
+#list .upload_doc{ border:0; margin:0}
+#list .upload_doc input{ margin: 0 5px 0 5px;}
+#list .upload_doc td{ border:0; text-align:left; padding:0.2em 0;}
+#list .upload_doc td.checkimg_{ text-align:center; width:8%;}
+#list .upload_doc td.checkimg1_{ text-align:center; width:10%;}
+#list .upload_doc td.appendfile_{padding-left:3.5em; text-align:left;}
+#list .upload_doc td.item_{padding-left:1.2em; text-align:left;}
+#list .upload_doc input{ margin: 0 5px 0 5px;}
+#list .upload_doc table {border:0;}
+#list .upload_doc td{ text-align:left; border:0;}
+#list .add_item{ border:0; margin:0; padding:0;}
+#list .add_item input{ margin: 0 5px 0 5px;}
+#list .add_item td{ border:0; text-align:left; padding:0.2em;}
+#list .add_item td.checkimg_{ text-align:center; width:7%; vertical-align:middle}
+#list .add_item td.checkimg1_{ text-align:center; width:10%; vertical-align:middle}
+#list .add_item td.appendfile_{padding-left:10em; text-align:left;}
+#list .add_item input{ margin: 0 5px 0 5px;}
+#list .add_item table {border:0;}
+#list .add_item .exp_item{padding-left:3.2em;}
+#list .opt_term{ margin:0em;}
+#list .opt_term input{ margin: 0 5px 0 5px;}
+#list .opt_term table {border:0; padding:0; margin:0;}
+#list .opt_term td{ text-align:left; border:0;}
+#list .check_{ border:0;}
+#list input.button_grey {font-weight: bold; padding: .1em .1em; background: #ccc; color: #000; border: 1px solid #999; border-right: 1px solid #999; border-bottom: 1px solid #999; cursor: pointer}
+.due, .due a{ color: #0000AA}
+.overdue, .overdue a{ color: #AA0000}
+.today, .today a{ color: #00AA00}
+.disputed, .disputed a{ background-color: #FFF8A6}
+input.wcal{ width:78px}
+#agreement_version {text-align: right; font-size:x-small}
+/* Styles from removed 'user_profile_msa.css' */ #msa{ border-top:1px dotted #666666; padding:1em 0;}
+#msa a{ border:0;}
+#msa .instructions_{color:#000; background:#EBF7FA; text-align:left; padding:0 0 1em 0; border:1px solid #A3E6F1;}
+#msa .instructions_ p{margin:0.3em 0 1em 1em}
+#msa .instructions_ h3{padding:5px; margin:5px 0 0 0;color:#000}
+/*#msa .instructions_ p a{ background:#15478c; color:#fff; padding:0.2em; border:0;}
+#msa .instructions_ p a:hover{ background:#990000; color:#fff; padding:0.2em;}*/ #msa .instructions_ p a{ text-decoration:underline;}
+#msa .instructions_ p a:hover{ text-decoration:none;}
+#msa .contract_form th{ background:#f6f6f6; padding:0.5em; text-align:center}
+#msa .contract_form td{ border-bottom:1px solid #999; text-align:center}
+#msa .contract_form td.check{ text-align:center;}
+#msa .contract_form tr.grey{background:#f6f6f6;}
+/* THIS IS THE LINE --------------------------------------------------------*/ /* --------------------------------------------------- NONSTANDARD & QUESTIONABLE STYLES The following block of styles are controller or tool specific. They should be considered "below the line" and NOT included in the new base.css file. Move these styles to individual controller or specific tool stylesheets. ------------------------------------------------------ */ /* Providers Jobs*/ .about_jobs {background: #e7f9bb; padding: .5em; color: #15478C; font-style: italic; margin-bottom:0.5em}
+/* MSA */ .msa_pro{clear:both; /*width:720px;*/ margin:0 auto;}
+/* for opera 9 */ dl.messages {margin-top: 1em; /*margin-left: 1em;*/ }
+dl.messages dt {font-weight: normal}
+dl.messages dt span.when {color: #666; font-weight: normal}
+dl.messages dd {/*border-bottom: 1px solid #ccc;*/ padding-top: .5em; /*padding-bottom: .5em;*/ }
+dl.messages dd p {margin: 0; margin-bottom: .5em}
+/* These styles are shared between the job search controller and the Breakout Staffing Tool. */ #job-profile {margin: 0; margin-top: 1em; border-bottom: none}
+#job-profile dt {font-size: 1.12em; font-weight: bold; margin-bottom: .2em}
+#job-profile dd {margin: 0 0 .5em 0}
+#job-profile dd p {margin: 0; margin-bottom: .75em}
+#job-profile ul {margin-left:3em; list-style-type:disc; margin-bottom: .75em}
+#job-profile li {margin-bottom: -.375em}
+#job-details {margin: 0; margin-top: .5em}
+#job-details dd {margin: .2em 0 .5em 0; padding-bottom: .25em; border-bottom: 1px solid #ddd}
+.jobs-dl {margin-top: 20px; margin-bottom: 20px}
+.jobs-dt {display: none; width: 1px}
+.jobs-dd-1 {width: 250px}
+/* For Buyer and Provider billing/jobs */ table.joblist_ {width:98%; margin:0.5em auto; border:1px solid #CCCCCC; background:#fff; margin-bottom:1em}
+table.joblist2_ {width:98%; margin-top:0.5em; border:1px solid #CCCCCC; background:#fff; margin-bottom:1em;margin-left:auto;margin-right:auto}
+table.joblist_ td {padding-bottom:0.2em; border-top: 1px solid #ddd}
+table.joblist_ td a{ text-decoration:none; border:none}
+table.joblist_ td a:hover{ border-bottom: 1px solid}
+th.joblist_w{ width:15%}
+/* Job Resposne */ .apptop_{ background:#eee; padding:0.3em; width:100%}
+.apptop_ table{ border:0; width:80%; padding:0}
+.apptop_ td{ padding:0.2em}
+#comments_instructions{ font-size:0.8em}
+.comments_list {margin-top:10px; font-size:0.9em}
+.jobprofile_{ padding:0.6em 0.5em 0.125em 0.5em; background:#E3EFFC}
+.jobprofile_ h2{ letter-spacing:0}
+.poster{ background: #E7FABB; border:3px solid #DAEFA2; margin-bottom:1em}
+#active_job {margin-bottom:1em;}
+/* --------------------------------------------------- =search talents ------------------------------------------------------ */ .talent-list {list-style: none; margin-left: 0}
+.talent-list li {margin-bottom: 1.5em}
+.talent-list h3 {}
+.talent-list p {}
+div.picture {float: left; width: 110px; margin-right: 1.5em}
+div.picture img {line-height: 0; padding: 5px; border: 1px solid #ccc}
+/* Questionable styles from 'blue_jobs.css'*/ #apply-to-job {padding: .5em 1em; margin-bottom: 1em; background: url(../images/call-bg-jobs.png) no-repeat; /*for yellow bg */ font-weight: bold; height:25px; /*margin-bottom: 1em; border-top:1px dotted #999; padding:1em 0;*/ /*background: #f6f6f6; width:130px; border:1px solid #999; text-align:center; margin:0 auto; for grey bg */ }
+#apply-to-job a{ color: #9F4949; border-bottom: none; text-decoration: underline; /*background:#2E4B73; padding:0.4em; color:#fff; font-weight:bold;*/ }
+#apply-to-job a:hover{ text-decoration: none; /*background:#ffffcc; color:#2E4B73; border:1px solid #999;*/ }
+/* --------------------------------------------------- = This stylesheet for Assembla Header, including = menu and submenu styles. = Chat tool using custom styles for Header position (exception) ------------------------------------------------------ */ /* --------------------------------------------------- =header ------------------------------------------------------ */ #header-w {font: normal 12px/1.5em Verdana, sans-serif; background: #2E4B73}
+#header {margin: 0 3em; width:auto}
+#search-form {vertical-align: middle; margin-left: .75em}
+#search-form input {/* normalize value between browsers */ vertical-align: middle; font-size: 1.1em}
+#searchfor{ width:100px}
+#search-form #searchfor {color: #000}
+#search-form #searchfor:focus {background: #fff; color: #000}
+/* User utility links */ #header-links {float: right}
+#user-box, #search-form , #show-help {float: left}
+#logo {width:auto; float:left;}
+#user-box, #search-form {color: #6b7e99}
+#user-box {margin-top: .2em}
+#show-help, #user-box, #search-form {padding: .375em 0}
+#show-help {margin-left: .75em; background: #5274A5; padding: .6em .75em .5em .75em}
+#header a:link, #header a:visited {color: #b6cff2}
+#header a:hover {border-bottom: none; text-decoration: none}
+#logo a:link, #logo a:visited {border-bottom: none}
+#show-help a:link, #show-help a:visited {color:#E3EFFC; text-decoration: underline; padding-left: 12px}
+#show-help a:hover {border-bottom: none}
+#show-help a.closed:link, #show-help a.closed:visited {background: transparent url(/images/bg-open-help.gif) center left no-repeat}
+#show-help a.open:link, #show-help a.open:visited {background: transparent url(/images/bg-close-help.gif) center left no-repeat}
+#logo {width:auto; float:left}
+#logo a:link, #logo a:visited {border-bottom: none}
+/* --------------------------------------------------- =space name and utility links ------------------------------------------------------ */ h1.header-w {color: #b6cff2; padding-bottom: 15px}
+h1 span {float: left}
+h1 span#space-role {color: #b6cff2; /*width: 35%;*/ float: right; text-align: right; text-transform: none; font-size: 13px; font-weight: normal; white-space: nowrap}
+h1 span#space-role input.nbutton{ margin: 10px 0 0 0; float: right; font-size: small; font-weight: bold}
+div#announcement {background:#000000 none repeat scroll 0 0; color:#FFFFFF; font-size:1.2em; font-weight:bold; padding:0.3em; text-align:center}
+div#announcement span.top-bar {padding:0.5em 0.5em 0.5em 2.2em; vertical-align:middle}
+div#announcement span#close{ float:right; margin-right: 20px}
+div#announcement img {cursor:pointer; text-align:right}
+div#announcement a:link, div#announcement a:visited {color: #FFFFFF}
+/********** Replaced the H1 tag style for space name and user name, later will remove the above duplicate style ***********/ .top-header {font-size: 18px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; margin: 0; padding: 0 0 .375em 0; color: black}
+div.header-w {color: #b6cff2; padding-bottom: 15px}
+.top-header span {width: 50%; float: left}
+.top-header span.space-name{ font: bold 100%/18px Arial, Helvetica, serif; font-size:18px; font-weight:bold; float:left; padding-bottom:5px}
+.top-header span.space-role-1{ text-align:right; float:right; width:40%}
+.top-header span#space-role {color: #b6cff2; /*width: 35%;*/ float: right; text-align: right; text-transform: none; font-size: small; font-weight: normal; white-space: nowrap}
+a.noBorder{ border: 0px; cursor: pointer}
+.top-header span#space-role a:link, .top-header span#space-role a:visited {color: #E3EFFC}
+.top-header span#space-role a:hover {border-bottom: none}
+/* --------------------------------------------------- =menu ------------------------------------------------------ */ #main-menu-w {background: #2E4B73; font-size:13px}
+#main-menu {margin: 0pt 2.6em; width:auto; list-style: none}
+#main-menu li {float: left; margin-right: 2px; background: #e7fabb url(/images/blue/bg-tab-left.gif) top left no-repeat; padding-left: 8px; border-bottom: 1px solid #2E4B73}
+#main-menu li.current {background: #fff url(/images/blue/bg-tab-left-on.gif) top left no-repeat; border-color: #fff }
+#main-menu li.current a:link, #main-menu li.current a:visited {font-weight: bold; background-image: url(/images/blue/bg-tab-right-on.gif) }
+#main-menu a:link, #main-menu a:visited {text-decoration: none; border: none; color: #15478C; background: transparent url(/images/blue/bg-tab-right.gif) top right no-repeat; padding-top: 5px; padding-right: 8px; height: 21px; float: left; display: block; z-index:9999 }
+.more_tabs_menu_item a {background : none; z-index:9999}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/ #main-menu a {float:none;}
+/* End IE5-Mac hack */ .more_tabs_menu {z-index: 100; padding-top: 10px; padding-bottom: 10px; border: solid 1px #2E4B73; background-color: #e7fabb; position: absolute; top: 95px; left: 500px}
+.more_tabs_menu_item {padding-left: 10px; padding-right: 10px; background-color: #e7fabb }
+.more_tabs_menu_item:hover {padding-left: 10px; padding-right: 10px; background-color: white }
+div#more_menu a:visited, div#more_menu a:link {background: none; float:none; height:auto; padding-top:0}
+.more_tabs_menu_item a {background : none; z-index:9999}
+/* --------------------------------------------------- = Sub Menu ------------------------------------------------------ */ ul.menu-submenu {margin: 0; padding: 6px 0; height: 21px; list-style: none; background: #e5e5e5 url(../images/bg-submenu.jpg) repeat-x left top; font-family: Arial, Helvetica, sans-serif; float: left; width: 100%}
+ul.menu-submenu li {float: left}
+ul.menu-submenu li a {display:block; height: 27px; line-height: 21px; float: left; padding: 0 11px; border-right: 1px solid #e6e6e6; font-size: 12px; font-weight: bold}
+ul.menu-submenu li .selected {background: url(../images/arrow-selected.gif) no-repeat center 21px; text-decoration: none}
+ul.menu-submenu li .first {margin-left: 36px; border-left: 1px solid #e6e6e6}
+ul#wiki-submenu, ul#wiki-breadcrumbs {padding-top: 0; height: 27px}
+ul#wiki-breadcrumbs {background: none; height: auto; width: auto; margin-top: 0.55em; margin-left: 0.5em}
+ul#wiki-bredcrumbs li .first {margin-left: 0}
+ul#wiki-submenu li span.wiki-spacer, ul#wiki-breadcrumbs li span.wiki-spacer {padding: 0 3px; float: left; width: 9px; height: 33px; overflow: hidden; text-indent: -1000px; background: url(/images/wiki-separator.gif) center center no-repeat}
+ul#wiki-breadcrumbs li span.wiki-spacer {height: 22px; padding: 0}
+ul#wiki-submenu li a, ul#wiki-breadcrumbs li div {border: none; padding: 6px 8px 0 8px}
+ul#wiki-breadcrumbs li div {height: auto; padding-top: 0; display:block; line-height: 21px; float: left; font-size: 1em}
+ul#wiki-submenu li a.current, ul#wiki-breadcrumbs li div.current {font-weight: bold; color: #000; text-decoration: none}
+ul#wiki-submenu li.root {margin-left: 36px}
+ul#wiki-submenu li.root a, ul#wiki-submenu li.root div, ul#wiki-breadcrumbs li.root a, ul#wiki-breadcrumbs li.root div {padding-left: 21px; background: url(/images/wiki/ico_whome.gif) 3px center no-repeat}
+ul#wiki-submenu li ul {display: none}
+ul#wiki-submenu li ul li {float: none; display: block; width: 100%; margin: 0; padding: 0}
+ul#wiki-submenu li:hover ul li a {float: none; background: none; padding: 0 11px; margin: 0; display: block; background-color: transparent}
+ul#wiki-submenu li:hover ul li a:hover {background-color: #e6eff8}
+ul#wiki-submenu li:hover {background-color: #e6eff8; -moz-border-radius-topleft: .5em; -moz-border-radius-topright: .5em; -webkit-border-radius-topleft: .5em; -webkit-border-radius-topright: .5em}
+ul#wiki-submenu li:hover ul {display: block; margin: 33px 0 0 0; padding: 0; position: absolute; list-style: none; background: #fff; border-left: 10px solid #e6eff8; border-right: 2px solid #e7e7e7; border-bottom: 2px solid #e7e7e7}
+ul#wiki-submenu li.utility-links {float: right; margin: 0; margin-right: 36px; padding: 0; background: none}
+ul#wiki-submenu li.utility-links div {float: left; padding: 0 10px; height: 33px}
+ul#wiki-submenu li.utility-links div.new-page-link {background-color: #e6eff8; border-left: 1px solid #c6d3e1; border-right: 1px solid #c6d3e1}
+ul#wiki-submenu li.utility-links div.settings-link, ul#wiki-submenu li.utility-links div.manage-link {padding: 0 5px; margin: 0; width: 16px; overflow: hidden}
+ul#wiki-submenu li.utility-links div.manage-link {margin-left: 5px; background: url(/images/page_white_stack.gif) center center no-repeat}
+ul#wiki-submenu li.utility-links div.settings-link {background: url(/images/ico_settings.png) center center no-repeat}
+ul#wiki-submenu li.utility-links div.settings-link a, ul#wiki-submenu li.utility-links div.manage-link a {position: relative; display: block; height: 30px; width: 16px; overflow: hidden; text-indent: -1000px}
+ul#wiki-submenu li.utility-links div.new-page-link a {background: url(/images/ico_add.gif) left center no-repeat; padding-left: 18px}
+/* --------------------------------------------------- = Help Panel ------------------------------------------------------ */ /* Help panel is almost like panel from user/start page, but without "move" cursor on the title */ #help-panel {background: #5274A5; border-top: 1px solid #5274A5; border-bottom: 3px solid #5274A5; z-index: 5; _width: 100%; /* Triggers magic IE "hasLayout" mode and avoid margin to slip out the element see: http://www.satzansatz.de/cssd/onhavinglayout.html */ }
+#top_links {background-color: white; position: absolute; display: inline; width: auto; z-index: 5; background-color: #33567F; padding: 5px 20px; border: 2px solid #5A80B5; text-align: left}
+#top_links a {color: #77a0d9}
+#top_links a:hover {background-color: #5274A5}
+#top_links ul {width: auto; max-width:24.5em; margin: 0; padding: 0}
+ul.none {list-style: square; margin: 5px; padding: 5px}
+ul.none li {padding: 2px; margin: 2px}
+/* --------------------------------------------------- =Wiki ------------------------------------------------------ */ #wiki-pages img.dragable {cursor: move}
+#tabs-list img.dragable {cursor: move}
+#tabs-list div.tab-list-item:hover {font-weight: bold}
+#wiki-pages {margin: 0; padding: 0; width: 17em; overflow: hidden}
+#wiki-pages h2 {margin: 0 0 6px 12px; padding-top: 10px; padding-bottom: 4px; border-bottom: 1px dotted #c6d3e1; font-size: 14px}
+#wiki-pages a {text-decoration: none; border-bottom: none}
+#wiki-pages ul {list-style: none; font-family: Arial, Helvetica, verdana; margin: 0; padding: 0; padding-left: 2px; background-color: transparent; border-bottom: none}
+#wiki-pages ul#wiki-page-list {margin-bottom: 40px}
+#wiki-pages ul li {margin: 0; padding: 0; font-size: 13px; clear: left}
+#wiki-pages ul li img {float: left; margin-top: 5px}
+#wiki-pages ul li img.draggable {float: none; display: none; height: 0; width: 0; margin: 0; padding: 0}
+#wiki-pages ul li.current {font-weight: bold}
+#wiki-pages ul li a {padding: 3px 0 3px 7px; display: block; width: 80%; float: left; margin-left: 0}
+#wiki-pages ul li a:hover {background-color: #EFF5FB}
+#wiki-pages ul li ul {display: none; margin-left: 20px; border: none}
+#wiki-pages ul li.current ul {font-weight: normal}
+/* we don't want to indent any levels lower than the 4th. */ #wiki-pages ul li ul li ul li ul li ul {margin-left: 0; padding-left: 0}
+#wiki-pages .all-pages {clear: left; text-align: right; border-top: 1px solid #c6d3e1; border-bottom: 1px solid #c6d3e1; background-color: #f6f6f6; padding-right: 5px}
+#wiki-pages .all-pages ul {border: none; text-align: left; margin: 0; padding: 7px 20px 7px 15px}
+#wiki-pages .all-pages ul li {margin: 0px; padding: 4px 0px 8px 20px}
+#wiki-pages .all-pages ul li.new-page {padding: 4px 0px 7px 24px; background: url(/images/ico_add.gif) left center no-repeat}
+#wiki-pages .all-pages ul li.manage {padding: 4px 0px 7px 24px; background: url(/images/page_white_stack.gif) left center no-repeat}
+#wiki-pages .all-pages ul li.wsettings {padding: 4px 0px 7px 24px; background: url(/images/ico_settings.png) left center no-repeat}
+#wiki-pages .all-pages ul li a {float: none; padding: 0; display: inline; margin: 0; background: none; text-decoration: underline}
+#wiki-pages .all-pages ul li a:hover {text-decoration: none}
+#space-tags {padding: .375em; margin-bottom: .75em; border-bottom: 3px solid #E6EFF8}
+#wiki-comment-form {padding: .75em; margin-bottom: 1.5em}
+#add-comment-link span {float: left; width: 49%}
+#add-comment-link div {width: 49%; float: right; text-align: right; font-weight: normal; font-size: 12px}
+#wiki-editor {width: 100%}
+/* New Wiki Sidebar */ .greyseparator {margin-bottom: 7px; padding: 0px; border-top: 1px dotted #ccc}
+.wiki-sidebar {border-left: 1px solid #c6d3e1}
+.wiki-sidebar ul {background-color: #f6f6f6; margin: 0; padding: 10px 20px 10px 15px; list-style: none; border-bottom: 1px solid #c6d3e1}
+.wiki-sidebar ul li.newpage {margin-left: 23px; margin-bottom: 10px}
+.wiki-sidebar ul li.edit {margin: 0px; padding: 4px 0px 7px 24px; background: url(/images/milestones/ico_medit.gif) left center no-repeat}
+.wiki-sidebar ul li.pagehistory {margin: 0px; padding: 4px 0px 7px 24px; background: url(/images/wiki/ico_pagehistory.gif) left center no-repeat}
+.wiki-sidebar ul li.wprint {margin: 0px; padding: 4px 0px 7px 24px; background: url(/images/wiki/ico_print.gif) left center no-repeat}
+.wiki-sidebar ul li.wdelete {margin: 0px; padding: 4px 0px 7px 24px; background: url(/images/wiki/ico_wdelete.gif) left center no-repeat}
+/* --------------------------------------------------- =history (wiki page)) ------------------------------------------------------ */ .highlightWiki {font-weight: bold}
+#wiki-page-versions, #wiki-history-key {list-style: none}
+#wiki-history-key {margin-bottom: 1.5em}
+#wiki-page-versions li {margin-top: .75em; margin-left: -24px}
+ins, del {}
+del {text-decoration: line-through; /*text-decoration: none; */ background: #f5cccc}
+ins {text-decoration: underline; text-decoration: none; background-color: #e7fabb}
+ins:before {}
+ins:after {}
+#wiki-content {margin-top: 10px; /* for IE, needed to allow clipping of large contents */ _width: 100%; font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: 1.5em}
+#wiki-content.no-sidebar {margin-right: 0}
+#wiki-content.on-the-right {/* sidebar on the left total width + 1em gutter */ margin-right: 0; margin-left: 17em}
+#wiki-content table {margin-bottom: .75em; border-top: none; border-bottom: none}
+#wiki-content table td {border: none; border-right: none}
+#wiki-content .no-docs {border: 1px dashed #ccc; padding: 2px 4px; display: inline; color: #999}
+/* --------------------------------------------------- = manage (wiki page) ------------------------------------------------------ */ #dragDropIndicatorImage {margin-top: 12px}
+#floatingContainer, #floatingContainer ul {list-style: none; margin: 0; margin-left: 20px; padding: 0}
+#manage-wiki {margin-top: 15px}
+#manage-wiki a.nbutton {font-size: 1em}
+ul#manage-wiki-list {list-style: none; margin: 10px 0 20px 20px; padding: 0; width: auto}
+ul#manage-wiki-list li, #floatingContainer li {margin: 1px 0; padding: 0}
+ul#manage-wiki-list li.home img.draggable {cursor: auto; top: 2px; left: 2px}
+ul#manage-wiki-list li.home a {cursor: auto}
+ul#manage-wiki-list li img.draggable, ul#manage-wiki-list li.home ul img.draggable {cursor: move; position: relative; top: 3px; left: 0; height: 16px; width: 16px}
+ul#manage-wiki-list li a, ul#manage-wiki-list li.home ul a, #floatingContainer li a {cursor: move; padding-left: 3px; text-decoration: none; color: #000}
+ul#manage-wiki-list li ul {display: none; list-style: none; margin: 0; margin-left: 20px; padding: 0}
+/* --------------------------------------------------- = New styles ------------------------------------------------------ */ #wiki-content h1 {font-size: 20px}
+#wiki-content h2 {font-size: 18px}
+#wiki-content h3 {font-size: 16px}
+#wiki-content h4, #wiki-content h5 {font-size: 12px}
+#wiki-content .page-name {font-size: 1.4em; margin: 0 7px 8px 0; border: 3px solid #ddd; width: 505px}
+#wiki-content .page-name:focus {border-color: #5274A5}
+.page-menu-options {margin: 8px 0 0 0}
+#wiki-content h1, #wiki-content h2, #wiki-content h3, #wiki-content h4, #wiki-content h5, #wiki-content h6, #wiki-content caption {margin: 0; margin: 17px 0 7px 0; padding: 0; color: #000}
+/*--------------------------------- THIS IS THE LINE ------------------------------------*/ .milestones{ width:100%}
+.milestones .top-bar-wrap .float-right em {font-style: normal; font-weight: bold; margin-right: 8px; margin-left: 10px; margin-top: 4px; text-align: right; color: #666}
+#milestone_report_action{ width:200px}
+#milestone_sort_id{ width:200px}
+/* Mielstones headers */ .milestones h1 {margin-bottom: 0.75em; padding: 0}
+.milestones h1.upcoming {background: #ECF3FE; font-size: 1.25em; margin: 0; padding: 4px 6px 3px 6px}
+.milestones h1.completed {background: #E7FABB; font-size: 1.25em; margin: 0; padding: 4px 6px 3px 6px}
+/* Milestones list */ .milestones .milestone-wrap {margin: 0; padding: 6px 0 11px 0}
+.milestones .milestone-wrap h2 {font-size: 1.4em; margin: 8px 0 2px 0}
+.milestones .milestone-wrap h3 {margin: 8px 0 0 0}
+.milestones .milestone-wrap p {margin: 6px 0 0 0}
+.milestones .milestone-wrap .mark-completed-check {padding: 0; margin: 2px 0 0 0; float: left}
+.milestones .milestone-wrap .mark-completed {color: #333; padding: 0; margin: 1px 0 0 5px; float: left}
+/* Tasks list */ .milestones .milestone-wrap ul.tasks-list {padding: 0; margin: 5px 0; list-style: none}
+.milestones .milestone-wrap ul.tasks-list li {margin-bottom: 4px}
+.milestones .milestone-wrap ul.tasks-list .task-check {padding: 0; margin: 0; float: left}
+.milestones .milestone-wrap ul.tasks-list p {display: inline; margin: -5px 0 0 5px; color: #555555}
+/* Messages list */ .milestones .milestone-wrap ul.messages-list {padding: 0; margin: 10px 0; list-style: none}
+.milestones .milestone-wrap ul.messages-list li {padding: 0 0 0 21px; margin: 5px 0; list-style: none; background: url(/images/ico-message.png) no-repeat left top}
+.milestones .milestone-wrap .status-line {border-bottom: 1px solid #eee; padding: 7px 0 7px 0}
+.milestones .milestone-wrap .status-line-no-border {padding: 7px 0 7px 0}
+.milestones .milestone-wrap .days-left {color: #900; font-weight: bold}
+.milestones .milestone-wrap em {color: #ccc; margin: 0 6px 0 9px; font-weight: normal}
+.milestones .milestone-wrap span {color: #555; margin-left: 2px}
+.milestones .milestone-wrap b {color: #5274A5; font-size: 1.1em;}
+.milestones .milestone-wrap .status-line .tickets-link:link, .tickets-link:visited {background: #F0F7FB; padding: 1px 3px; font-weight: bold}
+.milestones .milestone-wrap .status-line .tickets-link:hover {color: #fff; background: #2E4B73}
+.milestones .milestone-wrap .status-line .progress-content {padding: 0; margin: 0; background-color: #900; width: 200px; height: 18px; display: inline}
+.milestones .milestone-wrap .status-line .progress-content .tclosed {background-color: #A2BDE3}
+.milestones .milestone-wrap .status-line .progress-content .topen {background-color: #fff}
+.icon-reopen-milestone {background: transparent url(/images/milestones/ico_mreopen.gif) left 1px no-repeat; padding-left: 22px !important; list-style: none; margin-bottom: .25em}
+.milestones .moverdue {margin: 0px; padding: 7px 0 7px 0; background: #F5CCCC url(/images/milestones/ico_moverdue.gif) no-repeat 9px 10px; width: 100%; display:block; float:left}
+.milestones .mnormal {margin: 0px; padding: 7px 0 7px 0; background: #E6EFF8 url(/images/milestones/ico-ongoing.png) no-repeat 9px 10px; width: 100%; display:block; float:left}
+.milestones .mcompleted {margin: 0px; padding: 7px 0 7px 0; background: #E7FABB url(/images/milestones/ico_mcompleted.gif) no-repeat 9px 10px; width: 100%; display:block; float:left}
+.milestones .milestonetit {float: left; margin-right: auto; width:80%; /*width: 420px;*/ line-height: 1.25em}
+.milestones .milestonetit h1 {font-family: Arial, Helvetica, sans-serif; font-size: 1.35em; color: #000000; margin: 0px; text-indent:30px}
+.milestone_progress_bar {width: 200px; background:#FFF; float:left; display:inline; border: 1px solid #CCCCCC; padding:0; margin: 0 3px 0 0}
+.milestones .milestone_progress_bar span{ margin:0px; display:inline-block}
+/* LINE --- Previous styles: need to check to delete ------------------------------------------------------ */ .milestonesn {margin: 0; width:100%; /*width: 520px;*/ padding: 0 0 15px}
+.milestonesn .mnormal {margin: 0px; padding: 7px 0px 0px 10px; background: #E6EFF8}
+.milestonesn .moverdue {margin: 0px; padding: 7px 0px 0px 29px; background: #F5CCCC url(/images/milestones/ico_moverdue.gif) no-repeat 9px 10px}
+.milestonesn .mcompleted {margin: 0px; padding: 7px 0px 0px 29px; background: #E7FABB url(/images/milestones/ico_mcompleted.gif) no-repeat 9px 10px}
+.milestonesn .milestonetit {float: left; margin-right: auto; width:80%; /*width: 420px;*/ line-height: 1.25em; padding-bottom: 6px}
+.milestonesn .milestonetit h1 {font-family: Arial, Helvetica, sans-serif; font-size: 1.4em; color: #000000; margin: 0px; padding: 1px 0px 0px}
+.milestonesn .medit {margin-top: 1px; padding: 0px 0px 0px 20px; font-family: Arial, Helvetica, sans-serif; font-size: 1em; float: right; width: 43px; background: url(/images/milestones/ico_medit.gif) no-repeat 0px 1px}
+.milestonesn .mdescription {padding: 8px 0px 8px 10px; border-bottom: 1px dotted #ddd}
+.milestonesn .mprogress {padding: 7px 0px 6px; border-bottom: 1px dotted #ddd}
+.milestonesn .mprogress .mdays {float: left; padding: 0px; width: auto}
+.milestonesn .mprogress .mdays b {color: #2E4B73}
+.milestonesn .mprogress .mprogress_bar {float: left; padding: 0px; width: 195px; text-align: right}
+.faked_progress_bar {width: 150px; background: #5274A5; border: 1px solid #D7D7D7; float: left}
+.milestonesn .catickets {padding: 7px 0px 7px; border-bottom: 1px solid #ddd}
+.milestonesn .caticketsview {padding: 7px 0px 6px; border-bottom: 1px dotted #ddd}
+.milestonesn .caticketsview .ticketprogress {float: left; padding-right: 5px}
+.milestonesn .catickets .ticketsc {float: left; padding: 0px; width: 260px}
+.milestonesn .catickets span {padding: 0px 3px 0px 3px; color: #999; font-weight: bold}
+.milestonesn .catickets .bglink:link, .bglink:visited {background: #E6EFF8; padding: 0px 3px 0px 3px; font-weight: bold}
+.milestonesn .catickets .bglink:hover {color: #fff; background: #2E4B73; padding: 0px 3px 0px 3px; font-weight: bold}
+.milestonesn .catickets .ticketsc {float: left; padding: 0px; width: 285px}
+.milestonesn .mtasks_tit {padding: 10px 0px 5px}
+.milestonesn .mtasks_tit h3 {color: #666; font-family: Arial, Helvetica, sans-serif; font-size: 1.25em; margin: 0px}
+.milestonesn .mtasks_tit h4 {color: #2E4B73; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; margin: 0px}
+.milestonesn .mtasks {padding: 7px 0px 7px; border-bottom: 1px dotted #bbb}
+.milestonesn .mtasks .chkbx {float: left; padding-top: 2px}
+.milestonesn .mtasks .mtask_name {font-weight: bold; margin-right: auto; width: 300px; line-height: 1.4em; float: left; margin-left: 5px; padding-top: 1px}
+.milestonesn .mtasks .mtask_assigned {padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; float: right; width: 190px; text-align: right}
+table.m_progress_bar {width: 200px; height: 20px; background: #ddd; float: left; margin: 0px 8px 0px 5px; padding: 0px}
+table.m_progress_bar td {border: 1px solid #D7D7D7}
+table.m_progress_bar .tclosed {background: #2e4b73 url( /images/milestones/bg_progressbar.jpg ) repeat-x}
+table.m_progress_bar .topen {background: #fff}
+.msidebar {margin: 0; padding: 0px; background: #F6F6F6}
+b.rtop, b.rbottom{display:block;background: #FFF}
+b.rtop b, b.rbottom b{display:block;height: 1px; overflow: hidden; background: #F6F6F6;}
+b.r1{margin: 0 5px}
+b.r2{margin: 0 3px}
+b.r3{margin: 0 2px}
+b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px }
+.msidebar .mround {margin: 0px; padding: 0px}
+.msidebar h1 {margin: 0; padding: 5px 0px 5px 15px; font-size: 1.25em; color: #666666}
+.msidebar .views {margin: 0; padding: 0px}
+.msidebar .viewssel {font-weight: bold; margin: 0px; padding: 0px; background: url(/images/milestones/ind_msidebar.gif) no-repeat 0px 5px}
+.msidebar .upcoming {margin: 0px; padding: 4px 0px 7px 39px; background: url(/images/milestones/ico_upcoming.gif) no-repeat 16px 5px}
+.msidebar .completed {margin: 0px; padding: 4px 0px 7px 39px; background: url(/images/milestones/ico_completed.gif) no-repeat 16px 5px}
+.msidebar .all {margin: 0px; padding: 4px 0px 7px 39px; background: url(/images/milestones/ico_all.gif) no-repeat 16px 5px}
+.msidebar .import_export {margin: 0px 0px 3px; padding: 4px 0px 7px 37px; background: url( /images/milestones/ico_importexport.gif ) no-repeat 15px 5px}
+.msidebar .calendar {margin: 0px 0px 3px; padding: 4px 0px 7px 37px; background: url( /images/calendar.png ) no-repeat 15px 5px; font-size: 1em}
+.msidebar .editm {margin: 0px; padding: 4px 0px 7px 37px; background: url( /images/milestones/ico_medit.gif ) no-repeat 15px 5px}
+.msidebar .deletem {margin: 0px; padding: 4px 0px 7px 37px; background: url( /images/milestones/ico_mdelete.gif ) no-repeat 15px 5px}
+.msidebar .reopenm {margin: 0px; padding: 4px 0px 7px 37px; background: url( /images/milestones/ico_mreopen.gif ) no-repeat 15px 5px}
+#add_milestone {height: 43px; margin: 0px auto}
+#mark_completed {height: 43px; margin: 0 auto}
+.new_ticket {float: left; display: block; margin: 5px 0 10px; padding: 0px 12px 2px 22px; background: url( /images/milestones/new_ticket.gif ) no-repeat left 1px}
+.new_task {float: left; display: block; margin: 5px 0 10px; padding: 0px 12px 2px 22px; background: url( /images/milestones/new_task.gif ) no-repeat left 1px}
+.new_message {float: left; display: block; margin: 5px 0 10px; padding: 0px 12px 2px 22px; background: url( /images/milestones/new_message.gif ) no-repeat left 1px}
+/* --------------------------------------------------- = milestones (From blue_site.css) ------------------------------------------------------ */ .milestones {margin-left: 0em}
+.milestones td {padding-top: 0; padding-bottom: 1em}
+.milestones td p {color: #666; margin: 0}
+.milestones h4 {margin-top: 0; font-size: 130%}
+/* Edit link */ .milestones h4 a:link, .milestones h4 a:visited {font-weight: normal}
+.milestones td.done {width: 1.5em; padding-left: 2em}
+.milestones td span {color: #666}
+/* Alert */ .milestones .alert {padding: 0.3em 0.3em 0.3em 3em; background: #FFFFCC url(../images/bg-alert.gif) center left no-repeat; display: inline}
+/* Late Milestones */ #s-late-m {}
+#s-late-m h3 {padding: 0.2em 0.3em; margin-bottom: 0; background: #FAE1E5; border-bottom: 1px solid #d7d7d7}
+#s-late-m h3 a {border: none}
+#s-late-m h3 a:hover {border-bottom: 1px solid #004080}
+#s-late-m p b {color: #AA273D}
+#s-late-m table, #s-upcoming-m table, #s-completed-m table {border: 0}
+.brdbtm {border-bottom: 1px solid #ccc}
+/* Upcoming */ #s-upcoming-m h3 {padding: 0.2em 0.3em; margin-bottom: 0; background: #fff9b2; border-bottom: 1px solid #d7d7d7}
+#s-upcoming-m h3 a {border: none}
+#s-upcoming-m h3 a:hover {border-bottom: 1px solid #004080}
+#s-upcoming-m p b {color: #000}
+#s-upcoming-m {margin-bottom: 1em}
+/* Completed */ #s-completed-m h3 {padding: 0.2em 0.3em; margin-bottom: 0; background: #e3fce3; border-bottom: 1px solid #d7d7d7}
+#s-completed-m {}
+#s-completed-m h3 a {border: none}
+#s-completed-m h3 a:hover {border-bottom: 1px solid #004080}
+#new-milestone {float: left; width: 49%}
+#today-is {float: right; width: 49%; text-align: right}
+.miletool_ ul {list-style: none}
+#view_milestones_ {margin-bottom: 1.5em}
+#view_milestones_ ul {list-style: none; margin-left: 0}
+#view_milestones_ li a {margin-left: 1.9em}
+#view_milestones_ li {vertical-align: middle; padding: 0.3em 0; margin: 0.5em 0}
+#view_milestones_ li.all {background: #E3EFFC url(../images/blue/all.png) center left no-repeat}
+#view_milestones_ li.current {font-weight: bold}
+#view_milestones_ li.upcome {background: #fff9b2 url(../images/blue/upcoming.png) center left no-repeat}
+#view_milestones_ li.late {background: #fae1e5 url(../images/blue/late.png) center left no-repeat}
+#view_milestones_ li.complete {background: #e3fce3 url(../images/blue/completed.png) center left no-repeat}
+.tasklink_ a {padding: 0.1em 0.3em; font-size: 0.9em}
+.tasklink_ a:hover {background: #003366; color: #fff; text-decoration: none}
+.tasklink_ .tlink_ {padding-left: 2em; padding-top: 1em; text-align: right}
+table.msg-board {margin: 0}
+table.msg-board td {padding: 0.2em; padding-left: 0; padding-right: 0}
+table.msg-board td.brd {border-bottom: 1px solid #eee}
+table.msg-board td.apptxt {text-align: right}
+table.msg-board td.keyval {width: 50%; color: #666}
+table.msg-board td span.uname_ {font-size: 0.9em; color: #999}
+.milestone .duedate_ {margin-left: 2em; margin-bottom: 0.5em; font-size: 0.9em}
+.milestone .tasks_messages {margin-top: 10px}
+.milestone .tasks_messages div {margin-left: 2em}
+.milestone .showlist_ {margin-left: 2em; border-top: 1px solid #999999}
+/* --------------------------------------------------- Milestones - Roadmap ------------------------------------------------------ */ .milestone .info {margin-top: 5px}
+.milestone .info .progress {margin: 0 1em; width: 70%}
+.milestone .info dl {font-size: 10px; font-style: italic; margin: 0; margin-left: 10px; white-space: nowrap}
+.milestone .info dt {display: inline; margin-left: .5em }
+.milestone .info dd {display: inline; margin: 0 1em 0 .5em }
+#progress-info table {width: 70%; border-top-width: 1px; border-top-style: solid; border-top-color: #d7d7d7; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d7d7d7; border: 1px solid #d7d7d7; border-collapse: collapse; border-spacing: 0; height: 1.2em; margin: 0 0 0 1px; padding: 0; empty-cells: show; float: left}
+table.progress {margin-right: 10px}
+table.progress a, table.progress *:link, table.progress *:visited, table.progress *:link:hover, table.progress *:visited:hover {border-width: medium; border-style: none; border-color: -moz-use-text-color; display: block; width: 100%; height: 1.2em; padding: 0pt; margin: 0pt; text-decoration: none}
+table.progress a, table.progress *:link, table.progress *:visited, table.progress *:link:hover, table.progress *:visited:hover {border-width: medium; border-style: none; border-color: -moz-use-text-color; display: block; width: 100%; height: 1.2em; padding: 0pt; margin: 0pt; text-decoration: none}
+table.progress td *:hover {background-color: transparent; background-image: none; background-repeat: repeat; background-attachment: scroll; background-position: 0%}
+table.progress a, table.progress *:link, table.progress *:visited, table.progress *:link:hover, table.progress *:visited:hover {border-width: medium; border-style: none; border-color: -moz-use-text-color; display: block; width: 100%; height: 1.2em; padding: 0pt; margin: 0pt; text-decoration: none}
+table.progress td {background-color: #ffffff; padding: 0 }
+table.progress td.closed {background-color: #bae0ba }
+p.percent {font-size: 10px; line-height: 2.4em; margin: 0}
+/******************************************************* Line ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^6/ /* Button style will remove later #buttonm {float: left; background: url( /images/milestones/box-right.gif ) top right no-repeat}
+#btn-inner {margin: 0; padding: 5px 0 0 0; background: url( /images/milestones/box-left.gif ) top left no-repeat}
+#btn-inner a {display: block; margin: 0; padding: 0px 0 0 10px; font: bold 1.1em Arial, sans-serif; color: #039; text-decoration: none; background: url( /images/milestones/box-left.gif ) bottom left no-repeat}
+#btn-inner a:hover {color: #06c}
+#btn-inner em {display: block; margin: 0; padding: 1px 11px 5px 0; font-style: normal; background: url( /images/milestones/box-right.gif ) bottom right no-repeat; white-space: nowrap}
+#btn-inner img {margin-right: 5px; vertical-align: middle}*/ /*.import_basecamp {background: #E3EFFC; border: 1px solid #0099FF; padding: 0.2em 0.5em}
+.import_basecamp ul {list-style: none; margin-left: 0}*/ /* --------------------------------------------------- = Styles for Space/Stream page ------------------------------------------------------ */ /* user-stream */ div.new-stream ul{ list-style: none}
+div.new-stream ul li, div.new-stream ul li img {margin: 0; padding: 0}
+.user-stream {font-family: Arial, Helvetica, sans-serif}
+.user-stream h1 {font-size: 1.4em; color: #333; margin: 0; line-height: 1.25em}
+.user-stream h3 {font-size: 1.15em; background-color: #D4DCE8; padding: 3px 0 3px 6px; color: #333; margin: 10px 0 0 0}
+.user-stream p {font-size: 1em; padding: 4px 0 4px 0; color: #333; margin: 0; border-bottom: 1px solid #eee; background: #fcfcfc}
+.user-stream p:hover {background: #EAF3FA}
+.user-stream a {font-weight: bold; padding: 3px}
+.user-stream a:hover {background-color: #EAF3FA}
+.user-stream a.change {background-color: #5274A5; padding: 6px; color: #fff; margin: 0 4px 0 0; text-decoration: underline}
+.user-stream a.change:hover {background-color: #15478C; padding: 6px; color: #fff; margin: 0 4px 0 0; text-decoration: none}
+/* Tooltip */ #toolTip {position: absolute; height: 19px; padding: 3px 6px; background-color: #F3FCDD; color: #000; border: 1px solid #ddd; font-weight: normal; font-size: 1em}
+/* --------------------------------------------------- = Stream/events tool = These styles are used in the shared partial alerts_list = as well as in some user controller views. ------------------------------------------------------ */ table.u-stream {margin-top: 5px; font-family: Arial, Helvetica, sans-serif}
+table.u-stream tr:hover {background-color: #EAF3FA; margin-left: 5%; cursor: pointer}
+table.u-stream tr.new-day {border-top: 3px solid #D4DCE8}
+table.u-stream td {padding: 0; border-bottom: 1px solid #eee}
+table.u-stream td.day {border-bottom: 1px solid #fff; width: 12%}
+table.u-stream td.day a {color: #333; font-weight: bold; text-align: center; background: #eee; margin-right: 5px; padding: 4px 0 3px 3px; display: block; text-decoration: none}
+table.u-stream td.day span {color: #333; font-weight: bold; text-align: center; background: #eee; margin-right: 5px; padding: 2px 0 5px 0; display: block; text-decoration: none}
+table.u-stream td.empty {background-color: #fff; border-bottom: 1px solid #fff; width: 12%; cursor: default}
+table.u-stream td.empty:hover {background-color: #fff; border-bottom: 1px solid #fff}
+table.u-stream td.empty a {background-color: #fff; border-bottom: 1px solid #fff; display: block; text-decoration: none}
+table.u-stream td.hour {text-align: center; vertical-align: top; width: 6%}
+table.u-stream td.hour a {color: #333; font-weight: bold; text-decoration: none; padding: 0; display: block; height: 18px}
+table.u-stream td.hour span {color: #333; font-weight: bold; text-decoration: none; padding-top: 6px; display: block; height: 20px}
+table.u-stream td.event-type {text-align: center; background-color: transparent; color: #15478C; font-size: 1em; padding-top: 7px; vertical-align: top; text-decoration: none; width: 4%}
+table.u-stream td.event-type a {text-decoration: none}
+table.u-stream td.user {text-align: left; vertical-align: top; padding: 0; margin: 0}
+table.u-stream td.user a {font-weight: bold; padding: 2px 4px 9px 0; display: block; text-align: left; padding-left: 10px; line-height: 1.3em}
+table.u-stream td.description {text-align: left; vertical-align: top; margin: 0; width: 78%; padding: 0.4em 0 0.4em 0.7em}
+table.u-stream td.description a {padding: 6px 0 6px 0; text-decoration: none; font-weight: normal; color: #000; line-height: 1.2em}
+table.u-stream td.description em {color: #5274A5; margin: 0 7px 0 0}
+table.u-stream td.description span {color: #ccc; margin: 0 3px 0 0}
+table.u-stream td.description span.user-info a {padding: 9px 2px 9px 0; text-decoration: underline; font-weight: bold; color: #15478C; line-height: 1.2em}
+table.u-stream td.description span.user-info a:hover {text-decoration: none}
+.alert-settings {font-family: Arial, Helvetica, Sans-serif; background: #fefefe url(/images/bg-alert-settings.png) no-repeat scroll -7px -5px; border: 3px solid #E7FABB; margin-bottom: 10px; padding: 8px 30px 2px 6px}
+.alert-settings span {font-size: 1.1em}
+.alert-settings .panel {color: #15478C; font-size: 12px; font-weight: normal; cursor: pointer; height: 23px; margin-bottom: 0; padding: 0 0 0 4px; text-decoration: underline}
+.alert-settings .panel:hover {text-decoration: none}
+.alert-settings em {color: #5274A5; font-style: normal; font-weight: bold}
+#alerts {border-top: solid 1px #ddd; width: 100%}
+#alerts_settings a:hover {color: #900}
+#filter-alert-types ul {list-style: none; margin: 10px 0 10px 0}
+#filter-alert-types ul li {padding: 0.2em 0.2em; font-family: Arial, Helvetica, sans-serif}
+/* --------------------------------------------------- = Styles for user/Stream page ------------------------------------------------------ */ .stream-rightcol{float:right; width:38%; font-family:Arial, Helvetica, sans-serif}
+.stream-leftcol{ float:left; width:60%;}
+table.u-stream td.space-name {text-align: left; vertical-align:top; padding: 0px; margin: 0; /*width: 15%;*/ padding:0.5em 0 0 0.7em}
+table.u-stream td.space-name img{ margin-top:7px;}
+table.u-stream td.space-name div{ margin-left:7px; margin-top:-2px;}
+table.u-stream div.description {text-align: left; vertical-align: top; padding: 0px; margin: 0; /*width: 68%;*/ }
+table.u-stream div.description a {padding: 9px 0; text-decoration: none; font-weight: normal; color: #000; display: block; line-height: 1.2em}
+table.u-stream div.description em {color: #5274A5; margin: 0 7px 0 0}
+table.u-stream div.description span {color: #ccc; margin: 0 3px}
+table.u-stream td.space-name .space-symbol{font-family: Arial, Helvetica, sans-serif; color:#999; margin:0.2em;}
+.space-folow-link{ text-align:right; font-size:0.7em; font-weight:bold; padding:0.2em 0.5em 0.2em 0.4em !important; margin:0.2em; text-decoration:none; text-transform:uppercase; color:#FFF !important}
+.space-folow-link.green{ background: #67C456}
+.space-folow-link.red{ background: #F78C8C}
+.get-event{background: #FFE17D; text-align:right; font-size:0.7em; padding:0.2em; font-weight:bold;}
+a.get-space{margin-right:0.5em;}
+/*********** Top Space link [remove it if not required] *******************/ .top-space{padding:0em 0.5em; text-align:right;}
+.top-space label{font-weight:bold;}
+.top-space select{margin-left:1em; padding:0.2em}
+.top-space select option{ padding-bottom:0.2em;}
+#RB_overlay {position: absolute; z-index:100; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; min-height:100%; background-color: #000; /* for IE */ filter: alpha(opacity=60); /* CSS3 standard */ opacity:0.6}
+#RB_loading {z-index: 101; width: 70px; margin-left: auto; margin-right: auto; margin-top: 200px; padding-bottom: 30px; text-align: center; background: url(../images/redbox_spinner.gif) no-repeat bottom center}
+#RB_window {z-index: 102; background-color: #FFFFFF; display: block; text-align: left; overflow: hidden; margin: 20px auto 0 auto; position:fixed; position: absolute}

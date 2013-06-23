@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Media Browser</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/fm.js"></script>
+	<link href="/Resources/css/themes/arashi/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<link href="/Resources/css/themes/arashi/arashi-ui.css" rel="stylesheet" type="text/css" />
+	<link href="/Resources/css/admin.form.min.css" rel="stylesheet" type="text/css" />
+	<link href="/Resources/css/admin.style.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/fm.css" rel="stylesheet" type="text/css" />
+   <!-- Arashi Custom -->
+	<script type="text/javascript" src="/Resources/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/Resources/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="/Resources/js/jquery.url.min.js"></script>
+	<script type="text/javascript">
+	   var urlBrowse = jQuery.url.param("urlget");
+	   //console.log("urlBrowse = " + urlBrowse);
+
+	   /// <summary>
+	   /// Display a loading message (from jquery mobile)
+	   /// </summary>
+	   function pageLoading(done, message) {
+	      var $html = $("html");
+
+	      if (done) {
+	         $html.removeClass("ui-loading");
+	      }
+	      else {
+	         if (message != '') {
+	            var $loader = $("#ui-loader");
+	            $loader.css({ top: $(window).scrollTop() + 75 });
+	            $("h1", $loader).text(message);
+	         }
+	         $html.addClass("ui-loading");
+	      }
+	   };
+	</script>
+</head>
+<body style="display: none">
+   <div id="ui-loader" class="ui-loader ui-body-a ui-corner-all" >
+      <span class="ui-icon ui-icon-loading spin"></span>
+      <h1></h1>
+   </div>
+
+   <form onsubmit="insertMedia();return false;" action="#">
+
+	   <div class="panel_wrapper">
+			<div id="mediabrowser_panel" class="panel current">
+
+			</div>
+		</div>
+
+		<div class="mceActionPanel">
+			<!--<input type="submit" id="insert" name="insert" value="{#insert}" />-->
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		</div>
+	</form>
+
+</body>
+</html>

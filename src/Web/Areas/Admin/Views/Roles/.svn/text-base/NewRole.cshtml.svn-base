@@ -1,0 +1,99 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<RoleModel>
+@using Arashi.Web.Areas.Admin.Models
+@using Arashi.Core.Domain
+
+@section head {
+	<title>New Group</title>
+}
+
+@section ScriptPlaceHolder {
+   <script type="text/javascript">
+      $(function(){
+         $("#selectAllCheckBox").click(function(){
+            var checked_status = this.checked;
+            $("#rightsList input:checkbox").not($(this)).each(function()
+            {
+	            this.checked = checked_status;
+            });         
+         });
+      });
+   </script>
+}
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId }))
+                              .Add("Groups", Url.Action("Index", "Roles", new { siteid = RequestContext.ManagedSite.SiteId }))
+                              .AddCurrent("New Group")))
+}
+
+
+<div id="adminpagetitle">
+   <img class="icon" src="/Resources/img/32x32/password_add.png" alt="new role" />
+   <h2>@RequestContext.ManagedSite.Name  - New Group</h2>
+</div>
+<div class="clear"></div>
+   
+   
+@using (Html.BeginForm("Create", "Roles", new { siteid = RequestContext.ManagedSite.SiteId, id = Model.Role.RoleId }, FormMethod.Post, new { id = "rolenewform", @class = "ui-widget ui-form-default" }))
+{ 
+   @Html.AntiForgeryToken() 
+   <ol>
+      <li>
+         <label for="Name">Name:</label>
+         @Html.TextBox("Name") 
+      </li>
+   </ol>
+      
+   <br />
+
+   <table class="grid ui-widget ui-widget-content ui-corner-all ui-shadow">
+      <thead class="ui-widget-header ui-corner-top">
+         <tr>
+            <th colspan="3">&nbsp;&nbsp;Rights for the new group</th>
+         </tr>
+      </thead>
+      <tfoot class="ui-widget-header ui-corner-bottom">
+         <tr>
+            <th colspan="3"></th>
+         </tr>
+      </tfoot>
+      <tbody id="rightsList" class="ui-widget-content">
+         <tr>
+            <td class="width-150"></td>
+            <td class="col-check"><input type="checkbox" id="selectAllCheckBox" title="select all" /></td>
+            <td><label class="hint" for="selectAllCheckBox">(Select All)</label></td>
+         </tr>
+		   @{ string prevGroup = string.Empty; }
+		   @foreach (Right right in Model.AllRights)
+         { 
+		      <tr>
+		         <td class="align-left">
+			         <span class="title">
+			            @if (prevGroup != right.RightGroup)
+                     { 
+                        @right.RightGroup 
+                     } 
+		               @{ prevGroup = right.RightGroup; }
+			         </span>
+		         </td>
+		         <td class="col-check">
+				      <input type="checkbox" name="rightIds" id="right_@right.Id " value="@right.Id" />
+		         </td>
+			      <td>
+			         <span>@right.Description</span>
+			      </td>
+		      </tr>
+         } 
+      </tbody>
+   </table>
+      
+   <div id="adminpagefooter" class="ui-widget">
+	   @Html.SubmitUI(GlobalResource("Save")) 	
+	   &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "Roles", new { siteid = RequestContext.ManagedSite.SiteId })'>Back to groups list</a>
+	   &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId })'>@GlobalResource("BackToControlPanel")</a>
+   </div>
+   } 
+
+
+

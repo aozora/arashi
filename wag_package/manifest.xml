@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Application Package definition for the Windows Web Application Gallery -->
+<MSDeploy.iisApp>
+   <iisApp path="Arashi-v1.1.5" managedRuntimeVersion="v4.0" />
+   <dbfullsql path="install.sql" />
+   <setAcl path="Arashi-v1.1.5/log" setAclAccess="Write" setAclUser="NetworkService" />
+   <setAcl path="Arashi-v1.1.5/Sites" setAclAccess="Write" setAclUser="NetworkService" />
+</MSDeploy.iisApp>

@@ -1,0 +1,5 @@
+<Modules>
+  <Module PersistentId="6BEC39FE-F478-46B2-ACC9-994618156844" ModuleId="Castle.Components.Scheduler" />
+  <Module PersistentId="31232E6C-B675-4E8C-8E8F-395307454589" ModuleId="Castle.Components.Scheduler.WindsorExtension" />
+  <Module PersistentId="3DA11A4B-7C16-4A3B-8847-E2CB4B2017F1" ModuleId="Castle.Components.Scheduler.Tests" />
+</Modules>

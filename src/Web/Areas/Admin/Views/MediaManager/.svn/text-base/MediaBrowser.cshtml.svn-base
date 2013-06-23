@@ -1,0 +1,75 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<MediaManagerModel>
+@using Arashi.Web.Areas.Admin.Models
+
+
+<!--  + if current user can edit media -> show upload tab
+-->
+
+<div class="filter-actions ui-widget ui-helper-clearfix width-550">
+   @using (Html.BeginForm("Browse", "MediaManager", new { siteid = RequestContext.ManagedSite.SiteId }, FormMethod.Get, new { id = "searchform", @class = "ui-form-default" }))
+   { 
+      <div id="searchbox-container" >
+         <input id="searchtext" name="s" type="text" class="ui-link ui-corner-left ui-shadow" value='@GlobalResource("SearchWithEllipsis")' />
+         <button id="search-submit" type="submit" class="ui-button ui-state-default ui-corner-right ui-shadow" title='@GlobalResource("Search")'>
+            <img src="/Resources/img/16x16/magnifier.png" alt="search" />
+         </button>
+      </div>
+   } 
+</div>
+
+<table id="mediabrowser" class="grid ui-widget ui-widget-content ui-corner-all ui-shadow">
+   <tfoot class="ui-widget-header ui-corner-bottom">
+      <tr>
+         <th colspan="3">
+            @if (Model != null)
+            { 
+		         @Html.Pager(Model.PageSize, Model.CurrentPageIndex, Model.TotalRecordCount, null, Model.CurrentSearchPattern) 
+            } 
+         </th>
+      </tr>
+   </tfoot>
+   <tbody class="ui-widget-content">
+      @if (Model != null && Model.Medias.Count() > 0)
+      { 
+         foreach (MediaModel media in Model.Medias)
+         { 
+            <tr>
+               <td class="width-50">
+                  @if (media.IsImage || media.IsMovie)
+                  { 
+                     @Html.MediaThumbnail(media.RelativePath, media.Name) 
+                  }
+                  else
+                  { 
+                     @Html.MediaImage(media.Name) 
+                  } 
+               </td>
+               <td class="multitext">
+                  <strong>@media.Name</strong>
+                  <br />
+                  <span>@media.MimeType</span>
+               </td>
+               <td class="align-center width-100">
+                  <div class="hover-actions">
+                     &nbsp;&nbsp;&nbsp;
+                     <a class="button ui-button-text-icon ui-state-default call-to-action ui-corner-all ui-shadow" 
+                        href="#" 
+                        onclick='insertMedia(@(string.Format("\"{0}\"", Url.RouteUrl("media", new { name = media.Name }))))' >
+                        <span class="ui-button-text">Select</span>
+                     </a>
+                  </div>
+               </td>
+            </tr>
+         }
+      }
+      else
+      { 
+         <!-- Empty Template -->
+         <tr class="emptyrow">
+            <td colspan="3">No media exists....</td>
+         </tr>
+       } 
+   </tbody>
+</table>
+
+

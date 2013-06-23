@@ -1,0 +1,30 @@
+﻿/* Minimal support classes for IE */
+
+.ui-widget input[type=checkbox] {
+   border: 0;
+   background: transparent
+}
+
+/* Fieldset background Holy Hack for IE */
+fieldset {
+   position: relative;
+   margin-top:1em;
+   padding-top:.8em;
+}
+fieldset.ui-widget {
+   padding-top: 16px;
+}
+fieldset.controlpanelgroup {
+   margin-bottom: 4px;
+}
+legend {
+   position:absolute;
+   top: -.6em;
+   left: .5em;
+}
+
+a.controlpanelicon {
+   margin-top: 12px;
+}
+
+

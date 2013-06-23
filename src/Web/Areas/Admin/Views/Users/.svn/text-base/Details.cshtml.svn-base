@@ -1,0 +1,288 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<UserModel>
+@using Arashi.Core.Domain
+@using Arashi.Web.Areas.Admin.Models
+@using Arashi.Core.Extensions
+
+@section head {
+	<title>Details</title>
+   @{
+      Html.RequiresJs("~/Resources/js/src/jquery.validate.js", 100);
+      Html.RequiresJs("~/Resources/js/src/jquery.unobtrusive-ajax.js", 101);
+      Html.RequiresJs("~/Resources/js/src/jquery.validate.unobtrusive.js", 102);
+      Html.RequiresJs("~/Resources/js/src/admin.user.details.js", 103);
+   }
+}
+
+@section ScriptPlaceHolder {
+   <script type="text/javascript">
+      var siteid = '@RequestContext.ManagedSite.SiteId';
+      var userid = '@Model.UserId';
+   </script>
+}
+
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId }))
+                            .Add("Users", Url.Action("Index", "Users", new { siteid = RequestContext.ManagedSite.SiteId }))
+                            .AddCurrent("User Details")))
+}
+
+
+<div id="adminpagetitle">
+   <img class="icon" src="/Resources/img/32x32/user.png" alt="list users" />
+   <h2>User Details</h2>
+</div>
+<div class="clear"></div>
+<br />
+
+   
+@using (Html.BeginForm("Update", "Users", new { siteid = RequestContext.ManagedSite.SiteId, id = ViewData.Model.UserId }, FormMethod.Post, new { id = "userdetailsform", @class = "ui-form-default" }))
+{ 
+   <div id="tabs">
+      @Html.AntiForgeryToken("update") 
+      <ul>
+         <li><a href="#tabAuth"><span>Authentication</span></a></li>
+         <li><a href="#tabUserData"><span>General Info</span></a></li>
+         <li><a href="#tabUserRoles"><span>Groups</span></a></li>
+         <li><a href="#tabAdmin"><span>Control Panel Preferencies</span></a></li>
+      </ul>
+
+      <div id="tabAuth">
+         <p>
+            You can login to the Control Panel in two ways:
+            <ol class="ol">
+               <li>Using an external provider like Google or Facebook for example, that will permit you to use your existent credential</li>
+               <li>Using the classic login system, by submitting an email address and a password</li>
+            </ol>
+         </p>
+         <br />
+
+         <div id="auth-tabs">
+            <ul>
+               <li><a href="#tabExternal"><span>External Provider</span></a></li>
+               <li><a href="#tabClassic"><span>Classic Login</span></a></li>
+            </ul>
+
+            <div id="tabExternal">
+               <fieldset class="ui-corner-all">
+                  <ol class="hidden">
+                     <li>
+                        @Html.LabelFor(m => m.ExternalId, "External Identifier")
+                        @Html.TextBox("ExternalId", Model.ExternalId, new { maxlength = 255, @class = "largetext" })
+                     </li>
+                  </ol>
+
+                  <input id="current-provider-uri" type="hidden" value="@Model.ExternalProviderUri" />
+                     
+                  @if (!string.IsNullOrEmpty(Model.ExternalId))
+                  { 
+                     <p>
+                        This user is associated to the&nbsp;
+                        <img id="current-provider-logo" alt='@Model.ExternalProviderUri' src="" />
+                        &nbsp;provider.
+                     </p>
+                     <p>
+                        <a id="removeExternalId" href='@Url.Action("RemoveExternalId", "Users", new { siteid = RequestContext.ManagedSite.SiteId, id = ViewData.Model.UserId }) ' onclick="return removeExternalId();" >Click here to remove the association with the current provider.</a>
+                        <br />
+                        <span class="hint">After doing this, this user will be able to login only with email/password credentials.</span>
+                     </p>
+                  } 
+
+                  <div id="external-provider-container">
+                     <div id="providers-container">
+                        <p class="align-left">If you wish to use an external provider to log in to Arashi, then select your preferred provider below:</p>
+                        <ul class="providers">
+                           <li class="direct" title="Google">
+                              <img src="/Resources/img/openid/googleB.png" alt="icon" /><span>https://www.google.com/accounts/o8/id</span>
+                           </li>
+                           <li class="direct" title="Yahoo">
+                              <img src="/Resources/img/openid/yahooB.png" alt="icon" /><span>http://yahoo.com/</span>
+                           </li>
+                           @if (ViewData["FacebookAppId"] != null)
+                           { 
+                           <li class="facebook" title="Facebook">
+                              <input id="fb-appid" type="hidden" value='@ViewData["FacebookAppId"]' />
+                              <img id="fb-logo" src="/Resources/img/openid/facebookB.png" alt="icon" /><span></span>
+                           </li>
+                           } 
+                           <li title="OpenID" class="openid">
+                              <img src="/Resources/img/openid/openidB.png" alt="icon" />
+                              <span><strong>http://{your-openid-url}</strong></span>
+                           </li>
+                           <li class="username" title="AOL">
+                              <img src="/Resources/img/openid/aolB.png" alt="icon" /><span>http://openid.aol.com/<strong>username</strong></span>
+                           </li>
+                           <li class="username" title="MySpace">
+                              <img src="/Resources/img/openid/myspaceB.png" alt="icon" /><span>http://<strong>username</strong>.myopenid.com/</span>
+                           </li>
+                           <li class="username" title="MyOpenID">
+                              <img src="/Resources/img/openid/myopenidB.png" alt="icon" /><span>http://<strong>username</strong>.myopenid.com/</span>
+                           </li>
+                           <li class="username" title="Flickr">
+                              <img src="/Resources/img/openid/flickrB.png" alt="icon" /><span>http://www.myspace.com/<strong>username</strong>/</span>
+                           </li>
+                        </ul>
+                        <div class="clear"></div>
+                     </div>
+                     <div class="clear"></div>
+
+                     <ol>
+                        <li>
+                           <label for="openid_username">Enter your <strong>Provider user name</strong>:</label>
+                           <input type="text" id="openid_username" name="openid_username" class="logintext" /><span></span>
+                        </li>
+                        <li class="vertical align-center">
+                           <input type="submit" value="Login" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-shadow" />
+                        </li>
+                     </ol>
+
+                     <ol>
+                        <li>
+                           <label for="openid_identifier">Please enter your <a class="openid_logo" href="http://openid.net">OpenID</a>:</label>
+                           <input type="text" id="openid_identifier" name="openid_identifier" class="logintext" />
+                        </li>
+                        <li class="vertical align-center">
+                           <input type="submit" value="Login" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-shadow" />
+                        </li>
+                     </ol>
+
+                     @* this div is required by facebook connect js 
+                     <div id="fb-root"></div> *@
+
+                  </div>
+
+               </fieldset>
+            </div>
+
+            <div id="tabClassic">
+               <ol>
+                  <li>
+                     @* this is required for the Remote Validation of Email property *@
+                     @Html.HiddenFor(m => m.UserId) 
+                     @Html.LabelFor(m => m.Email, "Email") 
+                     @Html.TextBoxFor(m => m.Email, new { maxlength = 100, @class = "largetext" }) 
+                     @Html.ValidationMessageFor(model => Model.Email)
+                  </li>
+                  <li>
+                     <div class="ui-widget ui-helper-clearfix">
+                        <a id="changePasswordLink" 
+                           href='@Url.Action("ChangePassword", "Users", new { siteid = RequestContext.ManagedSite.SiteId, id = Model.UserId })'  
+                           class="coolbutton ui-iconplustext ui-shadow" >
+                           <img src="/Resources/img/32x32/password.png" alt="change password" />
+                           <em>
+                              <span class="ui-iconplustext-title ui-title">Change Password</span>
+                              <span>Change the password for the user</span>
+                           </em>
+                        </a>
+                     </div>   
+                  </li>
+               </ol>
+            </div>
+
+         </div>
+      </div>
+
+      <div id="tabUserData">
+         <ol>
+            <li>
+               @Html.LabelFor(m => m.DisplayName, "Display Name")
+               @Html.TextBoxFor(m => m.DisplayName, new { maxlength = 100, @class = "largetext" }) 
+               <span class="hint">This is the name displayed on each content you publish</span>
+            </li>
+            <li>
+               @Html.LabelFor(m => m.FirstName, "First Name")
+               @Html.TextBoxFor(m => m.FirstName, new { maxlength = 100, @class = "largetext" }) 
+            </li>
+            <li>
+               @Html.LabelFor(m => m.LastName, "Last Name")
+               @Html.TextBoxFor(m => m.LastName, new { maxlength = 100, @class = "largetext" }) 
+            </li>
+            <li>
+               @Html.LabelFor(m => m.IsActive, "Active")
+               @Html.CheckBoxFor(m => m.IsActive) 
+            </li>
+            <li>
+               @Html.LabelFor(m => m.WebSite, "Web Site")
+               @Html.TextBoxFor(m => m.WebSite, new { maxlength = 100, @class = "largetext" }) 
+            </li>
+            <li>
+               @Html.LabelFor(m => m.TimeZone, "TimeZone")
+	            @Html.DropDownListFor(m => m.TimeZone, Model.TimeZones)
+            </li>
+            <li>
+               @Html.LabelFor(m => m.Description, "Biographical Notes")
+               @Html.TextAreaFor(m => m.Description, 5, 40, new { @class = "largetext" }) 
+            </li>
+            <li>
+               <label>Last Login:</label>
+               @Model.LastLogin.HasValue ? Model.LastLogin.Value.AdjustDateToTimeZone(Model.TimeZone).ToString() : string.Empty 
+            </li>
+            <li>
+               <label>Last IP Address:</label>
+               @Model.LastIp 
+            </li>
+            <li>
+               <label>Created at:</label>
+               @Model.CreatedDate.AdjustDateToTimeZone(Model.TimeZone).ToString() 
+            </li>
+            <li>
+               <label>Last Update at:</label>
+               @Model.UpdatedDate.HasValue ? Model.UpdatedDate.Value.AdjustDateToTimeZone(Model.TimeZone).ToString() : string.Empty 
+            </li>
+         </ol>
+      </div>
+         
+      <div id="tabUserRoles">
+         <table class="grid ui-widget ui-widget-content ui-corner-all ui-shadow width-auto">
+            <thead class="ui-widget-header ui-corner-top">
+               <tr>
+                  <th class="width-200">Role</th>
+                  <th class="width-40"></th>
+               </tr>
+            </thead>
+            <tfoot class="ui-widget-header ui-corner-bottom">
+               <tr>
+                  <th colspan="2"></th>
+               </tr>
+            </tfoot>
+            <tbody class="ui-widget-content">
+	            @foreach (Role role in Model.AllRoles)
+             { 
+	            <tr>
+	               <td class="width-200">
+		               <label for="Role_@role.RoleId ">@role.Name </label>  
+	               </td>
+	               <td class="width-40">
+		               <input type="checkbox" id="Role_@role.RoleId" name="roleIds" 
+		                        value="@role.RoleId" 
+		                        @(Model.IsInRole(role.Name) ? "checked='checked'" : String.Empty)  />
+	               </td>
+	            </tr>
+             } 
+            </tbody>
+         </table>
+      </div>
+         
+      <div id="tabAdmin">
+         <ol>
+            <li>
+               @Html.LabelFor(m => m.AdminTheme, "Control Panel Theme")
+	            @Html.DropDownList("AdminTheme", Model.AdminThemes)
+            </li>
+            <li>
+               @Html.LabelFor(m => m.AdminCulture, "Language")
+               @Html.DropDownList("AdminCulture", Model.Cultures, new { @class = "largetext" })
+            </li>
+         </ol>
+      </div>
+   </div>
+
+   <div id="adminpagefooter" class="ui-widget">
+	   @Html.SubmitUI(GlobalResource("Save")) 	
+	   &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId })'>@GlobalResource("BackToControlPanel")</a>
+   </div>
+} 
+   
+
+
+

@@ -1,0 +1,4 @@
+Code merge with SQLite 3.6.23.1 
+Fixed a bug in the installer that accidentally modified the machine.config on .NET versions prior to 2.0, invaliding the config file. 
+Fixed INTERSECT and EXCEPT union query generation in EF 
+Fixed an out of memory error in the trigger designer in cases where a WHEN clause is used in the trigger

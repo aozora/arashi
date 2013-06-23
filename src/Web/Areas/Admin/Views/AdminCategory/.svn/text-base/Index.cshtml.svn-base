@@ -1,0 +1,98 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<IPagedList<Arashi.Core.Domain.Category>>
+@using Arashi.Core.Extensions
+@using Arashi.Core.Domain
+@using Arashi.Core.Domain.Extensions
+
+@section head {
+	<title>@GlobalResource("Tags")</title>
+}
+
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId }))
+                                    .AddCurrent("Categories")))
+}
+
+
+<div id="adminpagetitle">
+   <img class="icon" src="/Resources/img/32x32/category.png" alt="Category list" />
+   <h2>@GlobalResource("Categories") </h2>
+</div>
+
+<div class="ui-widget ui-helper-clearfix">
+   <a id="newPostLink" 
+            href='@Url.Action("NewCategory", "AdminCategory", new { siteid = RequestContext.ManagedSite.SiteId })'  
+            title="Create new tag" 
+            class="coolbutton ui-iconplustext  ui-shadow" >
+      <img src="/Resources/img/32x32/word_add.png" alt="new Category" />
+      <em>
+         <span class="ui-iconplustext-title ui-title">@GlobalResource("NewCategory")</span>
+         <span>@GlobalResource("CategoriesNew")</span>
+      </em>
+   </a>
+</div>
+
+<br />
+   
+<div>
+   <table class="grid ui-widget ui-widget-content ui-corner-all ui-shadow">
+      <thead class="ui-widget-header ui-corner-top">
+         <tr>
+            <th>@GlobalResource("Name")</th>
+            <th>@GlobalResource("CategoryParent")</th>
+            <th>@GlobalResource("Childs")</th>
+            <th>@GlobalResource("Posts")</th>
+         </tr>
+      </thead>
+      <tfoot class="ui-widget-header ui-corner-bottom">
+         <tr>
+            <th colspan="4">
+               @if (Model != null)
+               { 
+                  @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+               } 
+            </th>
+         </tr>
+      </tfoot>
+      <tbody class="ui-widget-content">
+         @if (Model != null)
+         {
+            foreach (Category category in Model)
+            { 
+               <tr>
+                  <td class="title">
+                     <a class="ui-text-shadow-light" href='@Url.Action("Edit", "AdminCategory", new { siteid = RequestContext.ManagedSite.SiteId, id = category.Id }) '>
+                        @category.Name
+                     </a>
+                     <div class="hover-actions">
+                        &nbsp;&nbsp;&nbsp;
+                        <span class="ui-icon ui-icon-pencil"></span>
+                        @Html.ActionLink(GlobalResource("Edit"), "Edit", "AdminCategory", new { siteid = RequestContext.ManagedSite.SiteId, id = category.Id }, new { @class = "button-secondary" })
+                     </div>
+                  </td>
+                  <td>
+                     @(category.ParentCategory == null ? string.Empty : category.ParentCategory.Name)
+                  </td>
+                  <td>
+                     @(category.ChildCategories.Count > 0 ? category.ChildCategories.Count.ToString() : string.Empty)
+                  </td>
+                  <td class="align-right">@category.ContentItems.Count</td>
+               </tr>
+            }
+         }
+         else
+         { 
+            <!-- Empty Template -->
+            <tr class="emptyrow">
+               <td colspan="4">@GlobalResource("NoTagsExists")</td>
+            </tr>
+         } 
+      </tbody>
+   </table>
+</div>
+   
+<div id="adminpagefooter" class="ui-widget">
+   <a href='@Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId })'>@GlobalResource("BackToControlPanel")</a>
+</div>
+
+
+

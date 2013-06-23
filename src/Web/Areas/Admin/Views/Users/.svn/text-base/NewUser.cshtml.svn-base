@@ -1,0 +1,79 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<NewUserModel>
+@using Arashi.Web.Areas.Admin.Models
+
+@section head {
+	<title>New User</title>
+   @{
+      Html.RequiresJs("~/Resources/js/src/jquery.validate.js", 100);
+      Html.RequiresJs("~/Resources/js/src/jquery.unobtrusive-ajax.js", 101);
+      Html.RequiresJs("~/Resources/js/src/jquery.validate.unobtrusive.js", 102);
+   }
+}
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}))
+                              .Add("Users", Url.Action("Index", "Users", new {siteid = RequestContext.ManagedSite.SiteId}))
+                              .AddCurrent("New User")) )
+}
+
+
+<div id="adminpagetitle">
+   <img class="icon" src="/Resources/img/32x32/user.png" alt="user" />
+   <h2>@RequestContext.ManagedSite.Name  - New User</h2>
+</div>
+<div class="clear"></div>
+
+@using(Html.BeginForm("Create", "Users", new { siteid = RequestContext.ManagedSite.SiteId }, FormMethod.Post, new { id = "userform", @class = "ui-form-default" })) { 
+   <div class="ui-widget ui-widget-content ui-corner-all content-padding-all">
+      @Html.AntiForgeryToken() 
+      <p>Fill the form below with the necessary data. Later you can add more info in th euser details page.</p>
+      <ol>
+         <li>
+            @Html.HiddenFor(m => m.UserId) 
+            @Html.LabelFor(m => m.Email, "Email") 
+            @Html.TextBoxFor(m => m.Email, new {maxlength = 100, @class = "largetext" }) 
+            @Html.ValidationMessageFor(model => Model.Email)
+         </li>
+         <li>
+            @Html.LabelFor(m => m.DisplayName, "Display Name")
+            @Html.TextBoxFor(m => m.DisplayName, new {maxlength = 100, @class = "largetext" }) 
+            <span class="hint">This is the name displayed on each content you publish</span>
+         </li>
+         <li>
+            @Html.LabelFor(m => m.Password, "Password") 
+            @Html.PasswordFor(m => m.Password, new { maxlength = 100, @class = "mediumtext" })
+            @Html.ValidationMessageFor(model => model.Password) 
+         </li>
+         <li>
+            @Html.LabelFor(model => model.PasswordConfirmation, "Confirm Password")
+            @Html.PasswordFor(m => m.PasswordConfirmation, new { maxlength = 100, @class = "mediumtext" })
+            @Html.ValidationMessageFor(model => model.PasswordConfirmation) 
+         </li>
+         <li>
+            @Html.LabelFor(m => m.IsActive, "Active")
+            @Html.CheckBoxFor(m => m.IsActive) 
+         </li>
+         <li>
+            @Html.LabelFor(m => m.TimeZone, "TimeZone")
+	         @Html.DropDownListFor(m => m.TimeZone, Model.TimeZones)
+         </li>
+         <li>
+            @Html.LabelFor(m => m.AdminCulture, "Language")
+            @Html.DropDownList("AdminCulture", Model.Cultures, new {@class = "largetext"})
+         </li>
+         <li>
+            <label class="align-top">Griups</label>
+	            @Html.Partial("RolesListUserControl", Model, ViewData) 
+         </li>
+      </ol>
+   </div>
+
+   <div id="adminpagefooter" class="ui-widget">
+	   @Html.SubmitUI(GlobalResource("Save")) 	
+	   &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}) '>@GlobalResource("BackToControlPanel") </a>
+   </div>
+} 
+
+
+
+

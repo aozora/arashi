@@ -1,0 +1,66 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<IList<Arashi.Core.Domain.Site>>
+
+@section head {
+	<title>Site Features</title>
+   @{
+      Html.RequiresCss("~/Resources/css/src/ui.jqgrid.css", 100);
+
+      Html.RequiresJs("~/Resources/js/i18n/src/grid.locale-" + CurrentUICultureName + ".js", 100);
+      Html.RequiresJs("~/Resources/js/src/jquery.jqGrid.js", 101);
+      Html.RequiresJs("~/Resources/js/src/admin.site.features.js", 102);
+   }
+}
+@section ScriptPlaceHolder {
+   <script type="text/javascript">
+      var urlGetSiteFeatures = '@Url.Action("GetSiteFeatures", "SystemConfiguration", new { siteid = RequestContext.ManagedSite.SiteId })';
+      var urlSaveSiteFeatures = '@Url.Action("SaveSiteFeatures", "SystemConfiguration", new { siteid = RequestContext.ManagedSite.SiteId })';
+      var urlEnableAllSiteFeatures = '@Url.Action("EnableAllSiteFeatures","SystemConfiguration", new {siteid = RequestContext.ManagedSite.SiteId})';
+   </script>
+}
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}))
+                            .AddCurrent(GlobalResource("SiteFeatures"))) )
+}
+
+
+<div id="adminpagetitle">
+   <img class="icon" src="/Resources/img/32x32/list.png" alt="" />
+   <h2>@GlobalResource("SiteFeatures")</h2>
+</div>
+<div class="clear"></div>
+
+@using (Html.BeginForm("Save", "Feature", null, FormMethod.Post, new { id = "featuresform", @class = "ui-widget ui-form-default" })){ 
+
+   <div>
+      @Html.AntiForgeryToken() 
+      <ol>
+         <li>
+            <label for="Site">@GlobalResource("SelectASite")</label>
+            @Html.DropDownList("Site", new SelectList(Model, "SiteId", "Name"), string.Empty, new {@class = "longtext"})
+            &nbsp;
+            <a id="show-sitefeatures-link" class="button">@GlobalResource("ShowFeatures")</a>
+         </li>
+      </ol>
+      <div id="sitefeatures-container">
+         <div id="actions-container" class="ui-widget ui-helper-clearfix">
+            <div class="filter-actions">
+               <a id="enable-all-link" href="#" class="hidden" >@GlobalResource("SelectAllFeatures")</a>
+            </div>
+         </div>
+         <table id="sitefeatures-table" >
+            <tbody><tr><td></td></tr></tbody>
+         </table>
+      </div>
+   </div>
+
+   <br />
+      
+   <div id="adminpagefooter" class="ui-widget">
+      @Html.SubmitUI(GlobalResource("Save")) 	
+      &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "Site")'>@GlobalResource("BackToControlPanel")</a>
+   </div>
+       
+   } 
+
+

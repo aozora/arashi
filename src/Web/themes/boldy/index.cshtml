@@ -1,0 +1,73 @@
+﻿@model Arashi.Web.Mvc.Models.TemplateContentModel
+@get_header()
+@*@if (is_category(get_option("boldy_portfolio")) || post_is_in_descendant_category( get_option("boldy_portfolio"))) {*@
+@if (false){
+@*<?php include (TEMPLATEPATH . '/portfolio.php'); ?>*@
+} else {
+
+		<!-- Begin #colLeft -->
+		<div id="colLeft">
+		<!-- archive-title -->				
+				@if(is_month()) {
+				<div id="archive-title">
+				Browsing articles from "<strong>@the_time("F, Y")</strong>"
+				</div>
+				}
+				@if(is_category()) {
+				<div id="archive-title">
+				Browsing articles in "<strong>
+            @single_cat_title("", true)</strong>"
+				</div>
+				}
+				@if(is_tag()) {
+				<div id="archive-title">
+				Browsing articles tagged with "<strong>@wp_title("",true,"")</strong>"
+				</div>
+				}
+				@if(is_author()) {
+				<div id="archive-title">
+				Browsing articles by "<strong>@wp_title("",true,"")</strong>"
+				</div>
+				}
+      <!-- /archive-title -->
+   
+	@if (have_posts()) { 
+      foreach (Post post in Model.Posts) { the_post(post); 
+
+ 		<!-- Begin .postBox -->
+		<div class="postItem">
+		
+				<h1><a href="@the_permalink()">@the_title()</a></h1> 
+				<div class="meta">
+							@the_time("M j, Y")&nbsp;&nbsp;//&nbsp;&nbsp; by <span class="author">@the_author_link()</span> &nbsp;&nbsp;//&nbsp;&nbsp;@the_category(", ")&nbsp;//&nbsp;@comments_popup_link("No Comments", "1 Comment ", "% Comments") 
+						</div>
+				@the_content("Read more >>")
+				
+		</div>
+ 		
+		<!-- End .postBox -->
+		
+      } 
+       
+	 } else { 
+         
+		<p>Sorry, but you are looking for something that isn't here.</p>
+         
+ 	 } 
+        
+         <div class="navigation">
+					<div class="alignleft">@next_posts_link()</div>
+					<div class="alignright">@previous_posts_link()</div>
+			</div>
+			@*<?php if (function_exists("emm_paginate")) {
+				emm_paginate();
+			} ?>*@
+       
+ 
+		</div>
+		<!-- End #colLeft -->
+
+@get_sidebar()
+}
+@get_footer()
+

@@ -1,0 +1,45 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="using" priority="1" />
+      <Item value="Core" priority="2" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="15288202-46C1-41CC-BA11-8B0D191122F8/f:TODO.txt/l:D!?dev?Projects?Azora System?trunk?src?Castle?Castle.Components.Scheduler?TODO.txt" caret="0" fromTop="0" />
+      <File id="6BEC39FE-F478-46B2-ACC9-994618156844/f:CommonAssemblyInfo.cs/l:..?..?buildscripts?CommonAssemblyInfo.cs" caret="0" fromTop="0" />
+      <File id="6BEC39FE-F478-46B2-ACC9-994618156844/f:IJob.cs" caret="0" fromTop="0" />
+      <File id="6BEC39FE-F478-46B2-ACC9-994618156844/d:JobStores/f:SqlServerJobStore.cs" caret="714" fromTop="14" />
+      <File id="31232E6C-B675-4E8C-8E8F-395307454589/f:WindsorJobFactory.cs" caret="772" fromTop="19" />
+      <File id="3DA11A4B-7C16-4A3B-8847-E2CB4B2017F1/d:UnitTests/f:DefaultSchedulerTest.cs" caret="1612" fromTop="20" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="6BEC39FE-F478-46B2-ACC9-994618156844/d:JobStores/f:SqlServerJobStore.cs" caret="730" fromTop="16" />
+      <File id="6BEC39FE-F478-46B2-ACC9-994618156844/d:JobStores/f:SqlServerJobStore.cs" caret="850" fromTop="20" />
+      <File id="6BEC39FE-F478-46B2-ACC9-994618156844/d:JobStores/f:SqlServerJobStore.cs" caret="730" fromTop="16" />
+      <File id="6BEC39FE-F478-46B2-ACC9-994618156844/d:JobStores/f:SqlServerJobStore.cs" caret="714" fromTop="14" />
+      <File id="31232E6C-B675-4E8C-8E8F-395307454589/f:WindsorJobFactory.cs" caret="1153" fromTop="31" />
+      <File id="31232E6C-B675-4E8C-8E8F-395307454589/f:WindsorJobFactory.cs" caret="646" fromTop="14" />
+      <File id="31232E6C-B675-4E8C-8E8F-395307454589/f:WindsorJobFactory.cs" caret="772" fromTop="19" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

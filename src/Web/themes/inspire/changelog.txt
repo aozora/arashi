@@ -1,0 +1,167 @@
+*** Inspire Changelog ***
+
+2011.03.15 - version 2.4.4
+ * /includes/widgets/widget-woo-feedback.php - Removed trailing comma in the innerfade JS settings.
+
+2011.02.23 - version 2.4.3
+ * template-fullwidth.php - added comment form (lines 29-31)
+
+2011.02.23 - version 2.4.2
+ * /includes/widgets/widget-woo-feedback.php - Localised the default widget title.
+ * /lang/en_GB.po - Rescanned and updated translation file with new translation for Woo - Feedback widget default title.
+
+2010.12.05 - version 2.4.1
+ * template-portfolio.php - possible to not have an image in portfolio item
+
+2010.11.20 - version 2.4
+ * includes/js/innerfade.js - new custom version
+ * includes/widgets/widget-woo-feedback.php - modified to use custom post type and innerfade
+ * includes/theme-options.php - added custom field for feedback posts
+ * includes/theme-functions.php - added new custom post type feedback
+ * style.css - fixed .feedback
+ * includes/images/feedback.png - new image
+
+2010.11.19 - version 2.3
+ * includes/js/jquery.prettyPhoto.js - Version 3.0 of prettyPhoto http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/
+ * css/prettyPhoto.css - updated css
+
+2010.11.12 - version 2.2.2
+ * includes/theme-functions.php - added exclude of portfolio image from gallery function
+ * template-portfolio.php - fixed portfolio gallery to work with new framework
+
+2010.11.12 - version 2.2.1
+ * includes/theme-functions.php - fixed bug with saving custom field images
+
+2010.11.11 - version 2.2
+ * single-portfolio.php - single portfolio post
+ * images/portfolio-hover.png - updated image file
+ * style.css - updated position of hover image on portfolio (line 233)
+ * includes/theme-functions.php - fixed portfolio settings
+
+2010.11.02 - version 2.1.6 
+ * template-portfolio.php - fixed query parameters
+
+2010.10.28 - version 2.1.5
+ * index.php - added div class entry to optional pages on front page
+
+2010.10.25 - version 2.1.4
+ * style.css - Added active menu item styling for categories in WP Menus
+ * css/effects.css - Added active menu item styling for categories in WP Menus
+
+2010.10.19 - version 2.1.3
+ * template-portfolio.php - added caption text to gallery images
+ * includes/theme-functions.php - added caption text to gallery images function
+
+2010.10.09 - version 2.1.2
+ * index.php - fixed duplicate div id from main-page2 to main-page2 line 15
+
+2010.10.09 - version 2.1.1
+ * template-portfolio - fixed woo_resize if statement
+
+2010.10.05 - version 2.1
+ * /functions/ - framework update to add support for Sidebar Manager
+ * sidebar.php - changed woo_sidebar to woo_sidebar
+ * home.php, page.php, template-*.php - fixed get_sidebar()
+ * includes/sidebar-init.php - removed sidebar page, sidebar home (handled by Sidebar Manager)
+
+2010.09.02 - version 2.0.3
+ * template-blog.php - fixed query to only show post_type=post
+
+2010.08.23 - version 2.0.2
+ * index.php - removed meta_value from query of mini-features
+
+2010.08.22 - version 2.0.1
+ * template-portfolio.php - Added check for empty post image array.
+
+2010.08.19 - version 2.0
+ * /functions/ - updated to latest framework
+ * thumb.php - latest version 1.14
+ * archive-portfolio.php - REMOVED
+ * --- CUSTOM POST TYPES ---
+ * includes/theme-functions.php - Added custom post types for slides, mini-features, portfolio
+ * includes/featured.php - Added support for custom post type slides
+ * includes/theme-options.php - Removed redundant options. Added Custom Post Types fields.
+ * index.php - Added query for custom post types. Fixed homepage content query to work with new option
+ * template-portfolio.php - Added custom post types support
+ * header.php - removed jquery and added to includes/featured.php
+ * single.php - removed post meta for custom post types
+ * style.css - minor fixes to .single .title
+ * template-blog.php - removed old portfolio settings from query
+ * archive.php - removed old portfolio settings from query 
+ * template-portfolio.php - moved code from archive-portfolio.php. Added functionality for multiple portfolio images per item.
+ * includes/images/ - new custom post type icons
+
+2010.08.16 - version 1.2
+ * includes/theme-functions.php - Fixed breadcrumb
+ * includes/theme-options.php - Fixed description on breadcrumb bar option
+ * includes/theme-plugins.php - removed Yoast Breadcrumbs. Install plugin separately http://yoast.com/wordpress/breadcrumbs/
+
+2010.08.03 - version 1.1.8 
+ * header.php - added IE7 script in HEAD to fix navigation dropdown behind slider image
+
+2010.07.26 - version 1.1.7
+ * style.css - Fixed typo
+ * css/ie6.css - Fixed IE6 twitter icon bug
+ * css/ie7.css - Fixed IE7 twitter icon bug
+
+2010.07.20 - version 1.1.6
+ * includes/js/woofader.js - Updated zero timeout hover bug.
+
+2010.07.20 - version 1.1.5
+ * header.php - fixed RSS feed (line 16)
+ * archive-portfolio.php - fixed RSS feed (line 19)
+ * theme-functions.php - fixed RSS feed (line 162)
+ * widget-woo-news.php - fixed RSS feed (line 21)
+
+2010.07.15 - version 1.1.4
+ * includes/theme-widgets.php - Fixed bug with theme previewing
+
+2010.07.13 - version 1.1.3
+ * includes/theme-functions.php - removed breadcrumb single post right side
+
+2010.06.28 - version 1.1.2
+ * style.css - Fixed Gravity forms styling bug
+
+2010.06.25 - version 1.1.1
+ * template-blog.php - Added workaround for WP 3.0 bug when using blog template as static homepage
+
+2010.06.21 - version 1.1.0
+ * header.php - Added theme support for WordPress 3.0 Menu Management
+ * /includes/theme-functions.php - Added theme support for WordPress 3.0 Menu Management
+ 
+2010.06.15 - version 1.0.9
+ * header.php - Fixed option to show categories in nav
+
+2010.06.05 - version 1.0.8
+ * style.css - added styling for Gravity forms 
+
+2010.06.08 - version 1.0.7
+ * includes/js/jquery.prettyPhoto.js - updated this to an older version to fix image not found bug.
+
+2010.06.05 - version 1.0.6
+ * template-blog.php - added more tag fix before the_content 
+
+2010.06.04 - version 1.0.5
+ * archive.php - fixed archive layout bug if portfolio wasn't set in options
+
+2010.06.01 - version 1.0.4
+ * includes/featured.php - added link on featured image
+ * includes/theme-options.php - added custom field for adding link to featured image
+ * archive-portfolio.php - fixed feed url option
+ * includes/widgets/widget-woo-news.php - fixed feed url option
+ * includes/theme-functions.php - fixed feed url option
+
+2010.05.28 - version 1.0.3
+ * header.php - Added check for one page featured area
+
+2010.05.27 - version 1.0.2 
+ * header.php - fixed logic in woofader javascript load
+ * includes/theme-options.php - added option to disable featured area
+ * index.php - if conditional for disabling featured area
+ * includes/theme-js.php - if conditional for disabling featured area
+
+2010.05.27 - version 1.0.1
+ * includes/widgets/widget-woo-news.php - Fixed query. Added options for thumbnail to News widget
+	
+2010.05.26 - version 1.0
+ * First release!

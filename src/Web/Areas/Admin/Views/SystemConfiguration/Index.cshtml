@@ -1,0 +1,96 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<Arashi.Core.Domain.SystemConfiguration>
+
+@section head {
+	<title>System Configuration</title>
+}
+
+@section ScriptPlaceHolder {
+	<script type="text/javascript">
+      $(function(){
+         $("#tabs").tabs();
+	   });
+   </script>
+}
+
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}))
+                            .AddCurrent(GlobalResource("SystemConfiguration"))) )
+}
+
+
+<div id="adminpagetitle">
+   <img class="icon" src="/Resources/img/32x32/burn.png" alt="" />
+   <h2>@GlobalResource("SystemConfiguration") /h2>
+</div>
+<div class="clear"></div>
+
+@using (Html.BeginForm("Save", "SystemConfiguration", null, FormMethod.Post, new { id = "sysconfigform", @class = "ui-widget ui-form-default" })){ 
+
+   <div id="tabs">
+      @Html.AntiForgeryToken() 
+      <ul>
+         <li><a href="#tabSmtp"><span>@GlobalResource("SystemConfiguration_SMTPSettings")</span></a></li>
+         <li><a href="#tabFB"><span>@GlobalResource("SystemConfiguration_FacebookConnect")</span></a></li>
+      </ul>
+         
+      <div id="tabSmtp">
+         <ol>
+            <li> <!-- ADD Annotations -->
+               <label for="SmtpHost">@GlobalResource("SystemConfiguration_SmtpHost")</label>
+               @Html.TextBox("SmtpHost", Model.SmtpHost, new {maxlength = "50", @class = "largetext"}) 
+            </li>
+            <li>
+               <label for="SmtpHostPort">@GlobalResource("SystemConfiguration_SmtpHostPort")</label>
+               @Html.TextBox("SmtpHostPort", Model.SmtpHostPort, new {maxlength = "4", @class = "shorttext align-right"}) 
+            </li>
+            <li>
+               <label for="SmtpRequireSSL">@GlobalResource("SystemConfiguration_SmtpRequireSSL")</label>
+               @Html.CheckBox("SmtpRequireSSL", Model.SmtpRequireSSL, new {@class = "checkbox"}) 
+            </li>
+            <li>
+               <label for="SmtpUserName">@GlobalResource("SystemConfiguration_SmtpUserName")</label>
+               @Html.TextBox("SmtpUserName", Model.SmtpUserName, new {maxlength = "255", @class = "largetext"}) 
+            </li>
+            <li>
+               <label for="SmtpUserPassword">@GlobalResource("SystemConfiguration_SmtpUserPassword")</label>
+               @Html.TextBox("SmtpUserPassword", Model.SmtpUserPassword, new {maxlength = "255", @class = "largetext"}) 
+            </li>
+            <li>
+               <label for="SmtpDomain">@GlobalResource("SystemConfiguration_SmtpDomain")</label>
+               @Html.TextBox("SmtpDomain", Model.SmtpDomain, new {maxlength = "255", @class = "largetext"}) 
+            </li>
+         </ol>
+      </div>
+      <div id="tabFB">
+         <ol>
+            <li>
+               @Html.LabelFor(m => m.FacebookApiKey, GlobalResource("SystemConfiguration_FacebookApiKey"))
+               @Html.TextBoxFor(m => m.FacebookApiKey, new {maxlength = "255", @class = "largetext"}) 
+            </li>
+            <li>
+               @Html.LabelFor(m => m.FacebookApiSecret, GlobalResource("SystemConfiguration_FacebookApiSecret"))
+               @Html.TextBoxFor(m => m.FacebookApiSecret, new { maxlength = "255", @class = "largetext" })
+            </li>
+            <li>
+               @Html.LabelFor(m => m.FacebookAppId, GlobalResource("SystemConfiguration_FacebookAppId"))
+               @Html.TextBoxFor(m => m.FacebookAppId, new { maxlength = "255", @class = "largetext" })
+            </li>
+            <li>
+               @Html.LabelFor(m => m.FacebookCookieSupport, GlobalResource("SystemConfiguration_FacebookCookieSupport"))
+               @Html.CheckBoxFor(m => m.FacebookCookieSupport) 
+            </li>
+         </ol>
+      </div>
+   </div>
+
+   <br />
+      
+   <div id="adminpagefooter" class="ui-widget">
+      @Html.SubmitUI(GlobalResource("Save")) 	
+      &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "Site")'>@GlobalResource("BackToControlPanel")</a>
+   </div>
+       
+   } 
+
+

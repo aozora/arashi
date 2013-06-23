@@ -1,0 +1,29 @@
+Sitemap: http://localhost:8080/sitemap.xml
+
+User-agent: *
+Disallow: /Admin/
+Disallow: /Config/
+Disallow: /Templates/
+Disallow: /Themes/
+Disallow: /pingback.axd
+Disallow: /trackback.axd
+Disallow: /302/
+Disallow: /feed/
+Disallow: /feed/atom/
+Disallow: /contact/savecontact/
+Disallow: /*/savecomment/
+Disallow: /*?
+
+User-agent: MSIECrawler
+Disallow: /
+
+User-agent: psbot
+Disallow: /
+
+User-agent: Fasterfox
+Disallow: /
+
+User-agent: Slurp
+Crawl-delay: 800
+
+# WebMatrix 1.0

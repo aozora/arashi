@@ -1,0 +1,1 @@
+This is a custom build version of Elmah v1.1 without the SQLLite dependency

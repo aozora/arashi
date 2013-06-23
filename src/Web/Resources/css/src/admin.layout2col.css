@@ -1,0 +1,17 @@
+﻿div#content-wrap {
+   margin-left:-340px;
+}
+
+div#cp-content {
+   margin-left: 340px; 
+}
+
+div#cp-utility { 
+   display: block;
+   float: right; 
+   width: 320px; 
+   padding-right: 20px;
+   min-height: 800px;
+   margin-bottom: 8px;
+   background-color: transparent;
+} 

@@ -1,0 +1,79 @@
+﻿@model Arashi.Web.Areas.Admin.Models.ClassicLoginModel
+
+@section head {
+	<title>Login</title>
+   @{
+      Html.RequiresJs("~/Resources/js/src/jquery.validate.js", 100);
+      Html.RequiresJs("~/Resources/js/src/jquery.unobtrusive-ajax.js", 101);
+      Html.RequiresJs("~/Resources/js/src/jquery.validate.unobtrusive.js", 102);
+   }
+}
+<div id="loginbox" class="section ui-widget">
+   <div id="loginbox-inner" class="ui-widget-content ui-corner-all ui-shadow">
+      <div id="loginbox-title" class="ui-corner-all">
+	      <h2 class="align-center">
+            <img alt="logo" src="/Resources/img/logo/arashi-project-logo-h43.png"/>
+	      </h2>
+	      @if (ViewData["AuthenticationFailed"] != null)
+       { 
+	         <div class="validation-summary-errors ui-state-error ui-corner-all">
+	            @ViewData["AuthenticationFailed"].ToString() 
+	         </div>
+       } 
+      </div>
+      <div class="section-body">
+		   @using (Html.BeginForm("Authenticate", "Login", FormMethod.Post, new { id = "loginform", @class = "ui-form-default openid" }))
+     { 
+            <div> 
+               @Html.AntiForgeryToken("loginclassic")
+               <ol>
+			         <li class="vertical">
+				         <label for="Email">@Resources.GlobalResources.Email</label>
+				         @Html.TextBox("Email", String.Empty, new { @class = "logintext" }) 
+                     @Html.ValidationMessageFor(model => model.Email) 
+			         </li>
+			         <li class="vertical">
+                     <label for="Password">@Resources.GlobalResources.Password</label>
+				         @Html.Password("Password", String.Empty, new { @class = "logintext" }) 
+                     @Html.ValidationMessageFor(model => model.Password) 
+			         </li>
+			         <li class="align-center">
+         			   @Html.Hidden("ReturnUrl", ViewData["ReturnUrl"]) 
+                     <button type="submit" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-shadow">
+                        <span class="ui-button-text">@Resources.GlobalResources.Login</span>
+                     </button>
+			         </li>
+			         <li class="align-center hidden">
+                     @Html.CheckBox("RememberMe", true)
+                     <label for="RememberMe" class="loginbox-rememberme">@Resources.GlobalResources.RememberMe</label>
+			         </li>
+			      </ol>
+            </div>
+            <div>
+@{
+        string href;
+        if (!string.IsNullOrEmpty(Context.Request.QueryString["ReturnUrl"]))
+        {
+           href = Url.Action("Index", "Login", new { ReturnUrl = Context.Request.QueryString["ReturnUrl"] });
+        }
+        else
+        {
+           href = Url.Action("Index", "Login");
+        }
+}
+               <a id="enable-openid-login" href='@href'>
+                  @Resources.GlobalResources.LoginWith &nbsp;<img src="/Resources/img/openid/openidico.png" alt="openid" /> OpenID
+               </a>
+            </div>
+
+     } 
+      </div>
+   </div>
+   <br />
+   &nbsp;&nbsp;&nbsp;
+   <a id="lost-password" href='@Url.Action("ResetPassword", "Login")'>
+      Lost your password?
+   </a>
+</div>
+
+

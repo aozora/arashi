@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/arashi/!svn/ver/292/trunk/src/Web/Areas/Admin/Views/Shared
+END
+Error.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/Shared/Error.cshtml
+END
+SiteSwitcher.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/arashi/!svn/ver/287/trunk/src/Web/Areas/Admin/Views/Shared/SiteSwitcher.cshtml
+END
+LogOnUserControl.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/arashi/!svn/ver/224/trunk/src/Web/Areas/Admin/Views/Shared/LogOnUserControl.cshtml
+END
+TagsUserControl.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/arashi/!svn/ver/224/trunk/src/Web/Areas/Admin/Views/Shared/TagsUserControl.cshtml
+END
+ObsoleteWarning.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/arashi/!svn/ver/224/trunk/src/Web/Areas/Admin/Views/Shared/ObsoleteWarning.cshtml
+END
+SiteLayout.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/arashi/!svn/ver/292/trunk/src/Web/Areas/Admin/Views/Shared/SiteLayout.cshtml
+END
+MessageUserControl.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/arashi/!svn/ver/224/trunk/src/Web/Areas/Admin/Views/Shared/MessageUserControl.cshtml
+END

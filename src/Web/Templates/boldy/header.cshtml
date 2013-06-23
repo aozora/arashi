@@ -1,0 +1,97 @@
+﻿@model Arashi.Web.Mvc.Models.TemplateContentModel
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" @language_attributes()>
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content='@(bloginfo("html_type"));charset=@(bloginfo("charset"))' />
+@*<meta name="keywords" content="<?php echo get_option('boldy_keywords'); ?>" />
+<meta name="description" content="<?php echo get_option('boldy_description'); ?>" />*@
+<title>@wp_title("&laquo;", true, "right")</title>
+<link href="@bloginfo("template_directory")/style.css" rel="stylesheet" type="text/css" />
+<link href="@bloginfo("template_directory")/css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+<link href="@bloginfo("template_directory")/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+<link href="@bloginfo("template_directory")/css/nivo-slider.css" rel="stylesheet" type="text/css" />
+
+@wp_enqueue_script("jquery.min", 0)
+@wp_enqueue_script("jquery.form.min", 1)
+@wp_enqueue_script("ddsmoothmenu", "/js/ddsmoothmenu.js", 2)
+@wp_enqueue_script("jquery.nivo.slider", "/js/jquery.nivo.slider.pack.js", 3)
+@wp_enqueue_script("jquery.prettyPhoto", "/js/jquery.prettyPhoto.js", 4)
+@wp_enqueue_script("custom", "/js/custom.js", 5)
+@wp_enqueue_script("cufon-yui", "/js/cufon-yui.js", 6)
+@wp_enqueue_script("ddsmoothmenu", "/js/ddsmoothmenu.js", 7)
+@wp_enqueue_script("Museo_Slab_500_400.font", "/js/Museo_Slab_500_400.font.js", 8)
+
+@*<script type="text/javascript" src="@bloginfo("template_directory")/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="@bloginfo("template_directory")/js/jquery.form.js"></script>
+<script type="text/javascript" src="@bloginfo("template_directory")/js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="@bloginfo("template_directory")/js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="@bloginfo("template_directory")/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="@bloginfo("template_directory")/js/custom.js"></script>
+<script type="text/javascript" src="@bloginfo("template_directory")/js/cufon-yui.js"></script>
+<script type="text/javascript" src="@bloginfo("template_directory")/js/Museo_Slab_500_400.font.js"></script>
+*@
+
+<link rel="pingback" href="@bloginfo("pingback_url")" />
+	@*@wp_get_archives("type=monthly&format=link")*@
+	@*//comments_popup_script(); // off by default *@
+	@wp_head()
+</head>
+
+<body @{if(is_home()){
+				@:id="home"
+			}else if (is_category(get_option("boldy_portfolio")) || post_is_in_descendant_category( get_option("boldy_portfolio"), null) && !is_single()){
+				@:id="portfolio"
+			}} 
+         >
+<!-- BEGINN MAINWRAPPER -->
+<div id="mainWrapper">
+	<!-- BEGIN WRAPPER -->
+    <div id="wrapper">
+		<!-- BEGIN HEADER -->
+        <div id="header">
+            <div id="logo"><a href="@bloginfo("url")/"><img src="@get_option("boldy_logo_img")" alt="@get_option("boldy_logo_alt")" /></a></div>
+			<!-- BEGIN MAIN MENU -->
+			@*<?php if ( function_exists( 'wp_nav_menu' ) ){
+				wp_nav_menu( array( 'theme_location' => 'main-menu', 'container_id' => 'mainMenu', 'container_class' => 'ddsmoothmenu', 'fallback_cb'=>'primarymenu') );
+			}else{*@
+				@*primarymenu();*@
+            @*this is the render from primarymenu()*@
+			   <div id="mainMenu" class="ddsmoothmenu">
+				   <ul>
+					   @wp_list_pages("title_li=")
+					   @wp_list_categories("hide_empty=1&exclude=1&title_li=")
+				   </ul>
+			   </div>
+
+			@*}?>*@
+
+         <!-- END MAIN MENU -->
+			<!-- BEGIN TOP SEARCH -->
+			<div id="topSearch">
+				<form id="searchform" action="@bloginfo("url")/" method="get">
+					<input type="submit" value="" id="searchsubmit"/>
+					<input type="text" id="s" name="s" value="type your search" />
+				</form>
+			</div>
+			<!-- END TOP SEARCH -->
+			<!-- BEGIN TOP SOCIAL LINKS -->
+			<div id="topSocial">
+				<ul>
+					@if (get_option("boldy_linkedin_link") != "") {
+					   <li><a href="@get_option("boldy_linkedin_link")" class="linkedin" title="Join us on LinkedIn!"><img src="@bloginfo("template_directory")/images/ico_linkedin.png" alt="LinkedIn" /></a></li>
+					}
+					@if (get_option("boldy_twitter_user") != "") {
+					   <li><a href="http://www.twitter.com/@(get_option("boldy_twitter_user"))" class="twitter" title="Follow Us on Twitter!"><img src="@(bloginfo("template_directory"))/images/ico_twitter.png" alt="Follow Us on Twitter!" /></a></li>
+					}
+					@if (get_option("boldy_facebook_link") != "") {
+					   <li><a href="@get_option("boldy_facebook_link")" class="twitter" title="Join Us on Facebook!"><img src="@bloginfo("template_directory")/images/ico_facebook.png" alt="Join Us on Facebook!" /></a></li>
+					}
+					<li><a href="@bloginfo("rss2_url")" title="RSS" class="rss"><img src="@bloginfo("template_directory")/images/ico_rss.png" alt="Subcribe to Our RSS Feed" /></a></li>
+				</ul>
+			</div>	
+			<!-- END TOP SOCIAL LINKS -->
+        </div>
+        <!-- END HEADER -->
+		
+		<!-- BEGIN CONTENT -->
+		<div id="content">

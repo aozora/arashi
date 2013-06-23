@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/MediaManager
+END
+Index.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/MediaManager/Index.cshtml
+END
+RotateFlip.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/arashi/!svn/ver/226/trunk/src/Web/Areas/Admin/Views/MediaManager/RotateFlip.cshtml
+END
+TextWatermark.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/arashi/!svn/ver/226/trunk/src/Web/Areas/Admin/Views/MediaManager/TextWatermark.cshtml
+END
+Crop.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/arashi/!svn/ver/226/trunk/src/Web/Areas/Admin/Views/MediaManager/Crop.cshtml
+END
+MediaBrowser.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/arashi/!svn/ver/242/trunk/src/Web/Areas/Admin/Views/MediaManager/MediaBrowser.cshtml
+END
+Upload.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/MediaManager/Upload.cshtml
+END
+Resized.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/arashi/!svn/ver/226/trunk/src/Web/Areas/Admin/Views/MediaManager/Resized.cshtml
+END
+Edit.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/arashi/!svn/ver/251/trunk/src/Web/Areas/Admin/Views/MediaManager/Edit.cshtml
+END

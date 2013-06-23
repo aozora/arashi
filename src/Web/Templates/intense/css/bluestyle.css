@@ -1,0 +1,1059 @@
+/* CSS Document 
+Theme Name: Intense Business & Portfolio
+Description: Intense WordPress Theme.
+Version: 2.9
+Author: system32
+Author URI: http://www.themeforest.net/user/system32
+Tags: space, custom header, fixed width, two columns, widgets
+The CSS, XHTML and design under 960 Grid System:
+*/
+
+/*	General settings
+--------------------------------------------------------------------------------------------*/
+html, body, div, span, small, object, iframe, h1, h2, h3, h4, h5, h6, pre, a, abbr, blockquote, acronym, address, code, del, dfn, dl, dt, dd, em, img, q, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, b, p {
+	border : 0;
+	font-size : 100%;
+	font-family : inherit;
+	}
+
+body{
+	font:normal 12px/19px "Lucida Grande","Lucida Sans Unicode", Arial, sans-serif;
+	color:#555;
+	margin:0;
+	background:#ebf5ff;
+	}
+
+.leftalign	{ 	float:left;}
+.rightalign	{	float:right;}
+
+.textleft 	{ text-align:left;}
+.textright  { text-align:right;}
+.center 	{ text-align:center;}
+
+.clear		{ clear:both;}
+
+.featured 	{	
+	background:#fbf2dd !important;
+	border:1px solid #d6c59c !important;
+	}
+
+p	{
+	padding:0 0 10px 0;
+	}
+
+a 	{
+	color:#666;
+	text-decoration:none;	
+	}
+
+a:hover	{
+	color:#375d81;
+	text-decoration:underline;	
+	}
+
+h3 span {
+	margin:0;
+	color:#747474;
+	font: normal 10px Tahoma;
+	text-transform: uppercase;
+	display: block;
+	letter-spacing: normal;
+	}	
+
+
+/*	Headings
+--------------------------------------------------------------------------------------------*/
+
+h1 {
+	font: normal 26px/26px "Trebuchet MS", "Lucida Grande","Lucida Sans unicode", Sans-serif;
+	padding:0;
+	margin:0 0 5px 0;
+	letter-spacing:-1px;
+	}
+
+h2	{
+	font:normal 22px/24px "Trebuchet MS", "Lucida Grande","Lucida Sans unicode", Sans-serif;
+	letter-spacing:-1px;
+	margin:0 0 5px 0;
+	}
+
+h3	{
+	font:bold 20px/22px "Trebuchet MS", "Lucida Grande","Lucida Sans unicode", Sans-serif;
+	margin:0 0 10px 0;
+	padding:0;
+	}
+
+h4	{
+	font:bold 16px/24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	}
+
+h5	{
+	font:bold 14px/22px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	}
+
+h6	{
+	font:normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	}
+	
+h1, h2, h3, h4, h5, h6 { color:#666;}
+
+small {
+	font-size:1em;
+	}
+
+
+/*	Header
+--------------------------------------------------------------------------------------------*/
+
+.header	{
+		background:#214c74;
+		border-bottom:1px solid #b8d5f0;
+		height:85px;
+		}
+
+	h1 a.logo 	{
+				background:URL(../images/blue/logo.png) no-repeat;
+				width:200px;
+				display:block;
+				text-indent:-9999px;
+				height:70px;
+				padding:0px 0 0 0px;
+				margin:10px 0 0 0px;
+				}
+
+/*	Top Menu
+--------------------------------------------------------------------------------------------*/
+.top-menu	{
+		padding:30px 0 0 0;
+		margin-left:20px;
+		}
+	.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+		color:			#8fb5d8;	
+		font-size:12px;	text-decoration:none;
+	}
+	.sf-menu li a{ font-weight:bold;}
+	.sf-menu li li a{ font-weight:normal;}
+	
+	.sf-menu li ul{
+		background:#214c74;
+		border:	1px solid #39658e;
+		padding:0px 8px 10px 8px;
+		border-top:0;
+	}
+	
+	.sf-menu li li {
+		background:		#214c74;
+		border-top:	1px solid #39658e;
+		margin-bottom:2px;
+	}
+	.sf-menu li ul li ul{
+		border-top:	1px solid #39658e;
+	}
+	
+	.sf-menu li:hover, .sf-menu li.sfHover,
+	.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+		color:#8fb5d8;	
+		outline:		0;	text-decoration:none;
+	}
+	
+	.sf-menu li li:hover, .sf-menu li li.sfHover,
+	.sf-menu li li a:focus, .sf-menu li li a:hover, .sf-menu li li a:active {
+		color:#fff;	 
+
+		text-decoration:none;
+		outline:		0;
+	}
+	
+	/* Active Page Status CSS for all the browsers*/	
+	.sf-menu li.current-cat a, .sf-menu li.current_page_item a {
+	color:#8fb5d8;
+	font-weight:normal;
+	}
+	
+	.sf-menu li.current-cat a:visited, .sf-menu li.current_page_item a:visited {
+	color:#fff;
+	font-weight:bold;
+	}
+	.sf-menu li a span {
+	display:block; 
+	font:normal 9px/20px Tahoma, Arial, Helvetica, sans-serif; 
+	color:#fff;
+	}
+	
+/*	Sub Header
+-------------------------------------------------------------------------------------------*/
+	
+.subheader_bg	{
+		height:72px;	
+		background:#6d9dca url(../images/dot.png);
+		}
+	
+.subheader {
+		width:960px;
+		height:72px;	
+		}
+
+		.subheader h2, .subheader p {
+				padding-top:22px;
+				padding-left:10px;
+				}
+	
+		.subheader h2	{
+				color:#fff;		
+				}
+		
+		.subheader p	{
+				color:#fff;
+				font:bold 16px/18px "Lucida Sans", Sans-serif;			
+				}
+				
+
+/*	Featured Accordion 
+--------------------------------------------------------------------------------------------*/
+.accordion_bg	{
+		padding-top:30px;
+		background:#a8caea url(../images/blue/dot.gif);
+		overflow:hidden;
+		height:390px;	
+		}
+.sliderbg {
+	background:url(../images/blue/slider_bg.png) no-repeat;
+	height:360px;
+	}
+
+	.slider{
+		padding-top:10px;
+		width:940px;
+		margin-left:auto;							
+		display:block;
+		margin-right:auto;
+		position:relative;
+		border:0px solid #fff;
+		}
+
+	.accordion, .accordion1{
+		margin:0;
+		width:940px;
+		padding:0;
+		list-style-type: none;
+		}
+
+
+	.sh1 h1, 
+	.sh2 h1, 
+	.sh3 h1, 
+	.sh4 h1,
+	.sh5 h1	{
+				font:bold 26px/28px "Trebuchet MS", Helvetica, sans-serif;
+				color:#000;
+				letter-spacing:-1px;
+				padding:10px 0 10px 0;
+				}
+	
+
+	.sh1		{	background:#a8caea !important;	 }	/* Slide 1 */
+	
+	.sh2		{	background:#b8d5f0 !important;	 }	/* Slide 2 */
+	
+	.sh3		{	background:#c7def4 !important;	 }	/* Slide 3 */
+	
+	.sh4		{	background:#d7e8f9 !important;	 }	/* Slide 4 */
+	
+	.sh5		{	background:#ebf5ff !important;	 }	/* Slide 5 */
+	 
+
+.active{
+		background:#fff !important;
+		}
+
+.accordion li{
+		cursor:default;
+		}
+
+.accordion .active_click{
+		cursor:default;
+		}
+
+.sh1, .sh2, .sh3, .sh4, .sh5	{
+/* Assign your own class if you want*/
+	}
+
+.headerbox	{
+	margin:30px 0px;
+	width:310px;
+	float:left;
+	padding-left:30px;	
+	}
+
+	.headerbox p {
+		cursor:text;
+		padding-top:5px;	
+		}
+	
+.headerbox small { font:italic 11px/16px Verdana, Arial, Verdana, Helvetica, sans-serif;}	
+
+.slideinfo {
+	width:112px;
+	float:right;	
+	height:310px;
+	padding-top:30px;
+	position:relative;
+	text-align:center;
+	}
+
+
+	.slideinfo span{
+		font:normal 12px/13px "Trebuchet MS", Helvetica, sans-serif;
+		color:#000;
+		display:block;
+		padding:0px 10px 15px 10px;
+		}
+	
+	.slideinfo p.icon {
+		padding-top:50px;
+		margin-bottom:20px;
+		display:block;
+	
+	}
+
+
+.s-num { 
+	position:absolute;
+	bottom:0px;
+	left:25px;
+	}
+
+/*	Featured Accordion Only Images and short info
+--------------------------------------------------------------------------------------------*/
+.sliderbg {
+	background:url(../images/slider_bg.png) no-repeat;
+	height:360px;
+	}
+
+	.slider{
+		padding-top:10px;
+		width:940px;
+		margin-left:auto;							
+		display:block;
+		margin-right:auto;
+		position:relative;
+		border:0px solid #fff;
+		}
+
+		.accordions .accordion2{
+		margin:0;
+		width:940px;
+		padding:0;
+		list-style-type: none;
+		}
+
+
+	.slide1 h1, 
+	.slide2 h1, 
+	.slide3 h1, 
+	.slide4 h1,
+	.slide5 h1	{
+				font:bold 20px/20px "Trebuchet MS", Helvetica, sans-serif;
+				color:#a8caea;
+				letter-spacing:0;
+				}
+	
+
+	.slide1		{	background:#a8caea !important;	 }	/* Slide 1 */
+	
+	.slide2		{	background:#b8d5f0 !important;	 }	/* Slide 2 */
+	
+	.slide3		{	background:#c7def4 !important;	 }	/* Slide 3 */
+	
+	.slide4		{	background:#d7e8f9 !important;	 }	/* Slide 4 */
+	
+	.slide5		{	background:#ebf5ff !important;	 }	/* Slide 5 */
+	 
+
+.active{
+		}
+
+.accordions li{
+		cursor:default;
+		}
+
+.accordions .active_click{
+		cursor:default;
+		}
+
+.slide1, .slide2, .slide3, .slide4, .slide5	{
+/* Assign your own class if you want*/
+	}
+
+
+.slideinfos {
+	padding:15px;
+	position:absolute;
+	bottom:10px;
+	right:10px;
+	width:auto;
+	display:block;
+	text-align:right;
+	background:#000;
+	color:#FFFFFF;
+	}
+.slideinfos a {
+	cursor:pointer;
+	}
+
+/*	Layout Columns
+--------------------------------------------------------------------------------------------*/
+
+.middlepart	{
+		padding:30px 0 50px 0;
+		border-top:1px solid #b8d5f0;
+		overflow:hidden;
+		height:100%;
+		}
+
+	.sidebar {
+			margin:0;
+			padding: 0px 0px;
+			overflow:hidden;
+			height:100%;
+			}
+			
+	.middlepart .grid_9 {
+			background:URL(../images/sep.gif) repeat-y top left;
+			}
+			
+	.content {
+			padding-left: 20px;
+			}
+	
+/*	Homepage 3 Columns
+--------------------------------------------------------------------------------------------*/
+.smallbox	{
+		width:300px;
+		margin-left: 9px;
+		float:left;
+		padding: 20px 0px;
+		text-align: center;
+		overflow:hidden;
+		height:100%;
+		}
+
+	.smallbox h2 {
+			font:bold 20px/22px "Trebuchet MS", "Lucida Grande","Lucida Sans unicode", Sans-serif;
+			}
+			
+	.smallbox p {
+			padding:10px;
+			}
+	
+	.boxicon {
+			margin:10px 0 0 0;
+			}
+
+
+/*	Separator Lines
+--------------------------------------------------------------------------------------------*/
+
+.hr_line	{
+		border-top:1px solid #e5e5e5;
+		height:1px;
+		margin:15px 0;
+		}
+
+.line {
+		background:url(../images/line.gif) repeat-x;
+		height:3px;
+		width:100%;
+		clear:both;
+		margin-top:10px;
+		margin-bottom:10px;
+		}
+
+
+/* Readmore
+-------------------------------------------------------------------------------------*/
+
+a.readmore {
+		text-decoration:none;
+		}
+
+a.readmore:hover {
+		text-decoration:underline;
+		}
+
+
+/* Sidebar Menu
+-------------------------------------------------------------------------------------*/
+ul.subnav{
+		list-style:none;
+		margin:0;
+		padding:0px;
+		}
+
+		ul.subnav li a{
+				voice-family:inherit;
+				margin:1px 0;
+				padding:0;
+				height:100%;
+				text-decoration:none;
+				border-bottom:1px dashed #b8d5f0;
+				color:#444;
+				}
+
+				ul.subnav li a:link, 
+				ul.subnav li a:visited{
+						color:#444;
+						display:block;
+						padding:6px 2px;
+						}
+
+		ul.subnav li.current a{
+				font-weight:bold;
+				text-decoration:none;
+				color:#375d81 !important;	
+				}
+
+				ul.subnav li a:hover{
+						color:#375d81;
+						padding:6px 2px;
+						text-decoration:none;
+						}
+										
+								
+/*	Portfolio Page
+--------------------------------------------------------------------------------------------*/
+.boxgrid { 
+		width: 300px;
+		overflow:hidden;
+		height:280px; 
+		margin-left:9px; 
+		float:left;
+		margin-bottom:20px;
+		}
+		
+			.boxcaption{ 
+					height:auto;
+					padding:3px 5px 0px 0px;
+					margin:0px;
+						}		
+
+			.boxcaption p{
+					font-size:11px;
+					color:#929292;
+					line-height:16px;
+					}
+				
+			.boxcaption h3{
+					font-size:1.5em;
+					padding: 0; 
+					margin:0;
+					}
+									
+			.img_border{
+					border: solid 1px #fff;
+					background:#aaa;
+					padding:3px;
+					}				
+									
+				a.learn {
+					font-size:12px;
+					}
+
+				a.learn:hover {
+					color:#000;	
+					}										
+										
+			
+/*	Services Style 1
+--------------------------------------------------------------------------------------------*/
+			
+.service-box .icon {
+	float:left;
+		}
+
+.service-box p, .service-box h3 {
+	margin-left:100px;
+		}
+
+.service-box  {
+	clear:both;
+	margin-bottom:30px;
+	}
+	
+
+/*	Services Style 2
+--------------------------------------------------------------------------------------------*/
+			
+.service-box2 .icon {
+	float:left;
+		}
+
+.service-box2 p, .service-box2 h3 {
+	margin-left:80px;
+		}
+
+.service-box2  {
+	width:320px;
+	float:left;
+	margin-bottom:30px;
+	margin-right:10px;
+	}
+	
+
+/*	Footer
+--------------------------------------------------------------------------------------------*/
+
+.sitefooter	{
+		width:100%;
+		background:#d7e8f9;
+		border-top:1px solid #b8d5f0;
+		height:70px;
+		text-align:center;
+		padding-top:25px;
+		}
+
+
+/*	Definition List
+--------------------------------------------------------------------------------------------*/
+
+ dl { 
+ 	border: 0px solid #ddd; 
+ 	padding: 0.1em; 
+	}
+
+	dt { 
+		float: left; 
+		clear: left; 
+		width: 20px; 
+		text-align: left; 
+		font-weight: bold; 
+		} 
+
+	dd { 
+		margin: 0 0 0 25px; 
+		padding: 0 0 0.5em 0; 
+		}
+		
+
+/*	Blog Page
+--------------------------------------------------------------------------------------------*/
+
+.post	{ 
+		padding:0px 0px 0px 0;
+		position:relative;
+		clear:left;		
+        }
+
+.excerpt {			
+		padding:10px 0;
+		margin-bottom:25px;
+		}
+						
+		.excerpt p	{margin: 10px 0 10px 0px;}			
+
+		.excerpt ul, .excerpt ol	{
+			margin:0;
+			padding:10px 0 20px 20px;
+			list-style-position:inside;	
+			}	
+
+		.excerpt ul	{	list-style-type:square;		}
+		.excerpt ol	{	list-style-type:decimal;	}
+	
+
+		.post-info	span{
+					padding:0px 0;
+					color:#aaa;
+					}
+
+		.post-info h2 {			
+					margin:0;
+					}
+
+	.date   {
+			border-right:1px solid #ddd;
+			width:50px;
+			float:left;
+			margin-right:10px;
+			text-align:center;
+			height:50px;
+			text-transform:uppercase;
+			font-size:10px;
+			}
+
+		.date  b{
+				font:normal 30px/30px Georgia, Helvetica, sans-serif;
+				display:block;
+				}
+					  	
+			
+/*	Comments
+--------------------------------------------------------------------------------------------*/
+#commentblock{
+	background:#f7f7f7;	
+	border: 1px solid #ddd;
+	padding:10px;
+	}
+
+	#comments h1 {
+		padding:20px;
+		}
+
+ol.commentlist {
+	margin: 0;
+	padding	: 0;
+	}			
+			
+	ol.commentlist li {
+		margin: 0px;
+		padding:5px 10px 0px 10px;
+		padding-left:100px;
+		list-style:none
+		}
+
+.comment_wrap	{
+	position:relative;
+	background: #fff;		
+	overflow:visible;
+	height:100%;
+	border: 1px solid #ccc;
+	}
+
+	.comment-author	{
+		position: absolute;
+		left: -90px;
+		width: 90px;
+		color: #484848;
+		font-size: 10px;
+		line-height: 12px;
+		}
+
+	.single_comment	{
+		padding:5px;
+		padding-bottom:10px;
+		margin-bottom:10px;
+		}
+
+.alt {
+	margin: 0;
+	padding:0px;
+	}
+
+.comment-author a {
+	text-decoration:none;
+	}
+
+.avatar {
+	padding:3px;
+	border:1px solid #ddd;
+	background: #fff;	
+	}
+
+
+
+	.commentlist ul.children {
+		margin:5px 0 0px 0;
+		padding:0px;
+		}
+
+		ol.commentlist li ul.children li {
+			margin: 0px;
+			padding:0px;
+			padding-left:25px;
+			}
+	
+		.children .comment-author	{
+				position: absolute;
+			    top:15px;
+				width: 110px;
+				color: #484848;
+				text-align:left;
+				font-size: 10px;
+				line-height: 11px;
+				}
+
+		.commentlist ul.children {
+				border-left:1px solid #ccc;
+				}
+
+		ul.children .comment-author img.avatar	{
+				width: 40px;
+				float:right;
+				margin-left:0px;
+				margin-right:10px;
+				margin-top:0px;
+				height:40px;
+				}
+
+		ul.children li.depth-2 .single_comment {
+				padding-top:0px;
+				padding:15px;
+				margin-right:0;
+				padding-bottom:1px;
+				}
+
+
+		ul.children li.depth-3 .single_comment {
+				padding:15px;
+				margin-right:0;
+				padding-bottom:15px;
+				}
+	
+ .single_comment p {
+	padding:10px;
+	text-align:left;
+	line-height:normal;
+	}
+
+	.commentlist code {
+		background:#e6e6e6;
+		padding:3px;
+		}
+
+	.commentlist .moderation {	
+		margin-top: 10px;
+		color: #dd0000;	
+		}
+
+	.commentlist .children {
+		margin-top:5px;	
+		}
+
+
+/*	Comments Page Form
+--------------------------------------------------------------------------------------------*/
+#respond {
+	padding:10px;
+	position:relative;
+	}
+
+
+#respond:after {
+		content: "."; 
+	    display: block; 
+	    height: 0; 
+	    clear: both; 
+	    visibility: hidden;
+		}
+
+
+	.reply a:link, .reply a:visited  {	
+		background:#ddd;	
+		text-align:center;		
+		text-decoration:none !important;
+		text-transform: uppercase;
+		color:#212121;	
+		padding:4px 10px;		
+		font-size:10px;	
+		}
+
+	.reply a:hover {	
+		background:#aaa;
+		color:#fff;
+		}
+
+	.reply {
+		position:absolute;
+		left:15px;
+		bottom:15px;
+		}
+
+
+.cancel-comment-reply a {
+	background:#ddd;	
+	text-align:center;		
+	text-decoration:none !important;
+	text-transform: uppercase;
+	color:#212121;	
+	padding:4px 10px;		
+	font-size:10px;	
+	width:auto;
+	}
+
+	.cancel-comment-reply a:hover {
+		background:url(../images/button_bg.gif) bottom repeat-x;
+		color:#fff;
+		}
+	
+#commentform input, #commentform textarea{
+	padding:4px;
+	}
+
+#commentform input[type=image]{
+	width:auto !important;
+	background:none;
+	}
+
+.btn {
+	border: 0 !important;
+	}
+
+
+cite.fn {
+	font-weight:bold;
+	font-size:11px;
+	font-style:normal;
+	text-align:left;
+	}
+
+.comment-meta {
+	margin-top:2px;
+	color:#aaa;
+	}
+
+
+
+/*	Contact Form
+--------------------------------------------------------------------------------------------*/
+#form {
+	padding: 15px 0;
+	}
+
+
+		#form label {
+			font-size: 1.2em;
+			width: 140px;
+			display: inline-block;
+			margin-right: 0px;
+			margin-bottom: 15px;
+			}
+		
+
+		#form .input {
+			background:#fbfbfb;		
+			border: 1px solid #e5e5e5;
+			padding: 5px 7px;
+			margin-bottom: 15px;
+			width: 360px;
+			}
+		
+
+		#form select {
+			background:#fbfbfb;			
+			width: 375px;			
+			font: 1.2em Tahoma;
+			border: 1px solid #e5e5e5;
+			padding: 5px 6px;
+			margin-bottom: 15px;
+			}
+		
+
+		#form textarea {
+			background:#fbfbfb;			
+			border: 1px solid #e5e5e5;
+			vertical-align: top;
+			width: 355px;
+			font: 1.1em Tahoma;
+			line-height: 1.7em;
+			padding: 9px;
+			height: 200px;
+			}
+		
+
+		#form .indent {
+			padding-left: 145px;
+			padding-top: 15px;
+			}
+			
+		/* The button */
+		#form .submitbutton {
+			background:url(../images/button.gif) no-repeat;
+			width: 105px;
+			border:none;
+			height:28px;
+			}
+			
+/*	Error / Success / Notice	
+-----------------------------------------------------------------------------------*/
+
+.notes 	{background: #f0f0f0;border: 1px solid #b8b8b8;}
+.success 	{background: #ccfcd1;border: 1px solid #60a400;}
+.error	{background: #f9e3e3;	border: 1px solid #e79e9e;}
+.notice 	{background: #fcf0cc;border: 1px solid #ecc735;}
+	.notes, .notice, .success, .error 
+		{font-size: 100%;color:#484848;padding:10px;width:auto;margin: 0 0 20px 0px; text-align:left}
+	.notes span, .notice span, .success span, .error span 
+		{font-weight: bold;font-size: 1.2em;padding: 2px 40px;}
+	.notes p, .success p, .error p, .notice p 
+		{margin: 0px;padding: 0px 40px;}
+
+/*	Mainpage widget	
+-----------------------------------------------------------------------------------*/
+.smallbox #calendar_wrap {
+text-align:center;
+}
+
+/* Begin Calendar */
+#wp-calendar {
+	empty-cells: show;
+	margin: 10px auto 0;
+	width: 155px;
+	}
+
+#wp-calendar #next a {
+	padding-right: 10px;
+	text-align: right;
+	}
+
+#wp-calendar #prev a {
+	padding-left: 10px;
+	text-align: left;
+	}
+
+#wp-calendar a {
+	display: block;
+	}
+
+#wp-calendar caption {
+	text-align: center;
+	}
+
+#wp-calendar td {
+	padding: 3px 0;
+	text-align: center;
+	}
+
+#wp-calendar td.pad:hover { /* Doesn't work in IE */
+	background-color: #fff; }
+
+#wp-calendar #prev a, #wp-calendar #next a {
+	font-size: 9pt;
+	}
+
+#wp-calendar a {
+	text-decoration: none;
+	}
+
+#wp-calendar caption {
+	font: bold 1.3em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	text-align: center;
+	}
+
+#wp-calendar th {
+	font-style: normal;
+	text-transform: capitalize;
+	}
+
+
+/* Homepage Recent Comments	
+--------------------------------------------------------------------------------------------*/
+ul#recentcomments {margin:0;}
+
+ul#recentcomments li {
+	display:block;
+	background:#ffffff;
+	padding:5px;
+	margin:0 0 5px 0;
+	text-align:left !important;
+	}
+
+ul#recentcomments li a{
+	background:none;
+	border:none;
+	}

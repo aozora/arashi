@@ -1,0 +1,21 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<IPagedList<Arashi.Core.Domain.Comment>>
+@using Arashi.Core.Domain
+@using Arashi.Web.Mvc.Gravatar
+@using Arashi.Core.Extensions
+
+@if (Model != null)
+{
+   foreach (Comment comment in Model)
+   { 
+       @Html.Partial("~/Areas/Admin/Views/AdminComment/Comment.cshtml", comment) 
+   } 
+   @Html.Partial("ReplyToComment")  
+}
+else
+{ 
+   <!-- Empty Template -->
+   <tr class="emptyrow">
+      <td colspan="5">No comments exists....</td>
+   </tr>
+ } 
+

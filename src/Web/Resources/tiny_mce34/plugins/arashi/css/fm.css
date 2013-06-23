@@ -1,0 +1,38 @@
+.panel_wrapper div.current {
+   height: 400px;
+   overflow: auto
+}
+.panel_wrapper {border: 0}
+#mediabrowser {
+   width: 550px;
+}
+#mediabrowser tr,
+#mediabrowser td {
+   height: 48px;
+}
+.grid {
+   -moz-box-shadow: transparent;
+   -webkit-box-shadow: transparent;
+}
+.grid tbody tr td .hover-actions {
+   margin: 0;
+   padding: 0;
+}
+.grid tbody tr td .hover-actions a {
+   font-size: 1.1em;
+   display: block;
+   width: auto;
+   padding: 2px 0;
+   text-decoration: none;
+}
+
+.grid tbody tr td .hover-actions a:hover {text-decoration: none; }
+
+.ui-button-text { text-decoration: none; padding-left: 11px;}
+
+
+.insert {
+   padding: 0;
+   margin: 8px auto;
+   font-size: 1.1em;
+}

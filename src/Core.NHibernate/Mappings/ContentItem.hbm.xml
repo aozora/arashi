@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" >
+	<class name="Arashi.Core.Domain.ContentItem, Arashi.Core.Domain" 
+          dynamic-insert="true"
+          dynamic-update="true"
+          table="cms_ContentItems">
+		
+      <!--<version name="Version" />-->
+
+      <id name="Id" column="ContentItemid" type="Int32" unsaved-value="-1">
+			<generator class="hilo"/>
+		</id>
+
+      <property name="GlobalId" column="GlobalId" type="Guid" not-null="true" />
+      <property name="WorkflowStatus" 
+                column="WorkflowStatus"
+                type="Arashi.Core.Domain.WorkflowStatus,Arashi.Core.Domain" 
+                not-null="true" />
+      <property name="Title" column="Title" type="String" length="255" not-null="true" />
+      <property name="FriendlyName" column="FriendlyName" type="String" length="255" not-null="true" />
+      <property name="Summary" column="Description" type="String" length="255" not-null="false" />
+      <property name="Version" column="Version" type="Int32" not-null="true" />
+      <property name="Culture" column="Culture" type="String" length="5" not-null="true" />
+
+      <property name="MetaDescription" column="MetaDescription" type="String" length="160" />
+      <property name="MetaKeywords" column="MetaKeywords" type="String" length="1000" />
+      <property name="EnableMeta" column="EnableMeta" type="Boolean" />
+
+      <many-to-one name="Site"
+                   class="Arashi.Core.Domain.Site, Arashi.Core.Domain"
+                   column="SiteId"
+                   not-null="true"
+                   />
+
+      <property name="AllowComments" column="AllowComments" type="Boolean" not-null="true" />
+      <property name="AllowPings" column="AllowPings" type="Boolean" not-null="true" />
+      <property name="CreatedDate" column="CreatedDate" type="DateTime" not-null="true" />
+      <property name="UpdatedDate" column="UpdatedDate" type="DateTime" not-null="false" />
+      <property name="PublishedDate" column="PublishedDate" type="DateTime" not-null="false" />
+      <property name="PublishedUntil" column="PublishedUntil" type="DateTime" not-null="false" />
+      <many-to-one name="Author" class="Arashi.Core.Domain.User, Arashi.Core.Domain" column="Author" not-null="true" />
+      <many-to-one name="UpdatedBy" class="Arashi.Core.Domain.User, Arashi.Core.Domain" column="UpdatedBy" not-null="false" />
+      <many-to-one name="PublishedBy" class="Arashi.Core.Domain.User, Arashi.Core.Domain" column="PublishedBy" not-null="false" />
+      <property name="IsLogicallyDeleted" column="IsLogicallyDeleted" type="Boolean" not-null="true" />
+
+      <set name="Categories" 
+           table="cms_CategoriesContentItems" 
+           cascade="save-update" 
+           lazy="true" 
+           generic="true" 
+           inverse="false" >
+			<cache usage="read-write" />
+			<key column="ContentItemId" />
+			<many-to-many column="CategoryId" class="Arashi.Core.Domain.Category, Arashi.Core.Domain" />
+		</set>
+
+      <set name="Tags"
+           table="cms_TagsContentItems"
+           cascade="save-update" 
+           lazy="true"
+           generic="true"
+           inverse="false" >
+         <cache usage="read-write" />
+         <key column="ContentItemId" />
+         <many-to-many column="TagId" class="Arashi.Core.Domain.Tag, Arashi.Core.Domain" />
+      </set>
+
+      <bag name="Comments" 
+           cascade="all" 
+           generic="true"
+           lazy="true" 
+           inverse="true" 
+           order-by="CreatedDate desc">
+         <key column="ContentItemId" />
+         <one-to-many class="Arashi.Core.Domain.Comment, Arashi.Core.Domain" />
+      </bag>
+      
+      <bag name="ContentItemPermissions" 
+           table="cms_ContentItemRoles" 
+           cascade="all" 
+           generic="true"
+           lazy="true" >
+         <!--<cache usage="read-write" />-->
+         <key column="ContentItemId" />
+         <composite-element class="Arashi.Core.Domain.ContentItemPermission, Arashi.Core.Domain">
+            <parent name="ContentItem" />
+            <property name="ViewAllowed" column="ViewAllowed" type="Boolean" />
+            <property name="EditAllowed" column="EditAllowed" type="Boolean" />
+            <many-to-one name="Role" 
+                         class="Arashi.Core.Domain.Role, Arashi.Core.Domain" 
+                         column="RoleId" 
+                         cascade="none" />
+         </composite-element>
+      </bag>
+
+      <map name="CustomFields"
+           table="cms_ContentItemCustomFields" 
+           lazy="true"
+           cascade="all">
+         <cache usage="read-write" />
+         <key column="ContentItemId" />
+         <index column="`Key`" type="String" />
+         <element column="Value" type="String" />
+      </map>
+
+   </class>
+
+  
+  
+</hibernate-mapping>

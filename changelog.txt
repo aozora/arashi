@@ -1,0 +1,43 @@
+v1.1.2
+=========================================================================
+- added Castle Scheduler, for now it is used to send emails
+- refactored the contact form, now it use ajax to send messages and show a notification on the frontend, with gracefull degradation
+- messages are now stored on the database, added new link in the control panel to view and edit messages.
+- various bug fixes
+
+
+v1.1.1
+=========================================================================
+- using Silverlight MultiFileUpload.Lite (customized)
+- Implemented Custom Fields management for ContentItems (Page & Post)
+- Pages: implemented custom template file
+- Pages: implemented parent page management and rendering
+- refactored the Post & Page editing: the sidebar panels has been moved to top mega drodown menu
+- now the entire backend is skinnable with all the  jQuery UI Themes; see the user details to select one
+- refactored the backend header layout: now is more clean and there is less visual-noise
+- integrated CodeMirror editor with the MediaBrowser; for now you can switch between tinyMCE & CodeMirror by changing the key "ContentEditor" in the Web.config
+
+
+v1.1 pre
+=========================================================================
+- projects migrated to VS2010 & ASP.NET MVC v2 
+- upgraded jQuery UI to v1.8 final
+- replaced CKEditor with TinyMCE v3.x
+- Localized Resourced moved to new structure: all code now use the ILocalizationService
+- Upgrade procedure with autodetect
+- solution architecture refactored:  The project Arashi.Core.Cms  has been splitted in the following 3:
+   - Arashi.Core.Domain: entities, dto, entity extensions, core interfaces
+   - Arashi.Core.NHibernate: all mappings and named queries specific for NH
+   - Arashi.Services: all the application services.
+
+- introduced minimal Media Manager with upload (Silverlight MultiFileUpload)
+- Page sorting with drag'n'drop (using jQuery UI Sortable widget)
+- User validation
+- in Post edit, replaced the jquery.tagcloud plugin with a server-side implementation
+
+- other minor bug fixes & stability improvements
+
+
+v1.0
+=========================================================================
+initial release

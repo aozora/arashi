@@ -1,0 +1,125 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase<Arashi.Web.Themes.Boldy.Models.BoldyOptionsModel>
+
+@section head {
+	<title>Options for Boldy Theme</title>
+}
+
+@section BreadCrumbsPlaceHolder {
+   @(Html.Breadcrumbs(b => b.AddHome("Home", Url.Action("Index", "Site", new {siteid = RequestContext.ManagedSite.SiteId}))
+                            .Add("Themes", Url.Action("Index", "Themes", new {siteid = RequestContext.ManagedSite.SiteId}))
+                            .AddCurrent("Options for Boldy Theme")))
+}
+
+
+<div id="adminpagetitle">
+   <img class="icon" src="/Resources/img/32x32/settings.png" alt="home edit" />
+   <h2>Options for Boldy Theme</h2>
+</div>
+<div class="clear"></div>
+
+@using (Html.BeginForm("Save", "Boldy", new { siteid = RequestContext.ManagedSite.SiteId }, FormMethod.Post, new { id = "boldyoptionsform", @class = "ui-widget ui-form-default" }))
+{ 
+   <ol>
+      <li>
+         <label for="LogoPath">Logo Path</label>
+         @Html.TextBox("LogoPath", Model.LogoPath, new { @class = "largetext" }) 
+      </li>
+      <li>
+         <label for="LogoAlt">Logo Alt</label>
+         @Html.TextBox("LogoAlt", Model.LogoAlt, new { @class = "largetext" }) 
+      </li>
+      <li>
+         <label for="EnableCufonFontReplacement">Enable Cufon Font Replacement</label>
+         @Html.CheckBox("EnableCufonFontReplacement", Model.EnableCufonFontReplacement)
+      </li>
+      <li>
+         <label for="HomePageSliderImagesPage">Home Page Slider Images Page</label>
+         @Html.ParentPageDropDownList("HomePageSliderImagesPage", Model.Pages, Model.HomePageSliderImagesPage)
+         <span class="hint info">
+         You simply create a page and insert the images, one after another. Then make sure you select it on Options page. The slider will parse the page content and display the images.
+         <br />
+         For adding caption to the slider item you simply need to add Title to the image from admin panel. Also the url where the image link to point at should be set there.
+         </span>
+      </li>
+      <li>
+         <label for="PortfolioPage">Portfolio Page</label>
+         @Html.DropDownListFor(a => a.PortfolioPage, Model.Pages.AsSelectList(Model.PortfolioPage), string.Empty)
+      </li>
+   </ol>  
+
+   <fieldset class="ui-widget-content ui-corner-all">
+      <legend class="ui-widget-header ui-corner-all">Home Box 1</legend>
+      <ol>
+         <li>
+            <label for="HomeBox1Page">Home Box 1 Page</label>
+            @Html.DropDownListFor(a => a.HomeBox1Page, Model.Pages.AsSelectList(Model.HomeBox1Page), string.Empty)
+         </li>
+         <li>
+            <label for="HomeBox1ReadMoreLink">Home Box 1 ReadMore Link</label>
+            @Html.TextBox("HomeBox1ReadMoreLink", Model.HomeBox1ReadMoreLink, new { @class = "largetext" }) 
+         </li>
+      </ol>  
+   </fieldset>
+   <br />
+
+   <fieldset class="ui-widget-content ui-corner-all">
+      <legend class="ui-widget-header ui-corner-all">Home Box 2</legend>
+      <ol>
+         <li>
+            <label for="HomeBox2Page">Home Box 2 Page</label>
+            @Html.DropDownListFor(a => a.HomeBox2Page, Model.Pages.AsSelectList(Model.HomeBox2Page), string.Empty)
+         </li>
+         <li>
+            <label for="HomeBox2ReadMoreLink">Home Box 2 ReadMore Link</label>
+            @Html.TextBox("HomeBox2ReadMoreLink", Model.HomeBox2ReadMoreLink, new { @class = "largetext" }) 
+         </li>
+      </ol>  
+   </fieldset>
+   <br />
+
+   <fieldset class="ui-widget-content ui-corner-all">
+      <legend class="ui-widget-header ui-corner-all">Home Box 3</legend>
+      <ol>
+         <li>
+            <label for="HomeBox3Page">Home Box 3 Page</label>
+            @Html.DropDownListFor(a => a.HomeBox3Page, Model.Pages.AsSelectList(Model.HomeBox3Page), string.Empty)
+         </li>
+         <li>
+            <label for="HomeBox3ReadMoreLink">Home Box 3 ReadMore Link</label>
+            @Html.TextBox("HomeBox3ReadMoreLink", Model.HomeBox3ReadMoreLink, new { @class = "largetext" }) 
+         </li>
+      </ol>  
+   </fieldset>
+   <br />
+
+   <fieldset class="ui-widget-content ui-corner-all">
+      <legend class="ui-widget-header ui-corner-all">Home Page Blurb (request quote section) </legend>
+      <ol>
+         <li>
+            <label for="DisplayHomepageBlurb">Display Home Page Blurb</label>
+            @Html.CheckBoxFor(m => m.DisplayHomepageBlurb)
+         </li>
+         <li>
+            <label for="BlurbText">Blurb Text</label>
+            @Html.TextAreaFor(m => m.BlurbText, 4, 40, new { @class = "largetext" }) 
+         </li>
+         <li>
+            <label for="RequestQuotePage">Request Quote Page</label>
+            @Html.DropDownListFor(a => a.RequestQuotePage, Model.Pages.AsSelectList(Model.RequestQuotePage), string.Empty)
+         </li>
+         <li>
+            <label for="RequestQuoteLink">Request Quote Link</label>
+            @Html.TextBoxFor(m => m.RequestQuoteLink, new { @class = "largetext" }) 
+         </li>
+      </ol>  
+   </fieldset>
+   <br />
+
+      
+   <div id="adminpagefooter" class="ui-widget">
+         @Html.AntiForgeryToken() 
+         @Html.SubmitUI(GlobalResource("Save")) 	
+         &nbsp;|&nbsp;
+      <a href='@Url.Action("Index", "Site", new { siteid = RequestContext.ManagedSite.SiteId })'>@GlobalResource("BackToControlPanel")</a>
+   </div>
+}

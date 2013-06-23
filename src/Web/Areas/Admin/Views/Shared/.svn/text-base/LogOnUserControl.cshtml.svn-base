@@ -1,0 +1,24 @@
+﻿@inherits Arashi.Web.Mvc.Views.AdminViewPageBase
+<div class="login-status ui-widget ">
+@*   <div id="user-avatar">
+      <input id="user-gravatar-url" type="hidden" value='<%= Html.GravatarUrl(RequestContext.CurrentUser.Email, 32) %>' />
+      <img id="current-user-gravatar"
+           src="/Resources/img/gravatar-default-32x32.png" 
+           class="avatar"
+           width="32" 
+           height="32"
+           alt="Gravatar" />
+   </div>*@
+   <div id="user-info">
+      <p>
+         <span>@GlobalResource("LoggedUserLabel") </span>
+         &nbsp;
+         <a href='@Url.Action("Details", "Users", new {siteid = RequestContext.CurrentSite.SiteId, id = RequestContext.CurrentUser.UserId}) ' >
+            @RequestContext.CurrentUser.DisplayName
+         </a>
+         &nbsp;&nbsp;|&nbsp;&nbsp;
+      @Html.ActionLink(GlobalResource("Logoff"), "Logout", "Login") 
+      </p>
+   </div>
+</div>
+

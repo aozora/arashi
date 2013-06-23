@@ -1,0 +1,2 @@
+INSERT [dbo].[cms_ControlPanelItems] ([ControlPanelItemId], [Category], [ViewOrder], [Text], [Description], [ImageSrc], [LittleImageSrc], [ImageAlt], [Controller], [Action], [Parameters]) 
+	VALUES (12, N'Content Management', 20, N'Media Manager', N'Manage the media that are available to be inserted in your posts or pages', N'/Resources/img/32x32/archive-32.png', N'/Resources/img/16x16/archive.png', NULL, N'MediaManager', N'Index', NULL)

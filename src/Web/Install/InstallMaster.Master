@@ -1,0 +1,68 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="InstallMaster.Master.cs" Inherits="Arashi.Web.Install.InstallMaster" %>
+<%@ Import Namespace="ClientDependency.Core" %>
+<%@ Register Assembly="ClientDependency.Core" Namespace="ClientDependency.Core.Controls" TagPrefix="cd"  %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="html-wave" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <asp:ContentPlaceHolder ID="head" runat="server">
+      <title>Installation</title>
+   </asp:ContentPlaceHolder>
+   
+   <cd:CssInclude runat="server"  Priority="1" FilePath="/Resources/css/src/admin.reset.css"></cd:CssInclude>
+   <cd:CssInclude runat="server"  Priority="2" FilePath="/Resources/css/src/admin.layout.css"></cd:CssInclude>
+   <cd:CssInclude runat="server"  Priority="3" FilePath="/Resources/css/themes/arashi/jquery-ui.css"></cd:CssInclude>
+   <cd:CssInclude runat="server"  Priority="4" FilePath="/Resources/css/themes/arashi/arashi-ui.css"></cd:CssInclude>
+   <cd:CssInclude runat="server"  Priority="5" FilePath="/Resources/css/src/admin.form.css"></cd:CssInclude>
+   <cd:CssInclude runat="server"  Priority="6" FilePath="/Resources/css/src/admin.style.css"></cd:CssInclude>
+   <cd:CssInclude runat="server"  Priority="7" FilePath="/Resources/css/src/admin.ui.common.css"></cd:CssInclude>
+
+   <cd:JsInclude runat="server" Priority="1" FilePath="/Resources/js/src/jquery.js" ></cd:JsInclude>
+   <cd:JsInclude runat="server" Priority="2" FilePath="/Resources/js/src/jquery-ui.js" ></cd:JsInclude>
+   <cd:JsInclude runat="server" Priority="3" FilePath="/Resources/js/src/jquery.jgrowl.js" ></cd:JsInclude>
+   <cd:JsInclude runat="server" Priority="4" FilePath="/Resources/js/src/admin.core.js" ></cd:JsInclude>
+
+   <cd:ClientDependencyLoader ID="Loader" runat="server" ></cd:ClientDependencyLoader>
+   <!--[if IE]>  
+   <link href="/Resources/css/src/admin.ie.css" rel="stylesheet" type="text/css" />
+   <![endif]--> 
+   <!--[if lte IE 7]>
+   <script type="text/javascript">
+      try {document.execCommand("BackgroundImageCache", false, true);} catch(err) {};
+   </script>
+   <![endif]--> 
+</head>
+
+<body>
+   <div id="wrap">
+      <div id="content-wrap">
+         <div id="content">
+         
+            <noscript id="noscript">
+               <div id="noscript-container" class="ui-helper-clearfix ui-state-error ui-corner-all">
+                  <div id="noscript-container-inner" class="ui-helper-clearfix ui-widget-header ui-corner-all">
+                     <h1>
+                        <img src="/Resources/img/32x32/error.png" alt="warning" />
+                        <%= GlobalResource("NoScript_Title") %>
+                        <img src="/Resources/img/32x32/error.png" alt="warning" />
+                     </h1>
+                     <h3><%= GlobalResource("NoScript_Description") %></h3>
+                     <p><%= GlobalResource("NoScript_Help") %> 
+                        &nbsp;
+                        <a onclick="window.open(this.href);return false;" 
+                           href="/Resources/help/HowToEnableJavascript.it-IT.htm" 
+                           class="morelink" ><%= GlobalResource("NoScript_HelpLink") %></a>
+                     </p>
+                     <br />
+                  </div>
+               </div>
+            </noscript>
+            
+            <form id="Form1" method="post" runat="server">
+               <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </form>
+         </div>
+      </div>
+   </div>
+</body>
+</html>
